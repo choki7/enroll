@@ -1,0 +1,85 @@
+var express = require('express');
+var http = require('http');
+var request = require('request');
+var router = express.Router();
+
+/* GET home page. */
+router.get('/', function(req, res) {
+  res.render('index', { title: '华东师范大学自主招生' });
+});
+
+router.post('/login', function(req, res) {
+  var reqBody = req.body;
+  var postData = {
+    account: reqBody.account,
+    password: reqBody.password
+  };
+  // use fake data to test against real backend
+  var options = {
+    url: 'http://enrollsystem.sinaapp.com/controller.php',
+    headers: {'content-type' : 'application/json'},
+    method: 'POST',
+    json: {
+      "common_up": {
+        "login": {
+          "account": postData.account,
+          "password": postData.password
+        }
+      }
+    }
+  };
+
+  function callback(error, response, data) {
+    if (!error && response.statusCode == 200) {
+      console.log('data from real backend :'+ data);
+      res.send(data);
+    }
+  }
+
+  request(options, callback);
+});
+
+router.post('/register', function(req, res) {
+  var reqBody = req.body;
+  var postData = {
+    name: reqBody.name,
+    sex: reqBody.sex,
+    phone_number: reqBody.phone_number,
+    email: reqBody.email,
+    province: reqBody.province,
+    national_identify_id: reqBody.national_identify_id,
+    school: reqBody.school,
+    password: reqBody.password
+  };
+  var options = {
+    url: 'http://enrollsystem.sinaapp.com/controller.php',
+    headers: {'content-type' : 'application/json'},
+    method: 'POST',
+    json: {
+      "student_up": {
+        "set_student_register": {
+          "login": {
+            "name": postData.name,
+            "sex": postData.sex,
+            "phone_number": postData.phone_number,
+            "email": postData.email,
+            "province": postData.province,
+            "national_identify_id": postData.national_identify_id,
+            "school": postData.school,
+            "password": postData.password
+          }
+        }
+      }
+    }
+  };
+
+  function callback(error, response, data) {
+    if (!error && response.statusCode == 200) {
+      console.log('data from real backend :'+ data);
+      res.send(data);
+    }
+  }
+
+  request(options, callback);
+});
+module.exports = router;

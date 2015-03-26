@@ -1,0 +1,11 @@
+.enroll-login-container {
+  background: url("../../images/bg-login.png") center bottom no-repeat;
+  width: 100%;
+  height: 480px;
+  margin-top: 10%; }
+
+.navbar .nav.enroll-navbar-right li a {
+  padding-bottom: 7px;
+  padding-top: 7px; }
+
+/*# sourceMappingURL=main.css.map */
