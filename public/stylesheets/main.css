@@ -8,4 +8,8 @@
   padding-bottom: 7px;
   padding-top: 7px; }
 
+form .checkbox input[type=checkbox] {
+  height: 24px;
+  width: 16px; }
+
 /*# sourceMappingURL=main.css.map */
