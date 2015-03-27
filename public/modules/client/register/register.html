@@ -1,58 +1,58 @@
 <div class="enroll-login-container">
   <div class="col-lg-4"></div>
   <div class="col-lg-4" ng-controller="RegisterCtrl">
+    <h2 class="text-center">注册®</h2>
     <div class="jumbotron">
       <form class="form-horizontal">
         <div class="form-group">
           <label class="col-sm-4 control-label">姓名</label>
           <div class="col-sm-6">
-            <input type="text" class="form-control" placeholder="" data-ng-model="register.name" required>
+            <input type="text" class="form-control" placeholder="" data-ng-model="name" required>
           </div>
         </div>
         <div class="form-group">
           <label class="col-sm-4 control-label">性别</label>
           <div class="col-sm-6">
-            <select class="form-control" data-ng-model="register.sex" required>
-              <option value="-1">请选择</option>
-              <option value="0">男</option>
-              <option value="1">女</option>
+            <select class="form-control" data-ng-model="sex" required>
+              <option value="男">男</option>
+              <option value="女">女</option>
             </select>
           </div>
         </div>
         <div class="form-group">
           <label class="col-sm-4 control-label">手机号</label>
           <div class="col-sm-6">
-            <input type="text" class="form-control" placeholder="" data-ng-model="register.phone_number" required>
+            <input type="text" class="form-control" placeholder="" data-ng-model="phone_number" required>
           </div>
         </div>
         <div class="form-group">
           <label class="col-sm-4 control-label">邮箱</label>
           <div class="col-sm-6">
-            <input type="email" class="form-control" placeholder="" data-ng-model="register.email" required>
+            <input type="email" class="form-control" placeholder="" data-ng-model="email" required>
           </div>
         </div>
         <div class="form-group">
           <label class="col-sm-4 control-label">生源地</label>
           <div class="col-sm-6">
-            <input type="text" class="form-control" placeholder="" data-ng-model="register.province" required>
+            <input type="text" class="form-control" placeholder="" data-ng-model="province" required>
           </div>
         </div>
         <div class="form-group">
           <label class="col-sm-4 control-label">身份证号</label>
           <div class="col-sm-6">
-            <input type="text" class="form-control" placeholder="" data-ng-model="register.national_identify_id" required>
+            <input type="text" class="form-control" placeholder="" data-ng-model="national_identify_id" required>
           </div>
         </div>
         <div class="form-group">
           <label class="col-sm-4 control-label">毕业学校</label>
           <div class="col-sm-6">
-            <input type="text" class="form-control" placeholder="" data-ng-model="register.school" required>
+            <input type="text" class="form-control" placeholder="" data-ng-model="school" required>
           </div>
         </div>
         <div class="form-group">
-          <label class="col-sm-4 control-label">密码</label>
+          <label class="col-sm-4 control-label">初始密码</label>
           <div class="col-sm-6">
-            <input type="password" class="form-control" placeholder="" data-ng-model="register.password" required>
+            <input type="password" class="form-control" placeholder="" data-ng-model="password" required>
             <div class="checkbox">
               <label>
                 <input type="checkbox">
@@ -66,21 +66,83 @@
         </div>
         <div class="form-group">
           <div class="col-sm-offset-4 col-sm-6">
-            <a class="btn btn-material-light-blue-800 disabled" ng-class="{disabled: !checkedProtocol}" href="#/register/confirm">注册</a>
+            <a class="btn btn-primary btn-sm" ng-click="data_confirm()">确认</a>
+            <a class="btn btn-material-light-blue-800 btn-sm disabled" ng-class="{disabled: !checkedProtocol}" ng-click="register_confirm()">注册</a>
           </div>
         </div>
       </form>
+      <!-- Confirm  Modal-->
+      <script type="text/ng-template" id="confirmModalContent.html">
+        <div class="modal-header">
+          <h4 class="modal-title">确认信息</h4>
+        </div>
+        <div class="modal-body">
+          <form class="form-horizontal">
+            <div class="form-group">
+              <label class="col-sm-4 control-label">姓名</label>
+              <div class="col-sm-6">
+                <label class="control-label">{{registerData.name}}</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-4 control-label">性别</label>
+              <div class="col-sm-6">
+                <label class="control-label">{{registerData.sex}}</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-4 control-label">手机号</label>
+              <div class="col-sm-6">
+                <label class="control-label">{{registerData.phone_number}}</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-4 control-label">邮箱</label>
+              <div class="col-sm-6">
+                <label class="control-label">{{registerData.email}}</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-4 control-label">生源地</label>
+              <div class="col-sm-6">
+                <label class="control-label">{{registerData.province}}</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-4 control-label">身份证号</label>
+              <div class="col-sm-6">
+                <label class="control-label">{{registerData.national_identify_id}}</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-4 control-label">毕业学校</label>
+              <div class="col-sm-6">
+                <label class="control-label">{{registerData.school}}</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-4 control-label">初始密码</label>
+              <div class="col-sm-6">
+                <label class="control-label">{{registerData.password}}</label>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" ng-click="ok()">确认</button>
+        </div>
+      </script>
     </div>
   </div>
   <div class="col-lg-4"></div>
 </div>
-<!-- Modal -->
+<!-- Protocol Modal -->
 <div class="modal fade" id="protocolModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">自主招生协议</h4>
+        <h4 class="modal-title" id="myModalLabel">阅读自主招生协议</h4>
       </div>
       <div class="modal-body">
          <p>中国物品编码中心（以下简称"编码中心"）同意按照本协议的规定及其不时发布的操作规则提供基于互联网的相关服务（以下简称"网络服务"），为获得网络服务，服务使用人（以下简称"用户"）应当同意本协议的全部条款并按照页面上的提示完成全部的注册程序。用户在进行注册程序过程中点击"同意"按钮即表示用户完全接受本协议项下的全部条款。</p>
@@ -91,3 +153,4 @@
     </div>
   </div>
 </div>
+
