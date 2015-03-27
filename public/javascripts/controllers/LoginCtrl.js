@@ -17,10 +17,13 @@ function LoginCtrl($scope, $http) {
       data: JSON.stringify($scope.login)
     };
     $http(req).success(function(data){
-      if(data.common_down.login_reply.state.is_success == true) {
-        alert('login successfully');
+      if(data){
+        if(data.common_down.login_reply.state.is_success == true) {
+          alert('登陆成功');
+        }
+      }else{
+        alert('账号或密码有误');
       }
-      alert('login successfully');
     }).error(function(data, status){
       console.log('error info:' + status);
     })

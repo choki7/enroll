@@ -23,8 +23,12 @@ function RegisterCtrl($scope, $modal, $http) {
       data: JSON.stringify(postData)
     };
     $http(req).success(function(data){
-      if(data.student_down.set_student_register_reply.state.is_success == true){
-        alert('register successfully');
+      if(data) {
+        if(data.student_down.set_student_register_reply.state.is_success == true){
+          alert('注册成功');
+        }
+      }else{
+        alert('注册失败');
       }
     }).error(function(data, status){
       console.log('error info:' + status);
