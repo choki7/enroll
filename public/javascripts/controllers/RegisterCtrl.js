@@ -6,7 +6,7 @@ function RegisterCtrl($scope, $modal, $http) {
   $scope.register_confirm = function() {
     var postData = {
       name: $scope.name,
-      sex: $scope.sex,
+      sex: 0,
       phone_number: $scope.phone_number,
       email: $scope.email,
       province: $scope.province,
@@ -14,6 +14,7 @@ function RegisterCtrl($scope, $modal, $http) {
       school: $scope.school,
       password: $scope.password
     };
+    console.log(JSON.stringify(postData));
     var req = {
       method: 'POST',
       url: '/register',

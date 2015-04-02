@@ -8,6 +8,7 @@ function LoginCtrl($scope, $http) {
       account: $scope.account,
       password: $scope.password
     };
+    console.log(JSON.stringify($scope.login));
     var req = {
       method: 'POST',
       url: '/login',

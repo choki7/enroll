@@ -22,6 +22,7 @@ router.post('/login', function(req, res) {
     json: {
       "common_up": {
         "login": {
+          "role": "student",
           "account": postData.account,
           "password": postData.password
         }
@@ -58,16 +59,14 @@ router.post('/register', function(req, res) {
     json: {
       "student_up": {
         "set_student_register": {
-          "login": {
-            "name": postData.name,
-            "sex": postData.sex,
-            "phone_number": postData.phone_number,
-            "email": postData.email,
-            "province": postData.province,
-            "national_identify_id": postData.national_identify_id,
-            "school": postData.school,
-            "password": postData.password
-          }
+          "name": postData.name,
+          "sex": postData.sex,
+          "phone_number": postData.phone_number,
+          "email": postData.email,
+          "province": postData.province,
+          "national_identify_id": postData.national_identify_id,
+          "school": postData.school,
+          "password": postData.password
         }
       }
     }
