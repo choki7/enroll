@@ -1,0 +1,443 @@
+<!DOCTYPE>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text; charset=UTF-8">
+  <meta charset="utf-8">
+  <!-- Title and other stuffs -->
+  <title>管理后台</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="">
+  <!-- Stylesheets -->
+  <link href="./modules/admin/style/bootstrap.css" rel="stylesheet">
+  <!-- Font awesome icon -->
+  <link rel="stylesheet" href="./modules/admin/style/font-awesome.css">
+  <!-- jQuery UI -->
+  <link rel="stylesheet" href="./modules/admin/style/jquery-ui.css">
+  <!-- Calendar -->
+  <link rel="stylesheet" href="./modules/admin/style/fullcalendar.css">
+  <!-- prettyPhoto -->
+  <link rel="stylesheet" href="./modules/admin/style/prettyPhoto.css">
+  <!-- Star rating -->
+  <link rel="stylesheet" href="./modules/admin/style/rateit.css">
+  <!-- Date picker -->
+  <link rel="stylesheet" href="./modules/admin/style/bootstrap-datetimepicker.min.css">
+  <!-- CLEditor -->
+  <link rel="stylesheet" href="./modules/admin/style/jquery.cleditor.css">
+  <!-- Uniform -->
+  <link rel="stylesheet" href="./modules/admin/style/uniform.default.css">
+  <!-- Bootstrap toggle -->
+  <link rel="stylesheet" href="./modules/admin/style/bootstrap-switch.css">
+  <!-- Main stylesheet -->
+  <link href="./modules/admin/style/style.css" rel="stylesheet">
+  <!-- Widgets stylesheet -->
+  <link href="./modules/admin/style/widgets.css" rel="stylesheet">
+
+  <!-- HTML5 Support for IE -->
+  <!--[if lt IE 9]>
+  <script src="./modules/admin/js5shim.js"></script>
+  <![endif]-->
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="./modules/admin/img/favicon/favicon.png">
+  <style>
+    #nav {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Header starts -->
+<header>
+  <div class="container">
+    <div class="row">
+
+      <!-- Logo section -->
+      <div class="col-md-4">
+        <!-- Logo. -->
+        <div class="logo">
+          <h2><a href="#">自主招生系统<span class="bold"></span></a></h2>
+          <p class="meta">后台管理系统</p>
+        </div>
+        <!-- Logo ends -->
+      </div>
+
+      <!-- Button section -->
+      <div class="col-md-4">
+
+        <!-- Buttons -->
+        <ul class="nav nav-pills">
+
+          <!-- Comment button with number of latest comments count -->
+          <li class="dropdown dropdown-big">
+            <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+              <i class="icon-comments"></i> 聊天 <span   class="label label-info">6</span>
+            </a>
+
+            <ul class="dropdown-menu">
+              <li>
+                <!-- Heading - h5 -->
+                <h5><i class="icon-comments"></i> 聊天</h5>
+                <!-- Use hr tag to add border -->
+                <hr />
+              </li>
+              <li>
+                <!-- List item heading h6 -->
+                <h6><a href="#">你好 :)</a> <span class="label label-warning pull-right">10:42</span></h6>
+                <div class="clearfix"></div>
+                <hr />
+              </li>
+              <li>
+                <h6><a href="#">你怎么样?</a> <span class="label label-warning pull-right">20:42</span></h6>
+                <div class="clearfix"></div>
+                <hr />
+              </li>
+              <li>
+                <h6><a href="#">你在干撒呢?</a> <span class="label label-warning pull-right">14:42</span></h6>
+                <div class="clearfix"></div>
+                <hr />
+              </li>
+              <li>
+                <div class="drop-foot">
+                  <a href="#">查看所有</a>
+                </div>
+              </li>
+            </ul>
+          </li>
+
+          <!-- Message button with number of latest messages count-->
+          <li class="dropdown dropdown-big">
+            <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+              <i class="icon-envelope-alt"></i> 收件箱 <span class="label label-primary">6</span>
+            </a>
+
+            <ul class="dropdown-menu">
+              <li>
+                <!-- Heading - h5 -->
+                <h5><i class="icon-envelope-alt"></i> 消息</h5>
+                <!-- Use hr tag to add border -->
+                <hr />
+              </li>
+              <li>
+                <!-- List item heading h6 -->
+                <h6><a href="#">你好啊?</a></h6>
+                <!-- List item para -->
+                <p>最近咋样啊...</p>
+                <hr />
+              </li>
+              <li>
+                <h6><a href="#">今天很好啊?</a></h6>
+                <p>相当好...</p>
+                <hr />
+              </li>
+              <li>
+                <div class="drop-foot">
+                  <a href="#">查看所有</a>
+                </div>
+              </li>
+            </ul>
+          </li>
+
+          <!-- Members button with number of latest members count -->
+          <li class="dropdown dropdown-big">
+            <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+              <i class="icon-user"></i> 用户 <span   class="label label-success">6</span>
+            </a>
+
+            <ul class="dropdown-menu">
+              <li>
+                <!-- Heading - h5 -->
+                <h5><i class="icon-user"></i> 用户</h5>
+                <!-- Use hr tag to add border -->
+                <hr />
+              </li>
+              <li>
+                <!-- List item heading h6-->
+                <h6><a href="#">Ravi Kumar</a> <span class="label label-warning pull-right">免费</span></h6>
+                <div class="clearfix"></div>
+                <hr />
+              </li>
+              <li>
+                <h6><a href="#">Balaji</a> <span class="label label-important pull-right">高级</span></h6>
+                <div class="clearfix"></div>
+                <hr />
+              </li>
+              <li>
+                <h6><a href="#">Kumarasamy</a> <span class="label label-warning pull-right">免费</span></h6>
+                <div class="clearfix"></div>
+                <hr />
+              </li>
+              <li>
+                <div class="drop-foot">
+                  <a href="#">查看所有</a>
+                </div>
+              </li>
+            </ul>
+          </li>
+
+        </ul>
+
+      </div>
+
+      <!-- Data section -->
+
+      <div class="col-md-4">
+        <div class="header-data">
+
+          <!-- Traffic data -->
+          <div class="hdata">
+            <div class="mcol-left">
+              <!-- Icon with red background -->
+              <i class="icon-signal bred"></i>
+            </div>
+            <div class="mcol-right">
+              <!-- Number of visitors -->
+              <p><a href="#">7000</a> <em>访问</em></p>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+
+          <!-- Members data -->
+          <div class="hdata">
+            <div class="mcol-left">
+              <!-- Icon with blue background -->
+              <i class="icon-user bblue"></i>
+            </div>
+            <div class="mcol-right">
+              <!-- Number of visitors -->
+              <p><a href="#">3000</a> <em>用户</em></p>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+
+          <!-- revenue data -->
+          <div class="hdata">
+            <div class="mcol-left">
+              <!-- Icon with green background -->
+              <i class="icon-money bgreen"></i>
+            </div>
+            <div class="mcol-right">
+              <!-- Number of visitors -->
+              <p><a href="#">5000</a><em>订单</em></p>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+<!-- Header ends -->
+
+<!-- Main content starts -->
+
+<div class="content">
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="sidebar-dropdown"><a href="#">导航</a></div>
+
+    <!--- Sidebar navigation -->
+    <!-- If the main navigation has sub navigation, then add the class "has_sub" to "li" of main navigation. -->
+    <ul id="nav">
+      <li class="has_sub">
+        <a href="#" class="open"><i class="icon-home"></i>基本设置</a>
+        <ul>
+          <li><a href="#/admin/basic/category">报考类型设置</a></li>
+          <li><a href="#/admin/basic/subclass">小类设置</a></li>
+          <li><a href="#/admin/basic/subject">科目设置</a></li>
+          <li><a href="#/admin/basic/system">系统设置</a></li>
+          <li><a href="#/admin/basic/statement">编辑高考说明</a></li>
+        </ul>
+      </li>
+      <li class="has_sub">
+        <a href="#" class=""><i class="icon-home"></i>报名号管理</a>
+        <ul>
+          <li><a href="../widgets1">生成报名号</a></li>
+          <li><a href="../widgets2">分配考点</a></li>
+          <li><a href="../widgets3">报名号查询</a></li>
+          <li><a href="../widgets3">报名号修改</a></li>
+          <li><a href="../widgets3">导出excel</a></li>
+          <li><a href="../widgets3">报名号录入</a></li>
+        </ul>
+      </li>
+      <li class="has_sub">
+        <a href="#" class=""><i class="icon-home"></i>考生管理</a>
+        <ul>
+          <li><a href="../widgets1">查看考生密码</a></li>
+          <li><a href="../widgets2">删除考生信息</a></li>
+          <li><a href="../widgets3">查看报考科目</a></li>
+        </ul>
+      </li>
+      <li class="has_sub">
+        <a href="#" class=""><i class="icon-home"></i>考场设置和分配</a>
+        <ul>
+          <li class="has_sub">
+            <a href="../widgets1">考场设置</a>
+            <ul>
+              <li><a href="#">考点设置</a></li>
+              <li><a href="#">教室设置</a></li>
+              <li><a href="#">考场设置</a></li>
+            </ul>
+          </li>
+          <li class="">
+            <a href="../widgets1">考场分配</a>
+          </li>
+        </ul>
+      </li>
+      <li class="has_sub">
+        <a href="#" class=""><i class="icon-home"></i>成绩导入与管理</a>
+        <ul>
+          <li class="has_sub">
+            <a href="../widgets1">成绩导入</a>
+          </li>
+          <li class="">
+            <a href="../widgets1">成绩查询</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Sidebar ends -->
+
+  <!-- Main bar -->
+  <div class="mainbar">
+
+    <!-- Page heading -->
+    <div class="page-head">
+      <h2 class="pull-left"><i class="icon-home"></i>编辑高考说明</h2>
+
+      <!-- Breadcrumb -->
+      <div class="bread-crumb pull-right">
+        <a href="index"><i class="icon-home"></i>编辑高考说明</a>
+        <!-- Divider -->
+        <span class="divider">/</span>
+        <a href="#" class="bread-current">控制台</a>
+      </div>
+
+      <div class="clearfix"></div>
+
+    </div>
+    <!-- Page heading ends -->
+
+
+
+    <!-- Matter -->
+
+    <div class="matter">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h3>前台网上报名系统中，学生上报高考报名号时，会看到一段文字说明，管理员可以在此对这段文字说明进行编辑</h3>
+            <div class="widget">
+              <div class="widget-head">
+                <div class="widget-icons pull-right">
+                  <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
+                  <a href="#" class="wclose"><i class="icon-remove"></i></a>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+              <div class="widget-content medias" style="display: block;">
+
+                <div class="padd">
+
+                  <h6>Input Boxs</h6>
+                  <hr />
+                  <!-- Form starts.  -->
+                  <form class="form-horizontal" role="form">
+
+                    <div class="form-group">
+                      <label class="col-lg-4 control-label">CLEditor</label>
+                      <div class="col-lg-8">
+                        <textarea class="cleditor" name="input"></textarea>
+                      </div>
+                    </div>
+
+                    <hr />
+                    <div class="form-group">
+                      <div class="col-lg-offset-1 col-lg-9">
+                        <button type="button" class="btn btn-default">取消</button>
+                        <button type="button" class="btn btn-info">保存</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="widget-foot">
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+    <!-- Matter ends -->
+
+  </div>
+
+  <!-- Mainbar ends -->
+  <div class="clearfix"></div>
+
+</div>
+<!-- Content ends -->
+
+<!-- Footer starts -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <!-- Copyright info -->
+        <p class="copy">Copyright &copy; 2012 | <a href="#">Your Site</a> </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Footer ends -->
+
+<!-- Scroll to top -->
+<span class="totop"><a href="#"><i class="icon-chevron-up"></i></a></span>
+
+<!-- JS -->
+<script src="./modules/admin/js/jquery.js"></script> <!-- jQuery -->
+<script src="./modules/admin/js/bootstrap.js"></script> <!-- Bootstrap -->
+<script src="./modules/admin/js/jquery-ui-1.9.2.custom.min.js"></script> <!-- jQuery UI -->
+<script src="./modules/admin/js/fullcalendar.min.js"></script> <!-- Full Google Calendar - Calendar -->
+<script src="./modules/admin/js/jquery.rateit.min.js"></script> <!-- RateIt - Star rating -->
+<script src="./modules/admin/js/jquery.prettyPhoto.js"></script> <!-- prettyPhoto -->
+
+<!-- jQuery Flot -->
+<script src="./modules/admin/js/excanvas.min.js"></script>
+<script src="./modules/admin/js/jquery.flot.js"></script>
+<script src="./modules/admin/js/jquery.flot.resize.js"></script>
+<script src="./modules/admin/js/jquery.flot.pie.js"></script>
+<script src="./modules/admin/js/jquery.flot.stack.js"></script>
+
+<!-- jQuery Notification - Noty -->
+<script src="./modules/admin/js/jquery.noty.js"></script> <!-- jQuery Notify -->
+<script src="./modules/admin/js/themes/default.js"></script> <!-- jQuery Notify -->
+<script src="./modules/admin/js/layouts/bottom.js"></script> <!-- jQuery Notify -->
+<script src="./modules/admin/js/layouts/topRight.js"></script> <!-- jQuery Notify -->
+<script src="./modules/admin/js/layouts/top.js"></script> <!-- jQuery Notify -->
+<!-- jQuery Notification ends -->
+
+<script src="./modules/admin/js/sparklines.js"></script> <!-- Sparklines -->
+<script src="./modules/admin/js/jquery.cleditor.min.js"></script> <!-- CLEditor -->
+<script src="./modules/admin/js/bootstrap-datetimepicker.min.js"></script> <!-- Date picker -->
+<script src="./modules/admin/js/jquery.uniform.min.js"></script> <!-- jQuery Uniform -->
+<script src="./modules/admin/js/bootstrap-switch.min.js"></script> <!-- Bootstrap Toggle -->
+<script src="./modules/admin/js/filter.js"></script> <!-- Filter for support page -->
+<script src="./modules/admin/js/custom.js"></script> <!-- Custom codes -->
+<script src="./modules/admin/js/charts.js"></script> <!-- Charts & Graphs -->
+
+
+</body>
+<html>

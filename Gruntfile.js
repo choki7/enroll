@@ -15,7 +15,10 @@ module.exports = function(grunt) {
     watch: {
       css: {
         files: 'public/stylesheets/scss/*.scss',
-        tasks: ['sass']
+        tasks: ['sass'],
+        options: {
+          livereload: true
+        }
       }
     },
     nodemon: {
