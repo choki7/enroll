@@ -8,6 +8,9 @@ router.get('/', function(req, res) {
   res.render('index', { title: '华东师范大学自主招生' });
 });
 
+router.get('/admin', function(req, res) {
+  res.render('admin');
+})
 router.post('/login', function(req, res) {
   var reqBody = req.body;
   var postData = {

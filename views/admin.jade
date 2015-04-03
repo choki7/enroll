@@ -1,0 +1,25 @@
+doctype html
+html(ng-app='adminApp')
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/main.css')
+    // Mobile support
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    // Twitter Bootstrap
+    link(href='/bower_components/bootstrap/dist/css/bootstrap.min.css', rel='stylesheet')
+    // Material Design for Bootstrap
+    link(href='/bower_components/bootstrap-material-design/dist/css/roboto.min.css', rel='stylesheet')
+    link(href='/bower_components/bootstrap-material-design/dist/css/material-fullpalette.min.css', rel='stylesheet')
+    link(href='/bower_components/bootstrap-material-design/dist/css/ripples.min.css', rel='stylesheet')
+    // Angular Config JS and Controllers for Single Page
+    script(src='/bower_components/jquery/dist/jquery.min.js')
+    script(src='/bower_components/bootstrap/dist/js/bootstrap.min.js')
+    script(src='/bower_components/angular/angular.js')
+    script(src='/bower_components/angular-route/angular-route.js')
+    script(src='/bower_components/angular-bootstrap/ui-bootstrap.min.js')
+    script(src='/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js')
+    script(src='/javascripts/app.js')
+    script(src='/javascripts/controllers/LoginCtrl.js')
+    script(src='/javascripts/controllers/RegisterCtrl.js')
+    script(src='/javascripts/controllers/CategoryCtrl.js')
+  body

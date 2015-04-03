@@ -1,53 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta charset="utf-8">
-  <!-- Title and other stuffs -->
-  <title>管理后台</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="">
-  <!-- Stylesheets -->
-  <link href="./modules/admin/style/bootstrap.css" rel="stylesheet">
-  <!-- Font awesome icon -->
-  <link rel="stylesheet" href="./modules/admin/style/font-awesome.css">
-  <!-- jQuery UI -->
-  <link rel="stylesheet" href="./modules/admin/style/jquery-ui.css">
-  <!-- Calendar -->
-  <link rel="stylesheet" href="./modules/admin/style/fullcalendar.css">
-  <!-- prettyPhoto -->
-  <link rel="stylesheet" href="./modules/admin/style/prettyPhoto.css">
-  <!-- Star rating -->
-  <link rel="stylesheet" href="./modules/admin/style/rateit.css">
-  <!-- Date picker -->
-  <link rel="stylesheet" href="./modules/admin/style/bootstrap-datetimepicker.min.css">
-  <!-- CLEditor -->
-  <link rel="stylesheet" href="./modules/admin/style/jquery.cleditor.css">
-  <!-- Uniform -->
-  <link rel="stylesheet" href="./modules/admin/style/uniform.default.css">
-  <!-- Bootstrap toggle -->
-  <link rel="stylesheet" href="./modules/admin/style/bootstrap-switch.css">
-  <!-- Main stylesheet -->
-  <link href="./modules/admin/style/style.css" rel="stylesheet">
-  <!-- Widgets stylesheet -->
-  <link href="./modules/admin/style/widgets.css" rel="stylesheet">
-
-  <!-- HTML5 Support for IE -->
-  <!--[if lt IE 9]>
-  <script src="./modules/admin/js/html5shim.js"></script>
-  <![endif]-->
-
-  <!-- Favicon -->
-  <link rel="shortcut icon" href="./modules/admin/img/favicon/favicon.png">
-  <style>
-    #nav {
-      display: none;
-    }
-  </style>
-</head>
-
-<body>
-
 <!-- Header starts -->
 <header>
   <div class="container">
@@ -314,7 +264,7 @@
 
       <!-- Breadcrumb -->
       <div class="bread-crumb pull-right">
-        <a href="../index.html"><i class="icon-home"></i> 基本设置</a>
+        <a href="../../index.html"><i class="icon-home"></i> 基本设置</a>
         <!-- Divider -->
         <span class="divider">/</span>
         <a href="#" class="bread-current">Dashboard</a>
@@ -359,7 +309,6 @@
                     <th>截止时间</th>
                     <th>下载准考证</th>
                     <th>查看成绩</th>
-                    <th>下载准考证</th>
                     <th>查看考场</th>
                   </tr>
                   </thead>
@@ -372,36 +321,45 @@
                     </td>
                     <td>免费师范生</td>
                     <td>
-                      <div class="make-switch switch-mini" data-on="primary" data-off="info">
-                        <input type="checkbox" checked>
-                      </div>
+                        <div class="make-switch has-switch" data-on="primary" data-off="info">
+                            <div class="switch-animate switch-on"><input type="checkbox" checked=""><span class="switch-left switch-primary">ON</span><label>&nbsp;</label><span class="switch-right switch-info">OFF</span></div>
+                        </div>
                     </td>
                     <td>
-                      <div class="make-switch switch-mini" data-on="primary" data-off="info">
-                        <input type="checkbox" checked>
-                      </div>
+                        <div class="make-switch has-switch" data-on="primary" data-off="info">
+                            <div class="switch-animate switch-on"><input type="checkbox" checked=""><span class="switch-left switch-primary">ON</span><label>&nbsp;</label><span class="switch-right switch-info">OFF</span></div>
+                        </div>
                     </td>
-                    <td>2015/04/01 00:00</td>
-                    <td>2015/05/30 24:00</td>
-                    <td>
-                      <div class="make-switch switch-mini" data-on="primary" data-off="info">
-                        <input type="checkbox" checked>
-                      </div>
+                    <td style="width: 16%;" data-ng-controller="DatepickerCtrl">
+                      <p class="input-group">
+                        <input type="text" class="form-control" datepicker-popup="yyyy/MM/dd" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                        <span class="input-group-btn">
+                          <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                      </p>
+                    </td>
+                    <td style="width: 16%" data-ng-controller="DatepickerCtrl">
+                      <p class="input-group">
+                        <input type="text" class="form-control" datepicker-popup="yyyy/MM/dd" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                        <span class="input-group-btn">
+                          <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                      </p>
                     </td>
                     <td>
-                      <div class="make-switch switch-mini" data-on="primary" data-off="info">
-                        <input type="checkbox" checked>
-                      </div>
+                        <div class="make-switch has-switch" data-on="primary" data-off="info">
+                            <div class="switch-animate switch-on"><input type="checkbox" checked=""><span class="switch-left switch-primary">ON</span><label>&nbsp;</label><span class="switch-right switch-info">OFF</span></div>
+                        </div>
                     </td>
                     <td>
-                      <div class="make-switch switch-mini" data-on="primary" data-off="info">
-                        <input type="checkbox" checked>
-                      </div>
+                        <div class="make-switch has-switch" data-on="primary" data-off="info">
+                            <div class="switch-animate switch-on"><input type="checkbox" checked=""><span class="switch-left switch-primary">ON</span><label>&nbsp;</label><span class="switch-right switch-info">OFF</span></div>
+                        </div>
                     </td>
                     <td>
-                      <div class="make-switch switch-mini" data-on="primary" data-off="info">
-                        <input type="checkbox" checked>
-                      </div>
+                        <div class="make-switch has-switch" data-on="primary" data-off="info">
+                            <div class="switch-animate switch-on"><input type="checkbox" checked=""><span class="switch-left switch-primary">ON</span><label>&nbsp;</label><span class="switch-right switch-info">OFF</span></div>
+                        </div>
                     </td>
                   </tr>
 
@@ -411,11 +369,11 @@
                 <div class="widget-foot">
 
                   <div class="uni pull-left">
-                    <select class="form-control">
-                      <option>操作</option>
-                      <option>新增</option>
-                      <option>删除</option>
-                      <option>修改</option>
+                    <select class="form-control" id="options">
+                      <option value="0">操作</option>
+                      <option value="1">新增</option>
+                      <option value="2">删除</option>
+                      <option value="3">修改</option>
                     </select>
                   </div>
 
@@ -464,37 +422,3 @@
 <!-- Scroll to top -->
 <span class="totop"><a href="#"><i class="icon-chevron-up"></i></a></span>
 
-<!-- JS -->
-<script src="./modules/admin/js/jquery.js"></script> <!-- jQuery -->
-<script src="./modules/admin/js/bootstrap.js"></script> <!-- Bootstrap -->
-<script src="./modules/admin/js/jquery-ui-1.9.2.custom.min.js"></script> <!-- jQuery UI -->
-<script src="./modules/admin/js/fullcalendar.min.js"></script> <!-- Full Google Calendar - Calendar -->
-<script src="./modules/admin/js/jquery.rateit.min.js"></script> <!-- RateIt - Star rating -->
-<script src="./modules/admin/js/jquery.prettyPhoto.js"></script> <!-- prettyPhoto -->
-
-<!-- jQuery Flot -->
-<script src="./modules/admin/js/excanvas.min.js"></script>
-<script src="./modules/admin/js/jquery.flot.js"></script>
-<script src="./modules/admin/js/jquery.flot.resize.js"></script>
-<script src="./modules/admin/js/jquery.flot.pie.js"></script>
-<script src="./modules/admin/js/jquery.flot.stack.js"></script>
-
-<!-- jQuery Notification - Noty -->
-<script src="./modules/admin/js/jquery.noty.js"></script> <!-- jQuery Notify -->
-<script src="./modules/admin/js/themes/default.js"></script> <!-- jQuery Notify -->
-<script src="./modules/admin/js/layouts/bottom.js"></script> <!-- jQuery Notify -->
-<script src="./modules/admin/js/layouts/topRight.js"></script> <!-- jQuery Notify -->
-<script src="./modules/admin/js/layouts/top.js"></script> <!-- jQuery Notify -->
-<!-- jQuery Notification ends -->
-
-<script src="./modules/admin/js/sparklines.js"></script> <!-- Sparklines -->
-<script src="./modules/admin/js/jquery.cleditor.min.js"></script> <!-- CLEditor -->
-<script src="./modules/admin/js/bootstrap-datetimepicker.min.js"></script> <!-- Date picker -->
-<script src="./modules/admin/js/jquery.uniform.min.js"></script> <!-- jQuery Uniform -->
-<script src="./modules/admin/js/bootstrap-switch.min.js"></script> <!-- Bootstrap Toggle -->
-<script src="./modules/admin/js/filter.js"></script> <!-- Filter for support page -->
-<script src="./modules/admin/js/custom.js"></script> <!-- Custom codes -->
-<script src="./modules/admin/js/charts.js"></script> <!-- Charts & Graphs -->
-
-</body>
-</html>
