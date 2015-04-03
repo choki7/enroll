@@ -81,4 +81,49 @@ router.post('/register', function(req, res) {
 
   request(options, callback);
 });
+//添加／修改考试信息  添加：传过来的id是否为空。修改：id不为空
+router.post('/admin/set_manager_exam_info', function(req, res) {
+    var reqBody = req.body;
+
+    var postData = {
+        "name": "考试类型1",
+        "start_register_time":"2015-01-01 00:00",
+        "end_register_time":"2015-03-01 00:00",
+        "can_register":false,
+        "can_login":false,
+        "can_download_addmission":true,
+        "can_query_score":true,
+        "can_query_exam_room":true
+    };
+
+    var options = {
+        url: 'http://enrollsystem.sinaapp.com/controller.php',
+        headers: {'content-type' : 'application/json'},
+        method: 'POST',
+        json: {
+            "manager_up": {
+                "set_manager_exam_info": {
+                    "role": "manager",
+                    "name":postData.name,
+                    "start_register_time":postData.start_register_time,
+                    "end_register_time":postData.end_register_time,
+                    "can_register":postData.can_register,
+                    "can_login":postData.can_login,
+                    "can_download_addmission":postData.can_download_addmission,
+                    "can_query_score":postData.can_query_score,
+                    "can_query_exam_room":postData.can_query_exam_roomxx
+                }
+            }
+        }
+    };
+
+    function callback(error, response, data) {
+        if (!error && response.statusCode == 200) {
+            console.log('data from real backend :'+ data);
+            res.send(data);
+        }
+    }
+
+    request(options, callback);
+});
 module.exports = router;
