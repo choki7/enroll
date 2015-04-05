@@ -7,10 +7,16 @@ html(ng-app='myApp')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     // Twitter Bootstrap
     link(href='/bower_components/bootstrap/dist/css/bootstrap.min.css', rel='stylesheet')
-    // Material Design for Bootstrap
-    link(href='/bower_components/bootstrap-material-design/dist/css/roboto.min.css', rel='stylesheet')
-    link(href='/bower_components/bootstrap-material-design/dist/css/material-fullpalette.min.css', rel='stylesheet')
-    link(href='/bower_components/bootstrap-material-design/dist/css/ripples.min.css', rel='stylesheet')
+    // 3rd party css library
+    link(href='/stylesheets/3rd/bootstrap-datetimepicker.min.css', rel='stylesheet')
+    link(href='/stylesheets/3rd/bootstrap-switch.css', rel='stylesheet')
+    link(href='/stylesheets/3rd/font-awesome.css', rel='stylesheet')
+    link(href='/stylesheets/3rd/jquery.cleditor.css', rel='stylesheet')
+    link(href='/stylesheets/3rd/jquery-ui.css', rel='stylesheet')
+    link(href='/stylesheets/3rd/prettyPhoto.css', rel='stylesheet')
+    link(href='/stylesheets/3rd/rateit.css', rel='stylesheet')
+    link(href='/stylesheets/3rd/style.css', rel='stylesheet')
+    link(href='/stylesheets/3rd/widgets.css', rel='stylesheet')
     // Angular Config JS and Controllers for Single Page
     script(src='/bower_components/jquery/dist/jquery.min.js')
     script(src='/bower_components/bootstrap/dist/js/bootstrap.min.js')
@@ -18,46 +24,27 @@ html(ng-app='myApp')
     script(src='/bower_components/angular-route/angular-route.js')
     script(src='/bower_components/angular-bootstrap/ui-bootstrap.min.js')
     script(src='/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js')
+    // 3rd party js library
+    script(src='/javascripts/3rd/bootstrap-datetimepicker.min.js')
+    script(src='/javascripts/3rd/bootstrap-switch.min.js')
+    script(src='/javascripts/3rd/excanvas.min.js')
+    script(src='/javascripts/3rd/filter.js')
+    script(src='/javascripts/3rd/fullcalendar.min.js')
+    script(src='/javascripts/3rd/html5shim.js')
+    script(src='/javascripts/3rd/jquery.cleditor.min.js')
+    script(src='/javascripts/3rd/jquery.flot.js')
+    script(src='/javascripts/3rd/jquery.flot.resize.js')
+    script(src='/javascripts/3rd/jquery.flot.stack.js')
+    script(src='/javascripts/3rd/jquery.noty.js')
+    script(src='/javascripts/3rd/jquery.prettyPhoto.js')
+    script(src='/javascripts/3rd/jquery.rateit.min.js')
+    script(src='/javascripts/3rd/sparklines.js')
+    //configs and controllers
     script(src='/javascripts/app.js')
     script(src='/javascripts/controllers/LoginCtrl.js')
     script(src='/javascripts/controllers/RegisterCtrl.js')
+    script(src='/javascripts/controllers/CategoryCtrl.js')
   body
-    nav.navbar.navbar-material-grey-500.navbar-fixed-top(id = 'nav')
-      .container
-        .navbar-header
-          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
-            span.sr-only Toggle navigation
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          a.navbar-brand(href='#') 自主招生系统
-        #navbar.navbar-collapse.collapse(aria-expanded='false', style='height: 1px;')
-          ul.nav.navbar-nav
-            li.active
-              a(href='#') Home
-            li
-              a(href='#about') About
-            li
-              a(href='#contact') Contact
-          ul.nav.navbar-nav.navbar-right.enroll-navbar-right
-            li
-              a.btn.btn-material-grey-600.btn-inverse(href='#/login') 登陆
-            li
-              a.btn.btn-material-grey-500.btn-inverse(href='#/register') 注册
-
-        // /.nav-collapse
-
-    .enroll-content(ng-view)
+    div(ng-view)
     block content
 
-    footer
-      .well-material-blue-grey-050
-        .container
-          .col-lg-8
-            h5
-              a(href='http;//www.ecnu.edu.cn') 华东师范大学
-            p 闵行校区：东川路500号 200241&nbsp;&nbsp;中山北路校区：中山北路3663号 200062
-            p 总机：86-21-62233333&nbsp;&nbsp;沪ICP备05003394
-          .col-lg-4
-            h5 技术支持：
-              a(href='http://www.eoffice.ecnu.edu.cn') 华东师范大学信息化办公室
