@@ -81,7 +81,7 @@ router.post('/register', function(req, res) {
 
   request(options, callback);
 });
-//添加／修改考试信息  添加：传过来的id是否为空。修改：id不为空
+//添加／修改考试信息 添加：传过来的id是否为空。修改：id不为空
 router.post('/admin/set_manager_exam_info', function(req, res) {
     var reqBody = req.body;
 
