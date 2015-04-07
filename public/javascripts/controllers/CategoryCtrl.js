@@ -5,7 +5,7 @@
 function CategoryTableCtrl($scope, $http) {
     $scope.categories = [
         {
-            name: '免费师范生',
+            name: '体育特长生',
             start_register_time: '2015-01-01 00:00',
             end_register_time: '2015-03-01 00:00'
         }
@@ -40,6 +40,5 @@ function CategoryTableCtrl($scope, $http) {
             console.log('error info:' + status);
         })
     };
-
-
 }
+
