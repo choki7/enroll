@@ -314,38 +314,41 @@
                   </thead>
                   <tbody>
                   <tr ng-repeat="category in categories">
-                    <td>
+                      <td>
                       <span class="uni">
                         <input type="checkbox" value="check1">
                       </span>
-                    </td>
-                    <td>{{category.name}}</td>
-                    <td>
-                        <div class="make-switch has-switch switch-small" data-on="primary" data-off="info">
-                            <div class="switch-animate switch-on"><input type="checkbox" checked=""><span class="switch-left switch-primary">ON</span><label>&nbsp;</label><span class="switch-right switch-info">OFF</span></div>
-                        </div>
-                    <td style="width: 16%;">{{category.start_register_time}}</td>
-                    <td style="width: 16%">{{category.end_register_time}}</td>
-                    <td>
-                        <div class="make-switch has-switch switch-small" data-on="primary" data-off="info">
-                            <div class="switch-animate switch-on"><input type="checkbox" checked=""><span class="switch-left switch-primary">ON</span><label>&nbsp;</label><span class="switch-right switch-info">OFF</span></div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="make-switch has-switch switch-small" data-on="primary" data-off="info">
-                            <div class="switch-animate switch-on"><input type="checkbox" checked=""><span class="switch-left switch-primary">ON</span><label>&nbsp;</label><span class="switch-right switch-info">OFF</span></div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="make-switch has-switch switch-small" data-on="primary" data-off="info">
-                            <div class="switch-animate switch-on"><input type="checkbox" checked=""><span class="switch-left switch-primary">ON</span><label>&nbsp;</label><span class="switch-right switch-info">OFF</span></div>
-                        </div>
-                    </td>
+                      </td>
+                      <td>{{category.name}}</td>
+                      <td>
+                          <div class="make-switch has-switch switch-small" data-on="primary" data-off="info">
+                              <div class="switch-animate switch-on"><input type="checkbox" checked=""><span class="switch-left switch-primary">ON</span><label>&nbsp;</label><span class="switch-right switch-info">OFF</span></div>
+                          </div>
+                      </td>
+                      <td style="width: 16%;">{{category.start_register_time}}</td>
+                      <td style="width: 16%">{{category.end_register_time}}</td>
+                      <td>
+                          <div class="make-switch has-switch switch-small" data-on="primary" data-off="info">
+                              <div class="switch-animate switch-on"><input type="checkbox" checked=""><span class="switch-left switch-primary">ON</span><label>&nbsp;</label><span class="switch-right switch-info">OFF</span></div>
+                          </div>
+                      </td>
+                      <td>
+                          <div class="make-switch has-switch switch-small" data-on="primary" data-off="info">
+                              <div class="switch-animate switch-on"><input type="checkbox" checked=""><span class="switch-left switch-primary">ON</span><label>&nbsp;</label><span class="switch-right switch-info">OFF</span></div>
+                          </div>
+                      </td>
+                      <td>
+                          <div class="make-switch has-switch switch-small" data-on="primary" data-off="info">
+                              <div class="switch-animate switch-on"><input type="checkbox" checked=""><span class="switch-left switch-primary">ON</span><label>&nbsp;</label><span class="switch-right switch-info">OFF</span></div>
+                          </div>
+                      </td>
+
                       <td>
                           <button class="btn btn-xs btn-info" data-ng-click="createCategory()"><i class="icon-plus"></i></button>
                           <button class="btn btn-xs btn-danger" data-ng-click="deleteCategory()"><i class="icon-remove"></i> </button>
                       </td>
                   </tr>
+
                   <tr>
                       <td>
                       <span class="uni">

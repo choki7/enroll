@@ -1,5 +1,10 @@
 .idea/
 node_modules/
 bower_components/
+*.iml
+*.iws
+client/lib/
+logs/
 .sass-cache/
+client/modules/app/.tmp
 .DS_Store
