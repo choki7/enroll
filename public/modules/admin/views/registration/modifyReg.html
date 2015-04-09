@@ -179,6 +179,41 @@
 
     </div>
   </div>
+
+  <script language="javascript" type="text/javascript">
+    function importXLS(fileName)
+    {
+      objCon = new ActiveXObject("ADODB.Connection");
+      objCon.Provider = "Microsoft.Jet.OLEDB.4.0";
+      objCon.ConnectionString = "Data Source=" + fileName + ";Extended Properties=Excel 8.0;";
+      objCon.CursorLocation = 1;
+      objCon.Open;
+      var strQuery;
+      //Get the SheetName
+      var strSheetName = "Sheet1$";
+      var rsTemp =   new ActiveXObject("ADODB.Recordset");
+      rsTemp = objCon.OpenSchema(20);
+      if(!rsTemp.EOF)
+        strSheetName = rsTemp.Fields("Table_Name").Value;
+      rsTemp = null;
+      rsExcel =   new ActiveXObject("ADODB.Recordset");
+      strQuery = "SELECT * FROM [" + strSheetName + "]";
+      rsExcel.ActiveConnection = objCon;
+      rsExcel.Open(strQuery);
+      while(!rsExcel.EOF)
+      {
+        for(i = 0;i<rsExcel.Fields.Count;++i)
+        {
+          alert(rsExcel.Fields(i).value);
+        }
+        rsExcel.MoveNext;
+      }
+      // Close the connection and dispose the file
+      objCon.Close;
+      objCon =null;
+      rsExcel = null;
+    }
+  </script>
 </header>
 
 <!-- Header ends -->
@@ -251,11 +286,11 @@
 
     <!-- Page heading -->
     <div class="page-head">
-      <h2 class="pull-left"><i class="icon-home"></i>系统设置</h2>
+      <h2 class="pull-left"><i class="icon-home"></i>报名号管理</h2>
 
       <!-- Breadcrumb -->
       <div class="bread-crumb pull-right">
-        <a href="index"><i class="icon-home"></i>系统设置</a>
+        <a href="index"><i class="icon-home"></i>报名号修改</a>
         <!-- Divider -->
         <span class="divider">/</span>
         <a href="#" class="bread-current">控制台</a>
@@ -274,7 +309,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <h3>包括报考年度设置，前台登录开关，前台注册开关，考点开关<span class="label label-info">只针对“自荐自主招生”类型</span></h3>
+
             <div class="widget">
               <div class="widget-head">
                 <div class="widget-icons pull-right">
@@ -285,69 +320,39 @@
               </div>
               <div class="widget-content medias" style="display: block;">
 
+
                 <table class="table table-striped table-bordered table-hover">
                   <thead>
                   <tr>
-                    <th>
-                      <span class="uni">
-                        <input type="checkbox" value="check1">
-                      </span>
-                    </th>
-                    <th>考试年度</th>
-                    <th>登录开关</th>
-                    <th>注册开关</th>
-                    <th>考点开关</th>
+                   <th><select>
+                      <option value="">修改为已审核</option>
+                      <option value="">修改为已审核</option>
+                      <option value="">修改为已审核</option>
+                    </select>
+
+                   </th>
+
                   </tr>
                   </thead>
                   <tbody>
                   <tr>
                     <td>
-                      <span class="uni">
-                        <input type="checkbox" value="check1">
-                      </span>
-                    </td>
-                    <td>
-                      <select>
-                        <option value="">2015</option>
-                        <option value="">2016</option>
-                        <option value="">2017</option>
-                      </select>
-                    </td>
-                    <td>
-                      <div class="make-switch switch-mini" data-on="primary" data-off="info">
-                        <input type="checkbox" checked>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="make-switch switch-mini" data-on="primary" data-off="info">
-                        <input type="checkbox" checked>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="make-switch switch-mini" data-on="primary" data-off="info">
-                        <input type="checkbox" checked>
-                      </div>
-                    </td>
+                    <input type="file" id="f" /></td>
+                    <td><input type="button" id="b" value="import" onclick="if(f.value=='')alert('请选择xls文件');else importXLS(f.value)" /></td>
+
                   </tr>
                   </tbody>
                 </table>
 
+
+
+
+
                 <div class="widget-foot">
 
-                  <div class="uni pull-left">
-                    <select class="form-control">
-                      <option>操作</option>
-                      <option>新增</option>
-                      <option>删除</option>
-                      <option>修改</option>
-                    </select>
-                  </div>
 
-                  <ul class="pagination pull-right">
-                    <li><a href="#">Prev</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">Next</a></li>
-                  </ul>
+
+
 
                   <div class="clearfix"></div>
 

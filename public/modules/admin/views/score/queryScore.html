@@ -251,11 +251,11 @@
 
     <!-- Page heading -->
     <div class="page-head">
-      <h2 class="pull-left"><i class="icon-home"></i>系统设置</h2>
+      <h2 class="pull-left"><i class="icon-home"></i>报名号管理</h2>
 
       <!-- Breadcrumb -->
       <div class="bread-crumb pull-right">
-        <a href="index"><i class="icon-home"></i>系统设置</a>
+        <a href="index"><i class="icon-home"></i>报名号查询</a>
         <!-- Divider -->
         <span class="divider">/</span>
         <a href="#" class="bread-current">控制台</a>
@@ -274,7 +274,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <h3>包括报考年度设置，前台登录开关，前台注册开关，考点开关<span class="label label-info">只针对“自荐自主招生”类型</span></h3>
+
             <div class="widget">
               <div class="widget-head">
                 <div class="widget-icons pull-right">
@@ -289,59 +289,82 @@
                   <thead>
                   <tr>
                     <th>
-                      <span class="uni">
-                        <input type="checkbox" value="check1">
-                      </span>
+                      <select>
+                          <option value="">艺术特长生</option>
+                        <option value="">免费师范生</option>
+                        <option value="">体育特长生</option>
+                      </select>
                     </th>
-                    <th>考试年度</th>
-                    <th>登录开关</th>
-                    <th>注册开关</th>
-                    <th>考点开关</th>
+
+                    <th>省市<input size="6"></th>
+                    <th>生源地<input size="6"></th>
+                    <th>报名号<input size="6"></th>
+                    <th>姓名<input size="6"></th>
+
+                    <th>考点<input size="6"></th>
+
+                    <th><button class="btn btn-sm btn-info" data-ng-click="createCategory()">查询</button></th></tr>
+                  </tr>
+                  </thead>
+                  </table>
+
+                <table class="table table-striped table-bordered table-hover">
+                  <thead>
+                  <tr>
+                    <th>报名号</th>
+                    <th>姓名</th>
+                  </tr>
+                  <tr>
+                    <td>1012322221</td>
+                    <td>张x</td>
                   </tr>
                   </thead>
                   <tbody>
-                  <tr>
-                    <td>
-                      <span class="uni">
-                        <input type="checkbox" value="check1">
-                      </span>
-                    </td>
-                    <td>
-                      <select>
-                        <option value="">2015</option>
-                        <option value="">2016</option>
-                        <option value="">2017</option>
-                      </select>
-                    </td>
-                    <td>
-                      <div class="make-switch switch-mini" data-on="primary" data-off="info">
-                        <input type="checkbox" checked>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="make-switch switch-mini" data-on="primary" data-off="info">
-                        <input type="checkbox" checked>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="make-switch switch-mini" data-on="primary" data-off="info">
-                        <input type="checkbox" checked>
-                      </div>
-                    </td>
-                  </tr>
                   </tbody>
+                </table>
+                  <table class="table table-striped table-bordered table-hover">
+                  <tr><th>文化测试成绩</th></tr>
+                    </table>
+                <table class="table table-striped table-bordered table-hover">
+                    <tr>
+                      <td>科目代码</td>
+                      <td>科目名称</td>
+                      <td>成绩</td>
+                      <td>是否缺考</td>
+                    </tr>
+                  <tr>
+                    <td>123123123</td>
+                    <td>数学</td>
+                    <td>20</td>
+                    <td>否</td>
+                  </tr>
+                  </table>
+                  <table class="table table-striped table-bordered table-hover">
+                  <tr><th>专项成绩</th></tr>
+                    </table>
+                <table class="table table-striped table-bordered table-hover">
+                    <tr>
+                      <td>科目代码</td>
+                      <td>科目名称</td>
+                      <td>成绩</td>
+                      <td>是否缺考</td>
+                    </tr>
+
+                  <tr>
+                    <td>123123123</td>
+                    <td>数学</td>
+                    <td>20</td>
+                    <td>否</td>
+                  </tr>
+                  </table>
+                  <table class="table table-striped table-bordered table-hover">
+                  <tr><th>考生最终测试成绩</th><td>您获得了20分的加分</td></tr>
+
                 </table>
 
                 <div class="widget-foot">
 
-                  <div class="uni pull-left">
-                    <select class="form-control">
-                      <option>操作</option>
-                      <option>新增</option>
-                      <option>删除</option>
-                      <option>修改</option>
-                    </select>
-                  </div>
+
 
                   <ul class="pagination pull-right">
                     <li><a href="#">Prev</a></li>
