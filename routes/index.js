@@ -5,14 +5,10 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { title: '华东师范大学自主招生' });
-});
-router.get('/admin', function(req, res) {
-    res.render('admin');
-});
-
-router.get('/admin', function(req, res) {
-  res.render('admin');
+      res.render('index', {
+      title: '华东师范大学自主招生',
+      loginField: '登陆'
+  });
 });
 
 router.post('/login', function(req, res) {
@@ -42,6 +38,9 @@ router.post('/login', function(req, res) {
       console.log('data from real backend :'+ data);
       res.send(data);
     }
+      res.render('/modules/client/login', {
+          loginField: '登出'
+      });
   }
 
   request(options, callback);
