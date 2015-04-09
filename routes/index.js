@@ -10,6 +10,21 @@ router.get('/', function(req, res) {
 
 router.get('/admin', function(req, res) {
   res.render('admin');
+});
+
+router.get('/admin/get_system_config', function(req, res) {
+    var options = {
+        url: 'http://enrollsystem.sinaapp.com/controller.php',
+        method: 'GET'
+    };
+
+    function callback(error, response, data) {
+        if (!error && response.statusCode == 200) {
+            console.log('data from real backend :'+ data);
+            res.send(data);
+        }
+    };
+    request(options, callback);
 })
 router.post('/login', function(req, res) {
   var reqBody = req.body;
@@ -38,8 +53,7 @@ router.post('/login', function(req, res) {
       console.log('data from real backend :'+ data);
       res.send(data);
     }
-  }
-
+  };
   request(options, callback);
 });
 
