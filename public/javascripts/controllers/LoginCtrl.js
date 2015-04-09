@@ -25,7 +25,7 @@ function LoginCtrl($scope, $http, $location) {
                 alert('账号或密码有误');
             }
         }).error(function(data, status){
-            $location.path('/signup')
+            $location.path('/profile');
         })
     };
 }

@@ -4,10 +4,13 @@
         <div class="col-lg-4">
             <ul>
                 <li>
+                    <a href="#/profile/signup" class="btn btn-material-blue-400">注册报名</a>
+                </li>
+                <li>
                     <a href="#/profile/info" class="btn btn-material-blue-400">报名信息</a>
                 </li>
                 <li>
-                    <a href="#/profile/basic" class="btn btn-material-blue-400">修改密码</a>
+                    <a href="#/profile/basic" class="btn btn-material-blue-500">修改密码</a>
                 </li>
                 <li>
                     <a href="#/profile/state" class="btn btn-material-blue-500">报名状态</a>
@@ -23,7 +26,30 @@
         <div class="col-lg-8">
             <div class="jumbotron">
                 <h2 class="text-center">报名状态</h2>
-                <h5 class="text-center"> 该学生报名状态<label class="label label-danger">已审核通过</label></h5>
+                <hr>
+                <h5 class="text-center"> 该学生报名状态<label class="label label-danger">已审核通过</label>可选择华师大全市安排的考点</h5>
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label class="col-lg-4 control-label">选择考点</label>
+                        <div class="col-lg-8">
+                            <select class="form-control">
+                                <option>请选择</option>
+                                <option value="1">上海中学</option>
+                                <option value="2">华师大二附中</option>
+                                <option value="3">复旦附中</option>
+                                <option value="4">交大附中</option>
+                                <option value="5">南洋模范中学</option>
+                                <option value="6">建平中学</option>
+                                <option value="7">延安中学</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-8 col-lg-offset-4">
+                            <a class="btn btn-material-blue-700">提交</a>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
