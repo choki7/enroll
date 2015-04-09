@@ -1,32 +1,71 @@
 <div class="enroll-login-container">
-  <div class="col-lg-2"></div>
-  <div class="col-lg-8">
-    <h2 class="text-center">填写考试信息</h2>
+  <div class="col-lg-3"></div>
+  <div class="col-lg-6">
+    <h2 class="text-center">填写报名信息</h2>
     <div class="jumbotron">
-      <tabset justified="true">
-        <tab heading="一：选择考试类型" class="btn btn-material-blue-400">
-          <div class="container">
-            <div class="col-sm-2"></div>
-            <div class="col-sm-8">
-              <form class="form-horizontal" role="form">
-                <div class="form-group ">
-                  <div class="col-lg-12">
-                    <select class="form-control">
-                      <option value="0">艺术生</option>
-                      <option value="1">体育生</option>
+        <form class="form-horizontal" role="form">
+            <div class="form-group">
+                <label class="col-lg-4 control-label">考试类型</label>
+                <div class="col-lg-8">
+                    <select class="form-control" data-ng-model="type">
+                        <option value="">免费师范生</option>
+                        <option value="2">艺术特长生</option>
+                        <option value="3">高水平运动员</option>
+                        <option value="4">播音与主持艺术</option>
+                        <option value="5">音乐学</option>
+                        <option value="6">美术学</option>
                     </select>
-                  </div>
                 </div>
-              </form>
             </div>
-            <div class="col-sm-2"></div>
-          </div>
-        </tab>
-        <tab heading="二：填写信息" class="btn btn-material-blue-400"></tab>
-        <tab heading="三：提交审核" class="btn btn-material-blue-400"></tab>
-        <tab heading="四：选择考点" class="btn btn-material-blue-400"></tab>
-      </tabset>
+            <div class="form-group">
+                <label class="col-lg-4 control-label">报名号</label>
+                <div class="col-lg-8">
+                    <input class="form-control" type="text" value="01044527789">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-4 control-label">姓名</label>
+                <div class="col-lg-8">
+                    <input class="form-control" type="text" value="张三">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label">性别</label>
+                <div class="col-sm-6">
+                    <select class="form-control" data-ng-model="sex">
+                        <option value="">男</option>
+                        <option value="女">女</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label">手机号</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" value="13761575801">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label">邮箱</label>
+                <div class="col-sm-6">
+                    <input type="email" class="form-control" value="1@1.com">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label">身份证号</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" value="321284199312243226">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-6 col-sm-offset-4 label label-danger">请注意：报名信息确认后将不能修改，请仔细核对</label>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-6 col-sm-offset-4">
+                    <a class="btn btn-material-light-blue-800 btn-inverse" href="#/signup/signup-successful">提交</a>
+                </div>
+            </div>
+        </form>
     </div>
   </div>
-  <div class="col-lg-2"></div>
+  <div class="col-lg-3"></div>
 </div>
