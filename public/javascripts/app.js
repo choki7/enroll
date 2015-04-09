@@ -12,10 +12,11 @@ angular.module('myApp', ['ngRoute', 'ui.bootstrap'])
             when('/login-successful', {templateUrl: 'modules/client/login/login-successful.html'}).
             when('/register', {templateUrl: 'modules/client/register/register.html', controller: RegisterCtrl}).
             when('/register/confirm', {templateUrl: 'modules/client/register/confirm.html'}).
-            when('/signup', {templateUrl: 'modules/client/signup/signup.html', controller: SignupCtrl}).
+            when('/signup', {templateUrl: 'modules/client/signup/signup.html'}).
             when('/signup/edit', {templateUrl: 'modules/client/signup/edit.html', controller: EditSignupCtrl}).
             when('/signup/signup-successful', {templateUrl: 'modules/client/signup/signup-successful.html'}).
-            when('/profile', {templateUrl: 'modules/client/profile/index.html'}).
+            when('/profile', {templateUrl: 'modules/client/profile/index.html', controller: SignupCtrl}).
+            when('/profile/signup', {templateUrl: 'modules/client/profile/signup.html', controller: SignupCtrl}).
             when('/profile/basic', {templateUrl: 'modules/client/profile/basic.html'}).
             when('/profile/info', {templateUrl: 'modules/client/profile/info.html'}).
             when('/profile/exam', {templateUrl: 'modules/client/profile/exam.html'}).
