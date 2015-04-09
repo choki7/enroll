@@ -7,6 +7,8 @@ html(ng-app='myApp')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     // Twitter Bootstrap
     link(href='/bower_components/bootstrap/dist/css/bootstrap.min.css', rel='stylesheet')
+    // Material Bootstrap
+    link(href='/bower_components/bootstrap-material-design/dist/css/material-fullpalette.css', rel='stylesheet')
     // 3rd party css library
     link(href='/stylesheets/3rd/bootstrap-datetimepicker.min.css', rel='stylesheet')
     link(href='/stylesheets/3rd/bootstrap-switch.css', rel='stylesheet')
@@ -15,16 +17,12 @@ html(ng-app='myApp')
     link(href='/stylesheets/3rd/jquery-ui.css', rel='stylesheet')
     link(href='/stylesheets/3rd/prettyPhoto.css', rel='stylesheet')
     link(href='/stylesheets/3rd/rateit.css', rel='stylesheet')
-    link(href='/stylesheets/3rd/style.css', rel='stylesheet')
     link(href='/stylesheets/3rd/widgets.css', rel='stylesheet')
     // Angular Config JS and Controllers for Single Page
     script(src='/bower_components/jquery/dist/jquery.min.js')
     script(src='/bower_components/bootstrap/dist/js/bootstrap.min.js')
     script(src='/bower_components/angular/angular.js')
     script(src='/bower_components/angular-route/angular-route.js')
-    script(src='/bower_components/angular-resource/angular-resource.js')
-    script(src='/bower_components/angular-sanitize/angular-sanitize.js')
-    script(src='/bower_components/angular-ui-router/release/angular-ui-router.js')
     script(src='/bower_components/angular-bootstrap/ui-bootstrap.min.js')
     script(src='/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js')
     // 3rd party js library
@@ -47,7 +45,47 @@ html(ng-app='myApp')
     script(src='/javascripts/controllers/LoginCtrl.js')
     script(src='/javascripts/controllers/RegisterCtrl.js')
     script(src='/javascripts/controllers/CategoryCtrl.js')
+    script(src='/javascripts/controllers/SignupCtrl.js')
+    script(src='/javascripts/controllers/EditSignupCtrl.js')
+
   body
-    div(ng-view)
-    block content
+  nav.navbar.navbar-material-grey-900.navbar-fixed-top(id = 'nav')
+    .container
+      .navbar-header
+        button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a.navbar-brand(href='#') 自主招生系统
+      #navbar.navbar-collapse.collapse(aria-expanded='false', style='height: 1px;')
+        ul.nav.navbar-nav
+          li.active
+            a(href='#') Home
+          li
+            a(href='#about') About
+          li
+            a(href='#contact') 联系我们
+        ul.nav.navbar-nav.navbar-right.enroll-navbar-right
+          li
+            a.btn.btn-material-light-blue-800.btn-inverse(href='#/login') 登陆
+          li
+            a.btn.btn-material-grey-700.btn-inverse(href='#/register') 注册
+
+      // /.nav-collapse
+
+  div(ng-view)
+  block content
+
+  footer
+    .well-material-blue-050
+      .container
+        .col-lg-8
+          h5
+            a(href='http;//www.ecnu.edu.cn') 华东师范大学
+          p 闵行校区：东川路500号 200241&nbsp;&nbsp;中山北路校区：中山北路3663号 200062
+          p 总机：86-21-62233333&nbsp;&nbsp;沪ICP备05003394
+        .col-lg-4
+          h5 技术支持：
+            a(href='http://www.eoffice.ecnu.edu.cn') 华东师范大学信息化办公室
 
