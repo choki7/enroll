@@ -60,6 +60,19 @@ angular.module('myApp', ['ngRoute'])
             when('/admin/basic/subject', {templateUrl: 'modules/admin/views/basic/subject.html'}).
             when('/admin/basic/system', {templateUrl: 'modules/admin/views/basic/system.html'}).
             when('/admin/basic/statement', {templateUrl: 'modules/admin/views/basic/statement.html'}).
+			when('/admin/registration/createReg', {templateUrl: 'modules/admin/views/registration/createReg.html'}).
+			when('/admin/registration/assignReg', {templateUrl: 'modules/admin/views/registration/assignReg.html'}).
+			when('/admin/registration/queryReg', {templateUrl: 'modules/admin/views/registration/queryReg.html'}).
+			when('/admin/registration/modifyReg', {templateUrl: 'modules/admin/views/registration/modifyReg.html'}).
+			when('/admin/registration/importExcel', {templateUrl: 'modules/admin/views/registration/importExcel.html'}).
+			when('/admin/registration/exportExcel', {templateUrl: 'modules/admin/views/registration/exportExcel.html'}).
+			when('/admin/examinee/operateExa', {templateUrl: 'modules/admin/views/examinee/operateExa.html'}).
+			when('/admin/examinee/queryExa', {templateUrl: 'modules/admin/views/examinee/queryExa.html'}).
+			when('/admin/site/siteSetting', {templateUrl: 'modules/admin/views/site/siteSetting.html'}).
+			when('/admin/site/roomSetting', {templateUrl: 'modules/admin/views/site/roomSetting.html'}).
+			when('/admin/site/assignSite', {templateUrl: 'modules/admin/views/site/assignSite.html'}).
+			when('/admin/score/importScore', {templateUrl: 'modules/admin/views/score/importScore.html'}).
+			when('/admin/score/queryScore', {templateUrl: 'modules/admin/views/score/queryScore.html'}).
             otherwise({redirectTo: '/index'});
     }]);
 /*
