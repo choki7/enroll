@@ -6,8 +6,7 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', function(req, res) {
       res.render('index', {
-      title: '华东师范大学自主招生',
-      loginField: '登陆'
+      title: '华东师范大学自主招生'
   });
 });
 
@@ -38,9 +37,6 @@ router.post('/login', function(req, res) {
       console.log('data from real backend :'+ data);
       res.send(data);
     }
-      res.render('/modules/client/login', {
-          loginField: '登出'
-      });
   }
 
   request(options, callback);
@@ -49,7 +45,7 @@ router.post('/login', function(req, res) {
 router.post('/register', function(req, res) {
   var reqBody = req.body;
   var postData = {
-    name: reqBody.name,
+    name: encodeURI(reqBody.name),
     sex: reqBody.sex,
     phone_number: reqBody.phone_number,
     email: reqBody.email,

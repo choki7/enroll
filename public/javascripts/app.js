@@ -5,8 +5,8 @@
 angular.module('myApp', ['ngRoute', 'ui.bootstrap'])
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider.
-            when('/', {templateUrl: 'modules/client/index.html'}).
-            when('/index', {templateUrl: 'modules/client/index.html'}).
+            when('/', {templateUrl: 'modules/client/index.html', controller:IndexCtrl}).
+            when('/index', {templateUrl: 'modules/client/index.html', controller:IndexCtrl}).
             when('/admin', {templateUrl: 'modules/admin/index.html'}).
             when('/admin/login', {templateUrl: 'modules/admin/login.html', controller:AdminLoginCtrl}).
             when('/login', {templateUrl: 'modules/client/login/login.html', controller:LoginCtrl}).
