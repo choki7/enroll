@@ -1,10 +1,5 @@
 <link rel="stylesheet" href="../stylesheets/3rd/style.css">
 <!-- Header starts -->
-<style>
-    #nav{
-        display: none;
-    }
-</style>
 <header>
   <div class="container">
     <div class="row">
@@ -257,14 +252,14 @@
 
     <!-- Page heading -->
     <div class="page-head">
-      <h2 class="pull-left"><i class="icon-home"></i>编辑高考说明</h2>
+      <h2 class="pull-left"><i class="icon-file-alt"></i>生成报名号</h2>
 
       <!-- Breadcrumb -->
       <div class="bread-crumb pull-right">
-        <a href="index"><i class="icon-home"></i>编辑高考说明</a>
+        <a href="../../index.html"><i class="icon-home"></i> 报名号管理</a>
         <!-- Divider -->
         <span class="divider">/</span>
-        <a href="#" class="bread-current">控制台</a>
+        <a href="#" class="bread-current">Dashboard</a>
       </div>
 
       <div class="clearfix"></div>
@@ -273,16 +268,16 @@
     <!-- Page heading ends -->
 
 
-
     <!-- Matter -->
 
     <div class="matter">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <h3>前台网上报名系统中，学生上报高考报名号时，会看到一段文字说明，管理员可以在此对这段文字说明进行编辑</h3>
+
             <div class="widget">
               <div class="widget-head">
+                <div class="pull-left">生成报名号</div>
                 <div class="widget-icons pull-right">
                   <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
                   <a href="#" class="wclose"><i class="icon-remove"></i></a>
@@ -291,38 +286,103 @@
               </div>
               <div class="widget-content medias" style="display: block;">
 
-                <div class="padd">
+                <table class="table table-striped table-bordered table-hover" data-ng-controller="CategoryTableCtrl">
+                  <thead>
+                  <tr>
 
-                  <h6>Input Boxs</h6>
-                  <hr />
-                  <!-- Form starts.  -->
-                  <form class="form-horizontal" role="form">
+                    <th>类型名称</th>
+                    <th>允许注册</th>
+                    <th>开始时间</th>
+                    <th>截止时间</th>
+                    <th>下载准考证</th>
+                    <th>查看成绩</th>
+                    <th>查看考场</th>
+                    <th>操作</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr ng-repeat="category in categories">
 
-                    <div class="form-group">
-                      <label class="col-lg-4 control-label">CLEditor</label>
-                      <div class="col-lg-8">
-                        <textarea class="cleditor" name="input"></textarea>
+                    <td>{{category.name}}</td>
+                    <td>
+                      <div class="make-switch has-switch switch-small" data-on="primary" data-off="info">
+                        <div class="switch-animate switch-on"><input type="checkbox" checked="true"><span class="switch-left switch-primary">ON</span><label>&nbsp;</label><span class="switch-right switch-info">OFF</span></div>
                       </div>
-                    </div>
-
-                    <hr />
-                    <div class="form-group">
-                      <div class="col-lg-offset-1 col-lg-9">
-                        <button type="button" class="btn btn-default">取消</button>
-                        <button type="button" class="btn btn-info">保存</button>
+                    </td>
+                    <td style="width: 16%;">{{category.start_register_time}}</td>
+                    <td style="width: 16%">{{category.end_register_time}}</td>
+                    <td>
+                      <div class="make-switch has-switch switch-small" data-on="primary" data-off="info">
+                        <div class="switch-animate switch-on"><input type="checkbox" checked=""><span class="switch-left switch-primary">ON</span><label>&nbsp;</label><span class="switch-right switch-info">OFF</span></div>
                       </div>
-                    </div>
-                  </form>
-                </div>
+                    </td>
+                    <td>
+                      <div class="make-switch has-switch switch-small" data-on="primary" data-off="info">
+                        <div class="switch-animate switch-on"><input type="checkbox" checked=""><span class="switch-left switch-primary">ON</span><label>&nbsp;</label><span class="switch-right switch-info">OFF</span></div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="make-switch has-switch switch-small" data-on="primary" data-off="info">
+                        <div class="switch-animate switch-on"><input type="checkbox" checked=""><span class="switch-left switch-primary">ON</span><label>&nbsp;</label><span class="switch-right switch-info">OFF</span></div>
+                      </div>
+                    </td>
+
+                    <td>
+                      <button class="btn btn-lg btn-info" data-ng-click="createCategory()">生成</button>
+                    </td>
+                  </tr>
+
+                  <tr>
+
+                    <td>免费师范生</td>
+                    <td>
+                      <div class="make-switch has-switch switch-small" data-on="primary" data-off="info">
+                        <div class="switch-animate switch-on"><input type="checkbox" checked=""><span class="switch-left switch-primary">ON</span><label>&nbsp;</label><span class="switch-right switch-info">OFF</span></div>
+                      </div>
+                    </td>
+                    <td style="width: 16%;">2015-04-01 00:00</td>
+                    <td style="width: 16%">2015-05-01 24:00</td>
+                    <td>
+                      <div class="make-switch has-switch switch-small" data-on="primary" data-off="info">
+                        <div class="switch-animate switch-on"><input type="checkbox" checked=""><span class="switch-left switch-primary">ON</span><label>&nbsp;</label><span class="switch-right switch-info">OFF</span></div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="make-switch has-switch switch-small" data-on="primary" data-off="info">
+                        <div class="switch-animate switch-on"><input type="checkbox" checked=""><span class="switch-left switch-primary">ON</span><label>&nbsp;</label><span class="switch-right switch-info">OFF</span></div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="make-switch has-switch switch-small" data-on="primary" data-off="info">
+                        <div class="switch-animate switch-on"><input type="checkbox" checked=""><span class="switch-left switch-primary">ON</span><label>&nbsp;</label><span class="switch-right switch-info">OFF</span></div>
+                      </div>
+                    </td>
+                    <td>
+                      <button class="btn btn-lg btn-info" data-ng-click="createCategory()">生成</button>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+
                 <div class="widget-foot">
 
+
+
+                  <ul class="pagination pull-right">
+                    <li><a href="#">Prev</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">Next</a></li>
+                  </ul>
+
+                  <div class="clearfix"></div>
+
                 </div>
+
               </div>
             </div>
+
           </div>
         </div>
-
-
       </div>
     </div>
 
@@ -352,3 +412,4 @@
 
 <!-- Scroll to top -->
 <span class="totop"><a href="#"><i class="icon-chevron-up"></i></a></span>
+

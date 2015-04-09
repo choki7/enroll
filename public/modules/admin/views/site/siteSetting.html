@@ -1,10 +1,6 @@
 <link rel="stylesheet" href="../stylesheets/3rd/style.css">
+
 <!-- Header starts -->
-<style>
-    #nav{
-        display: none;
-    }
-</style>
 <header>
   <div class="container">
     <div class="row">
@@ -257,11 +253,11 @@
 
     <!-- Page heading -->
     <div class="page-head">
-      <h2 class="pull-left"><i class="icon-home"></i>编辑高考说明</h2>
+      <h2 class="pull-left"><i class="icon-home"></i>科目设置</h2>
 
       <!-- Breadcrumb -->
       <div class="bread-crumb pull-right">
-        <a href="index"><i class="icon-home"></i>编辑高考说明</a>
+        <a href="index"><i class="icon-home"></i>科目设置</a>
         <!-- Divider -->
         <span class="divider">/</span>
         <a href="#" class="bread-current">控制台</a>
@@ -280,7 +276,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <h3>前台网上报名系统中，学生上报高考报名号时，会看到一段文字说明，管理员可以在此对这段文字说明进行编辑</h3>
+
             <div class="widget">
               <div class="widget-head">
                 <div class="widget-icons pull-right">
@@ -291,30 +287,65 @@
               </div>
               <div class="widget-content medias" style="display: block;">
 
-                <div class="padd">
+                <table class="table table-striped table-bordered table-hover">
+                  <thead>
+                  <tr>
 
-                  <h6>Input Boxs</h6>
-                  <hr />
-                  <!-- Form starts.  -->
-                  <form class="form-horizontal" role="form">
+                    <th>类型名称</th>
+                    <th>考点</th>
+                    <th>操作</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td rowspan="2">免费师范生</td>
+                    <td>考点1</td>
+                    <td>
+                      <button class="btn btn-xs btn-default"><i class="icon-edit"></i></button>
+                      <button class="btn btn-xs btn-info"><i class="icon-plus"></i></button>
+                      <button class="btn btn-xs btn-danger"><i class="icon-remove"></i> </button>
+                    </td>
+                  </tr>
+                  <tr>
 
-                    <div class="form-group">
-                      <label class="col-lg-4 control-label">CLEditor</label>
-                      <div class="col-lg-8">
-                        <textarea class="cleditor" name="input"></textarea>
-                      </div>
-                    </div>
+                    <td>考点2</td>
+                    <td>
+                      <button class="btn btn-xs btn-default"><i class="icon-edit"></i></button>
+                      <button class="btn btn-xs btn-info"><i class="icon-plus"></i></button>
+                      <button class="btn btn-xs btn-danger"><i class="icon-remove"></i> </button>
+                    </td>
+                  </tr>
+                  <tr>
 
-                    <hr />
-                    <div class="form-group">
-                      <div class="col-lg-offset-1 col-lg-9">
-                        <button type="button" class="btn btn-default">取消</button>
-                        <button type="button" class="btn btn-info">保存</button>
-                      </div>
-                    </div>
-                  </form>
-                </div>
+                    <td>外语类</td>
+                    <td>考点xx</td>
+                    <td>
+                      <button class="btn btn-xs btn-default"><i class="icon-edit"></i></button>
+                      <button class="btn btn-xs btn-info"><i class="icon-plus"></i></button>
+                      <button class="btn btn-xs btn-danger"><i class="icon-remove"></i> </button>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+
                 <div class="widget-foot">
+
+                  <div class="uni pull-left">
+                    <select class="form-control">
+                      <option>操作</option>
+                      <option>新增</option>
+                      <option>删除</option>
+                      <option>修改</option>
+                    </select>
+                  </div>
+
+                  <ul class="pagination pull-right">
+                    <li><a href="#">Prev</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">Next</a></li>
+                  </ul>
+
+                  <div class="clearfix"></div>
 
                 </div>
               </div>
@@ -352,3 +383,4 @@
 
 <!-- Scroll to top -->
 <span class="totop"><a href="#"><i class="icon-chevron-up"></i></a></span>
+

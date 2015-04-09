@@ -7,25 +7,14 @@ var router = express.Router();
 router.get('/', function(req, res) {
   res.render('index', { title: '华东师范大学自主招生' });
 });
+router.get('/admin', function(req, res) {
+    res.render('admin');
+});
 
 router.get('/admin', function(req, res) {
   res.render('admin');
 });
 
-router.get('/admin/get_system_config', function(req, res) {
-    var options = {
-        url: 'http://enrollsystem.sinaapp.com/controller.php',
-        method: 'GET'
-    };
-
-    function callback(error, response, data) {
-        if (!error && response.statusCode == 200) {
-            console.log('data from real backend :'+ data);
-            res.send(data);
-        }
-    };
-    request(options, callback);
-})
 router.post('/login', function(req, res) {
   var reqBody = req.body;
   var postData = {
@@ -53,7 +42,8 @@ router.post('/login', function(req, res) {
       console.log('data from real backend :'+ data);
       res.send(data);
     }
-  };
+  }
+
   request(options, callback);
 });
 
@@ -98,6 +88,12 @@ router.post('/register', function(req, res) {
 
   request(options, callback);
 });
+/**
+ * 考试类型设置
+ * set_manager_exam_info
+ * name,start_register_time,end_register_time,can_register,can_login,can_download_addmission,can_query_score,can_query_exam_room
+ *
+ * */
 router.post('/admin/set_manager_exam_info', function(req, res) {
     var reqBody = req.body;
 
@@ -141,4 +137,208 @@ router.post('/admin/set_manager_exam_info', function(req, res) {
 
     request(options, callback);
 });
+/*
+ * 小类设置
+ * set_student_type
+ * name exam_id
+ * */
+router.post('/admin/set_student_type', function(req, res) {
+    var reqBody = req.body;
+
+    var postData = {
+        "name":"1",
+        "exam_id":"2"
+    };
+
+    var options = {
+        url: 'http://enrollsystem.sinaapp.com/controller.php',
+        headers: {'content-type' : 'application/json'},
+        method: 'POST',
+        json: {
+            "manager_up": {
+                "set_student_type": {
+                    "name":postData.name,
+                    "exam_id":postData.exam_id
+                }
+            }
+        }
+    };
+
+    function callback(error, response, data) {
+        if (!error && response.statusCode == 200) {
+            console.log('data from real backend :'+ data);
+            res.send(data);
+        }
+    }
+
+    request(options, callback);
+});
+
+/**
+ * get_student_type
+ * id,name
+ * */
+router.get('/admin/get_student_type', function(req, res) {
+
+    var options = {
+        url: 'http://enrollsystem.sinaapp.com/controller.php',
+        method: 'GET'
+    };
+
+    function callback(error, response, data) {
+        if (!error && response.statusCode == 200) {
+            console.log('data from real backend :'+ data);
+            res.send(data);
+        }
+    };
+
+    request(options, callback);
+})
+/**
+ * set_exam_category 考试科目设置
+ * category
+ * exam_id
+ * */
+router.post('/admin/set_exam_category', function(req, res) {
+    var reqBody = req.body;
+
+    var postData = {
+        "exam_id":"1",
+        "category":"English"
+    };
+
+    var options = {
+        url: 'http://enrollsystem.sinaapp.com/controller.php',
+        headers: {'content-type' : 'application/json'},
+        method: 'POST',
+        json: {
+            "manager_up": {
+                "set_exam_category": {
+                    "exam_id":postData.exam_id,
+                    "category":postData.category
+                }
+            }
+        }
+    };
+
+    function callback(error, response, data) {
+        if (!error && response.statusCode == 200) {
+            console.log('data from real backend :'+ data);
+            res.send(data);
+        }
+    }
+
+    request(options, callback);
+});
+/**
+ * get_exam_category
+ * examId
+ * */
+router.get('/admin/get_exam_category', function(req, res) {
+
+    var options = {
+        url: 'http://enrollsystem.sinaapp.com/controller.php',
+        method: 'GET',
+        examId:'123'
+    };
+
+    function callback(error, response, data) {
+        if (!error && response.statusCode == 200) {
+            console.log('data from real backend :'+ data);
+            res.send(data);
+        }
+    };
+
+    request(options, callback);
+})
+/**
+ * set_system_config 系统设置
+ * category，exam_id
+ *
+ * */
+router.post('/admin/set_system_config', function(req, res) {
+    var reqBody = req.body;
+
+    var postData = {
+        "can_register":"1",
+        "can_login":"English",
+        "content":"高考号填写须知"
+    };
+
+    var options = {
+        url: 'http://enrollsystem.sinaapp.com/controller.php',
+        headers: {'content-type' : 'application/json'},
+        method: 'POST',
+        json: {
+            "manager_up": {
+                "set_system_config": {
+                    "can_register":postData.can_register,
+                    "can_login":postData.can_login,
+                    "content":postData.content
+                }
+            }
+        }
+    };
+
+    function callback(error, response, data) {
+        if (!error && response.statusCode == 200) {
+            console.log('data from real backend :'+ data);
+            res.send(data);
+        }
+    }
+
+    request(options, callback);
+});
+/**
+* get_system_config
+* */
+router.get('/admin/get_system_config', function(req, res) {
+
+    var options = {
+        url: 'http://enrollsystem.sinaapp.com/controller.php',
+        method: 'GET'
+    };
+
+    function callback(error, response, data) {
+        if (!error && response.statusCode == 200) {
+            console.log('data from real backend :'+ data);
+            res.send(data);
+        }
+    };
+
+    request(options, callback);
+})
+
+//set_student_exam_room_by_exam examId 分配考场
+router.post('/admin/set_system_config', function(req, res) {
+    var reqBody = req.body;
+
+    var postData = {
+        "examId":"1"
+    };
+
+    var options = {
+        url: 'http://enrollsystem.sinaapp.com/controller.php',
+        headers: {'content-type' : 'application/json'},
+        method: 'POST',
+        json: {
+            "manager_up": {
+                "set_system_config": {
+                    "examId":postData.examId
+                }
+            }
+        }
+    };
+
+    function callback(error, response, data) {
+        if (!error && response.statusCode == 200) {
+            console.log('data from real backend :'+ data);
+            res.send(data);
+        }
+    }
+
+    request(options, callback);
+});
+
+
 module.exports = router;
