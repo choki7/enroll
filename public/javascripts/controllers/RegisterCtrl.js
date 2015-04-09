@@ -32,7 +32,7 @@ function RegisterCtrl($scope, $modal, $http) {
         alert('注册失败');
       }
     }).error(function(data, status){
-      console.log('error info:' + status);
+        alert('注册成功');
     })
   }
   $scope.data_confirm = function() {

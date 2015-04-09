@@ -1,24 +1,67 @@
 <div class="enroll-login-container">
-  <div class="col-lg-4"></div>
-  <div class="col-lg-4" ng-controller="LoginCtrl" ng-submit="signIn()">
-    <h2 class="text-center">报名</h2>
-    <div class="jumbotron">
-      <tabset justified="true">
-        <tab heading="已有报名号" class="btn btn-material-blue-400">
-          <form class="form-horizontal" role="form">
-            <div class="form-group ">
-              <input type="text" class="form-control" placeholder="输入报名号" required>
-              <span class="input-group-btn">
-                <button class="btn btn-default btn-raised" type="button">验证</button>
-              </span>
+    <div class="col-lg-1"></div>
+    <div class="col-lg-10">
+        <div class="jumbotron">
+            <div class="container">
+                <div class="col-lg-8">
+                    <div class="login-left-panel"></div>
+                </div>
+                <div class="col-lg-4">
+                    <h3 class="text-center">申请报名号</h3>
+                    <tabset justified="true">
+                        <tab heading="已有报名号" class="btn btn-material-grey-400">
+                            <div class="container">
+                                <div class="col-lg-12">
+                                    <form class="form-horizontal" role="form">
+                                        <div class="form-group ">
+                                            <label class="col-lg-5 control-label">输入报名号</label>
+                                            <div class="col-lg-7">
+                                                <input type="text" ng-model="account" class="form-control" placeholder="输入报名号" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-lg-7 col-lg-offset-5">
+                                                <button class="btn btn-default btn-raised" type="button" ng-click="verifyAccount()">验证</button>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <span ng-show="verifyed">报名号存在，<a href="#/signup/edit">填写报名信息</a></span>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </tab>
+                        <tab heading="没有报名号" class="btn btn-material-blue-200">
+                            <div class="col-lg-12">
+                                <form class="form-horizontal" role="form">
+                                    <div class="form-group ">
+                                        <label class="col-lg-5 control-label">选择考试类型</label>
+                                        <div class="col-sm-7">
+                                            <select class="form-control" data-ng-model="type" required>
+                                                <option value="0">免费师范生</option>
+                                                <option value="1">艺术特长生</option>
+                                                <option value="2">高水平运动员</option>
+                                                <option value="3">播音与主持艺术</option>
+                                                <option value="4">音乐学</option>
+                                                <option value="5">美术学</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-7 col-sm-offset-5">
+                                            <button class="btn btn-default btn-raised" type="button" ng-click="generateAccount()">生成报名号</button>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <span ng-show="generated">报名号为<span class="label label-warning">010</span>44527789<a href="#/signup/edit">填写报名信息</a></span>                                        </div>
+                                </form>
+                            </div>
+                        </tab>
+                    </tabset>
+                </div>
             </div>
-          </form>
-        </tab>
-        <tab heading="没有报名号" class="btn btn-material-blue-400">
-          <button class="btn btn-default btn-raised" type="button">生成报名号</button>
-        </tab>
-      </tabset>
+        </div>
     </div>
-  </div>
-  <div class="col-lg-4"></div>
+    <div class="col-lg-1"></div>
 </div>
+
