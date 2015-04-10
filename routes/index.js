@@ -1,6 +1,5 @@
 var express = require('express');
 var http = require('http');
-var querystring = require('querystring');
 var request = require('request');
 var router = express.Router();
 
@@ -49,42 +48,46 @@ router.post('/login', function(req, res) {
 });
 
 router.post('/register', function(req, res) {
-  var reqBody = req.body;
-    var name = querystring.encode("张");
-  var postData = {
-    name: name,
-    sex: reqBody.sex,
-    phone_number: reqBody.phone_number,
-    email: reqBody.email,
-    province: reqBody.province,
-    national_identify_id: reqBody.national_identify_id,
-    school: reqBody.school,
-    password: reqBody.password
-  };
-    console.log(postData);
-  var options = {
-    url: 'http://enrollsystem.sinaapp.com/controller.php',
-    headers: {'content-type' : 'application/json'},
-    method: 'POST',
-    json: {
-      "student_up": {
-        "set_student_register": JSON.stringify(postData)
-      }
-    }
-  };
+    var reqBody = req.body;
+    var postData = {
+        name: encodeURI(reqBody.name),
+        sex: reqBody.sex,
+        phone_number: reqBody.phone_number,
+        email: reqBody.email,
+        province: encodeURI(reqBody.province),
+        national_identify_id: reqBody.national_identify_id,
+        school: encodeURI(reqBody.school),
+        password: reqBody.password
+    };
+    var options = {
+        url: 'http://enrollsystem.sinaapp.com/controller.php',
+        headers: {'content-type' : 'application/json'},
+        method: 'POST',
+        json: {
+            "student_up": {
+                "set_student_register": {
+                    "name": postData.name,
+                    "sex": postData.sex,
+                    "phone_number": postData.phone_number,
+                    "email": postData.email,
+                    "province": postData.province,
+                    "national_identify_id": postData.national_identify_id,
+                    "school": postData.school,
+                    "password": postData.password
+                }
+            }
+        }
+    };
 
-  function callback(error, response, data) {
-    if (!error && response.statusCode == 200) {
-      console.log('data from real backend :'+ data);
-      res.send(data);
-    } else{
-        console.log(options)
+    function callback(error, response, data) {
+        if (!error && response.statusCode == 200) {
+            console.log('data from real backend :'+ data);
+            res.send(data);
+        }
     }
-  }
-  request(options, callback);
+
+    request(options, callback);
 });
-
-
 
 //Admin
 /**
