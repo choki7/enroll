@@ -8,8 +8,9 @@ angular.module('myApp', ['ngRoute', 'ui.bootstrap'])
             when('/', {templateUrl: 'modules/client/index.html'}).
             when('/index', {templateUrl: 'modules/client/index.html'}).
             when('/admin', {templateUrl: 'modules/admin/index.html'}).
-            when('/admin/login', {templateUrl: 'modules/admin/login.html'}).
+            when('/admin/login', {templateUrl: 'modules/admin/login.html', controller:AdminLoginCtrl}).
             when('/login', {templateUrl: 'modules/client/login/login.html', controller:LoginCtrl}).
+            when('/logout', {templateUrl: 'modules/client/logout.html', controller:LoginCtrl}).
             when('/login-successful', {templateUrl: 'modules/client/login/login-successful.html'}).
             when('/register', {templateUrl: 'modules/client/register/register.html', controller: RegisterCtrl}).
             when('/register/confirm', {templateUrl: 'modules/client/register/confirm.html'}).

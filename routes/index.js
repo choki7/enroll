@@ -5,14 +5,9 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { title: '华东师范大学自主招生' });
-});
-router.get('/admin', function(req, res) {
-    res.render('admin');
-});
-
-router.get('/admin', function(req, res) {
-  res.render('admin');
+      res.render('index', {
+      title: '华东师范大学自主招生'
+  });
 });
 
 router.post('/login', function(req, res) {
@@ -50,7 +45,7 @@ router.post('/login', function(req, res) {
 router.post('/register', function(req, res) {
   var reqBody = req.body;
   var postData = {
-    name: reqBody.name,
+    name: encodeURI(reqBody.name),
     sex: reqBody.sex,
     phone_number: reqBody.phone_number,
     email: reqBody.email,
@@ -88,6 +83,10 @@ router.post('/register', function(req, res) {
 
   request(options, callback);
 });
+
+
+
+//Admin
 /**
  * 考试类型设置
  * set_manager_exam_info
@@ -250,7 +249,7 @@ router.get('/admin/get_exam_category', function(req, res) {
     };
 
     request(options, callback);
-})
+});
 /**
  * set_system_config 系统设置
  * category，exam_id
@@ -339,6 +338,47 @@ router.post('/admin/set_system_config', function(req, res) {
 
     request(options, callback);
 });
+/**
+ * get_qulified_student
+ * province,verify,national_exam_id,school
+ *
+ * */
+router.get('/admin/get_qulified_student', function(req, res) {
 
+    var options = {
+        url: 'http://enrollsystem.sinaapp.com/controller.php',
+        method: 'GET'
+    };
+
+    function callback(error, response, data) {
+        if (!error && response.statusCode == 200) {
+            console.log('data from real backend :'+ data);
+            res.send(data);
+        }
+    };
+
+    request(options, callback);
+});
+/**
+ * get_student_register_code
+ * */
+router.get('/admin/get_student_register_code', function(req, res) {
+
+    var options = {
+        url: 'http://enrollsystem.sinaapp.com/controller.php',
+        method: 'GET',
+        exam_id:'123',
+        my_id:'100001'
+    };
+
+    function callback(error, response, data) {
+        if (!error && response.statusCode == 200) {
+            console.log('data from real backend :'+ data);
+            res.send(data);
+        }
+    };
+
+    request(options, callback);
+});
 
 module.exports = router;

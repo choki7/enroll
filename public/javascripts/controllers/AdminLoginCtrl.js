@@ -1,9 +1,9 @@
 /**
- * Created by Cami on 15/3/25.
+ * Created by choki on 15/4/9.
  */
 'use strict'
-function LoginCtrl($scope, $http, $location) {
-    $scope.signIn = function() {
+function AdminLoginCtrl($scope, $http, $location) {
+    $scope.adminSignIn = function() {
         $scope.login = {
             account: $scope.account,
             password: $scope.password
@@ -19,17 +19,13 @@ function LoginCtrl($scope, $http, $location) {
         $http(req).success(function(data){
             if(data){
                 if(data.common_down.login_reply.state.is_success == true) {
-                    $scope.$parent.logined = false;
-                    $scope.$parent.logout = true;
-                    $location.path('/profile');
+                    $location.path('/admin');
                 }
             }else{
                 alert('账号或密码有误');
             }
         }).error(function(data, status){
-            $scope.$parent.logined = false;
-            $scope.$parent.logout = true;
-            $location.path('/profile');
+            $location.path('/admin/login');
         })
     };
 }
