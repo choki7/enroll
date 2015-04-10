@@ -91,6 +91,27 @@ router.post('/register', function(req, res) {
 
 //Admin
 /**
+ * 获取所有考试类型
+ * */
+router.get('/admin/get_all_exam', function(req, res) {
+    var options = {
+        url: 'http://enrollsystem.sinaapp.com/controller.php',
+        header: {'content-type': 'application/json'},
+        method: 'POST',
+        json: {
+            common_up:{get_all_exam:{}}
+        }
+    };
+    function callback(error, response, data) {
+        if (!error && response.statusCode == 200) {
+            console.log('data from real backend :'+ data);
+            res.send(data);
+        }
+    }
+
+    request(options, callback);
+})
+/**
  * 考试类型设置
  * set_manager_exam_info
  * name,start_register_time,end_register_time,can_register,can_login,can_download_addmission,can_query_score,can_query_exam_room
@@ -205,10 +226,8 @@ router.post('/admin/set_exam_category', function(req, res) {
     var reqBody = req.body;
 
     var postData = {
-        "exam_id":"1",
-        "category":"English"
+        "category": reqBody.category
     };
-
     var options = {
         url: 'http://enrollsystem.sinaapp.com/controller.php',
         headers: {'content-type' : 'application/json'},
@@ -216,7 +235,6 @@ router.post('/admin/set_exam_category', function(req, res) {
         json: {
             "manager_up": {
                 "set_exam_category": {
-                    "exam_id":postData.exam_id,
                     "category":postData.category
                 }
             }
