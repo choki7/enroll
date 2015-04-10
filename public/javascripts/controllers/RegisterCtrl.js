@@ -24,6 +24,7 @@ function RegisterCtrl($scope, $modal, $http) {
       data: JSON.stringify(postData)
     };
     $http(req).success(function(data){
+        console.log(data);
       if(data) {
         if(data.student_down.set_student_register_reply.state.is_success == true){
           alert('注册成功');
