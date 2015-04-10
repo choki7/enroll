@@ -19,12 +19,16 @@ function LoginCtrl($scope, $http, $location) {
         $http(req).success(function(data){
             if(data){
                 if(data.common_down.login_reply.state.is_success == true) {
-                    $location.path('/login-successful')
+                    $scope.$parent.logined = false;
+                    $scope.$parent.logout = true;
+                    $location.path('/profile');
                 }
             }else{
                 alert('账号或密码有误');
             }
         }).error(function(data, status){
+            $scope.$parent.logined = false;
+            $scope.$parent.logout = true;
             $location.path('/profile');
         })
     };
