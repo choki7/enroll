@@ -2,7 +2,19 @@
  * Created by Cami on 15/4/2.
  */
 'use strict'
-function CategoryTableCtrl($scope, $http) {
+angular.module('myApp').controller('CategoryTableCtrl', ['$scope' , '$http', function($scope, $http) {
+    $scope.today = function() {
+        $scope.dt = new Date().toDateString();
+    };
+    $scope.today();
+    $scope.open = function($event) {
+        $event.preventDefault();
+        $event.stopPropagation();
+
+        $scope.opened = true;
+    };
+    $scope.format = 'yyyy/MM/dd';
+
     $scope.categories = [
         {
             name: '体育特长生',
@@ -40,5 +52,6 @@ function CategoryTableCtrl($scope, $http) {
             console.log('error info:' + status);
         })
     };
-}
+}])
+
 

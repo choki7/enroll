@@ -143,7 +143,12 @@
                                                 <input type="checkbox" checked>
                                             </div>
                                         </td>
-                                        <td style="width: 16%;"><input type="date" value="">{{category.start_register_time}}</td>
+                                        <td style="width: 20%;">
+                                            <input style="width: 120px; float: left" type="text" class="col-sm-8 form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                                            <span class="input-group-btn col-sm-4">
+                                                <button type="button" class="btn btn-primary btn-xs" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                            </span>
+                                        </td>
                                         <td style="width: 16%">{{category.end_register_time}}</td>
                                         <td>
                                             <div class="make-switch switch-mini" data-on="primary" data-off="info">
