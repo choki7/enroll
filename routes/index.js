@@ -264,7 +264,7 @@ router.post('/admin/set_system_config', function(req, res) {
     var postData = {
         "can_register":"1",
         "can_login":"English",
-        "content":"高考号填写须知"
+        "content":reqBody.content
     };
 
     var options = {
@@ -294,11 +294,17 @@ router.post('/admin/set_system_config', function(req, res) {
 /**
 * get_system_config
 * */
-router.get('/admin/get_system_config', function(req, res) {
+router.post('/admin/get_system_config', function(req, res) {
 
     var options = {
         url: 'http://enrollsystem.sinaapp.com/controller.php',
-        method: 'GET'
+        method: 'POST',
+        json: {
+            "manager_up": {
+                "get_system_config": {
+                }
+            }
+        }
     };
 
     function callback(error, response, data) {
