@@ -1,5 +1,6 @@
 var express = require('express');
 var http = require('http');
+var querystring = require('querystring');
 var request = require('request');
 var router = express.Router();
 
@@ -39,7 +40,7 @@ router.post('/login', function(req, res) {
 
   function callback(error, response, data) {
     if (!error && response.statusCode == 200) {
-      console.log('data from real backend :'+ data);
+      console.log('data from real backend :'+ JSON.stringify(data));
       res.send(data);
     }
   }
@@ -49,8 +50,9 @@ router.post('/login', function(req, res) {
 
 router.post('/register', function(req, res) {
   var reqBody = req.body;
+    var name = querystring.encode("张");
   var postData = {
-    name: reqBody.name,
+    name: name,
     sex: reqBody.sex,
     phone_number: reqBody.phone_number,
     email: reqBody.email,
@@ -59,22 +61,14 @@ router.post('/register', function(req, res) {
     school: reqBody.school,
     password: reqBody.password
   };
+    console.log(postData);
   var options = {
     url: 'http://enrollsystem.sinaapp.com/controller.php',
     headers: {'content-type' : 'application/json'},
     method: 'POST',
     json: {
       "student_up": {
-        "set_student_register": {
-          "name": postData.name,
-          "sex": postData.sex,
-          "phone_number": postData.phone_number,
-          "email": postData.email,
-          "province": postData.province,
-          "national_identify_id": postData.national_identify_id,
-          "school": postData.school,
-          "password": postData.password
-        }
+        "set_student_register": JSON.stringify(postData)
       }
     }
   };
@@ -83,9 +77,10 @@ router.post('/register', function(req, res) {
     if (!error && response.statusCode == 200) {
       console.log('data from real backend :'+ data);
       res.send(data);
+    } else{
+        console.log(options)
     }
   }
-
   request(options, callback);
 });
 
@@ -385,5 +380,121 @@ router.get('/admin/get_student_register_code', function(req, res) {
 
     request(options, callback);
 });
+/*
+* set_exam_exam_place
+* 给考试增加考点
+* */
+router.post('/admin/set_exam_place', function(req, res) {
+    var reqBody = req.body;
 
-module.exports = router;
+    var postData = {
+        "examId":"1",
+        "placeId":"123"
+    };
+
+    var options = {
+        url: 'http://enrollsystem.sinaapp.com/controller.php',
+        headers: {'content-type' : 'application/json'},
+        method: 'POST',
+        json: {
+            "manager_up": {
+                "set_system_config": {
+                    "exam_id":postData.examId,
+                    "place_id":postData.placeId
+                }
+            }
+        }
+    };
+
+    function callback(error, response, data) {
+        if (!error && response.statusCode == 200) {
+            console.log('data from real backend :'+ data);
+            res.send(data);
+        }
+    }
+
+    request(options, callback);
+});
+/*
+* get_exam_place 获得考试相关地点
+* exam_id,place_name
+* */
+
+router.get('/admin/get_exam_place', function(req, res) {
+
+    var options = {
+        url: 'http://enrollsystem.sinaapp.com/controller.php',
+        method: 'GET'
+    };
+
+    function callback(error, response, data) {
+        if (!error && response.statusCode == 200) {
+            console.log('data from real backend :'+ data);
+            res.send(data);
+        }
+    };
+
+    request(options, callback);
+});
+/*
+ * set_exam_room
+ * 给某个考点增加考场 category 是考试科目
+  * */
+router.post('/admin/set_exam_room', function(req, res) {
+    var reqBody = req.body;
+
+    var postData = {
+        "exam_category_id":"1",
+        "place_id":"123",
+        "name":"123"
+    };
+
+    var options = {
+        url: 'http://enrollsystem.sinaapp.com/controller.php',
+        headers: {'content-type' : 'application/json'},
+        method: 'POST',
+        json: {
+            "manager_up": {
+                "set_system_config": {
+                    "exam_id":postData.examId,
+                    "place_id":postData.placeId
+                }
+            }
+        }
+    };
+
+    function callback(error, response, data) {
+        if (!error && response.statusCode == 200) {
+            console.log('data from real backend :'+ data);
+            res.send(data);
+        }
+    }
+
+    request(options, callback);
+});
+
+
+/*
+ * get_exam_room 获得某个考点的考场
+ * place_id
+ * */
+
+router.get('/admin/get_exam_room', function(req, res) {
+
+    var options = {
+        url: 'http://enrollsystem.sinaapp.com/controller.php',
+        method: 'GET',
+        place_id:'123123'
+    };
+
+    function callback(error, response, data) {
+        if (!error && response.statusCode == 200) {
+            console.log('data from real backend :'+ data);
+            res.send(data);
+        }
+    };
+
+    request(options, callback);
+});
+
+ module.exports = router;
