@@ -275,7 +275,7 @@
 
     <!-- Matter -->
 
-    <div class="matter">
+    <div class="matter" data-ng-controller="AdminSystemConfigCtrl">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
@@ -300,7 +300,7 @@
                     <div class="form-group">
                       <label class="col-lg-4 control-label"></label>
                       <div class="col-lg-8">
-                        <textarea class="cleditor" style="width: 400px;height: 200px" name="input"></textarea>
+                        <textarea class="cleditor" style="width: 400px;height: 200px" name="input" data-ng-model="content"></textarea>
                       </div>
                     </div>
 
@@ -308,7 +308,7 @@
                     <div class="form-group">
                       <div class="col-lg-offset-1 col-lg-9">
                         <button type="button" class="btn btn-default">取消</button>
-                        <button type="button" class="btn btn-info">保存</button>
+                        <button type="button" class="btn btn-info" data-ng-click="set_system_config()">保存</button>
                       </div>
                     </div>
                   </form>

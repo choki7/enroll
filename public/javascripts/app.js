@@ -29,7 +29,7 @@ angular.module('myApp', ['ngRoute', 'ui.bootstrap'])
             when('/admin/basic/subclass', {templateUrl: 'modules/admin/views/basic/subclass.html'}).
             when('/admin/basic/subject', {templateUrl: 'modules/admin/views/basic/subject.html'}).
             when('/admin/basic/system', {templateUrl: 'modules/admin/views/basic/system.html'}).
-            when('/admin/basic/statement', {templateUrl: 'modules/admin/views/basic/statement.html'}).
+            when('/admin/basic/statement', {templateUrl: 'modules/admin/views/basic/statement.html', controller: AdminSystemConfigCtrl}).
 			when('/admin/registration/createReg', {templateUrl: 'modules/admin/views/registration/createReg.html'}).
 			when('/admin/registration/assignReg', {templateUrl: 'modules/admin/views/registration/assignReg.html'}).
 			when('/admin/registration/queryReg', {templateUrl: 'modules/admin/views/registration/queryReg.html'}).
