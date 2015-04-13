@@ -29,7 +29,8 @@ function LoginCtrl($scope, $http, $location) {
         }).error(function(data, status){
             $scope.$parent.logined = false;
             $scope.$parent.logout = true;
-            $location.path('/profile');
+            //$location.path('/profile');
+            alert('账号或密码有误');
         })
     };
 }
