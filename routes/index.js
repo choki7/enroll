@@ -506,7 +506,7 @@ router.post('/admin/set_exam_room', function(req, res) {
  * place_id
  * */
 
-router.get('/admin/get_exam_room', function(req, res) {
+router.post('/admin/get_exam_room', function(req, res) {
 
     var options = {
         url: 'http://enrollsystem.sinaapp.com/controller.php',
@@ -520,6 +520,38 @@ router.get('/admin/get_exam_room', function(req, res) {
             res.send(data);
         }
     };
+
+    request(options, callback);
+});
+
+/**
+ * set_password_modify 重设密码
+ * old_password，new_password，my_id
+ */
+router.post('/set_password_modify', function(req, res) {
+
+    var reqBody = req.body;
+    var options = {
+        url: 'http://enrollsystem.sinaapp.com/controller.php',
+        headers: {'content-type' : 'application/json'},
+        method: 'POST',
+        json: {
+            "student_up": {
+                "set_password_modify": {
+                    "old_password":reqBody.old_password,
+                    "new_password":reqBody.new_password
+                }
+            },"my_id":reqBody.my_id
+        }
+    };
+
+    function callback(error, response, data) {
+        if (!error && response.statusCode == 200) {
+            console.log('data from real backend :'+ data);
+            res.send(data);
+            console.log(options)
+        }
+    }
 
     request(options, callback);
 });

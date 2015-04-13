@@ -19,7 +19,7 @@ angular.module('myApp', ['ngRoute', 'ui.bootstrap'])
             when('/signup/signup-successful', {templateUrl: 'modules/client/signup/signup-successful.html'}).
             when('/profile', {templateUrl: 'modules/client/profile/index.html', controller: SignupCtrl}).
             when('/profile/signup', {templateUrl: 'modules/client/profile/signup.html', controller: SignupCtrl}).
-            when('/profile/basic', {templateUrl: 'modules/client/profile/basic.html'}).
+            when('/profile/basic', {templateUrl: 'modules/client/profile/basic.html',controller:ModifyPwdCtrl}).
             when('/profile/info', {templateUrl: 'modules/client/profile/info.html'}).
             when('/profile/exam', {templateUrl: 'modules/client/profile/exam.html'}).
             when('/profile/record', {templateUrl: 'modules/client/profile/record.html'}).
