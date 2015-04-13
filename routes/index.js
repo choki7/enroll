@@ -407,7 +407,7 @@ router.get('/admin/get_student_register_code', function(req, res) {
 
     request(options, callback);
 });
-/*
+/**
 * set_exam_exam_place
 * 给考试增加考点
 * */
@@ -442,7 +442,7 @@ router.post('/admin/set_exam_place', function(req, res) {
 
     request(options, callback);
 });
-/*
+/**
 * get_exam_place 获得考试相关地点
 * exam_id,place_name
 * */
@@ -463,7 +463,7 @@ router.get('/admin/get_exam_place', function(req, res) {
 
     request(options, callback);
 });
-/*
+/**
  * set_exam_room
  * 给某个考点增加考场 category 是考试科目
   * */
@@ -501,7 +501,7 @@ router.post('/admin/set_exam_room', function(req, res) {
 });
 
 
-/*
+/**
  * get_exam_room 获得某个考点的考场
  * place_id
  * */
