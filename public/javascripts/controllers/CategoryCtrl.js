@@ -2,7 +2,7 @@
  * Created by Cami on 15/4/2.
  */
 'use strict'
-angular.module('myApp').controller('CategoryTableCtrl', ['$scope' , '$http', function($scope, $http) {
+function CategoryTableCtrl($scope, $http) {
     $scope.today = function() {
         $scope.dt = new Date().toDateString();
     };
@@ -15,23 +15,56 @@ angular.module('myApp').controller('CategoryTableCtrl', ['$scope' , '$http', fun
     };
     $scope.format = 'yyyy/MM/dd';
 
-    $scope.categories = [
-        {
-            name: '体育特长生',
-            start_register_time: '2015-01-01 00:00',
-            end_register_time: '2015-03-01 00:00'
+    var req = {
+        method: 'GET',
+        url: '/admin/get_all_exam',
+        headers: {
+            'content-type': 'application/json;charset=utf-8'
         }
-    ];
-    $scope.category = {
-        name: 'test',
-        start_register_time: '2015-04-04 00:00',
-        end_register_time: '2015-05-04 00:00',
-        can_register: false,
-        can_login: false,
-        can_download_addmission: true,
-        can_query_score: true,
-        can_query_exam_room: true
     };
+    $http(req).success(function(data){
+        if(data) {
+            console.log(data);
+            $scope.categories = data;
+        }else{
+            alert('获取考试类型失败');
+        }
+    }).error(function(data, status){
+        console.log('error info:' + status);
+    });
+
+    $scope.submitCategory = function() {
+        $scope.category = {
+            name: encodeURI($scope.submit.name),
+            start_register_time: '2015-04-04 00:00',
+            end_register_time: '2015-05-04 00:00',
+            can_register: false,
+            can_login: false,
+            can_download_addmission: true,
+            can_query_score: true,
+            can_query_exam_room: true
+        };
+        var postData = {
+            category: $scope.category
+        }
+        var req = {
+            method: 'POST',
+            url: '/admin/set_exam_category',
+            headers: {
+                'content-type': 'application/json;charset=utf-8'
+            },
+            data: JSON.stringify(postData)
+        };
+        $http(req).success(function(data){
+            if(data) {
+                alert('创建成功');
+            }else{
+                alert('创建失败');
+            }
+        }).error(function(data, status){
+            console.log('error info:' + status);
+        })
+    }
     $scope.createCategory = function() {
         $scope.categories.push($scope.category);
         var req = {
@@ -52,6 +85,5 @@ angular.module('myApp').controller('CategoryTableCtrl', ['$scope' , '$http', fun
             console.log('error info:' + status);
         })
     };
-}])
-
+}
 
