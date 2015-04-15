@@ -48,5 +48,14 @@ function AdminSystemConfigCtrl($scope, $http) {
     }).error(function(data, status){
         //alert('注册成功');
     })
+
+
+    $scope.set_can_login = function() {
+
+        console.log(123);
+
+    }
 }
+
+
 

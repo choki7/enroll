@@ -281,9 +281,9 @@
           <div class="col-md-12">
 
             <div class="widget">
-              <div class="widget-head">
+              <div class="widget-head" >
                 <select>
-                  <option value="">艺术特长生</option>
+                  <option value="1">艺术特长生</option>
                   <option value="">免费师范生</option>
                   <option value="">体育特长生</option>
                 </select>
@@ -385,13 +385,13 @@
         <h3 class="modal-title" id="myModalLabel"><p>新建考场</p></h3>
       </div>
       <div class="modal-body">
-        <select class="form-control" style="width: auto">
-          <option>考点1</option>
+        <select class="form-control" style="width: auto" data-ng-model="place_id">
+          <option value="1">考点1</option>
           <option>考点2</option>
-        </select> <input size="20">
+        </select> <input size="20" data-ng-model="name"><input data-ng-model="exam_category_id" value="1">
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">新建</button>
+        <button type="button" class="btn btn-primary" data-ng-click="set_exam_room()">新建</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
 
       </div>

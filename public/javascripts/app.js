@@ -27,7 +27,7 @@ angular.module('myApp', ['ngRoute', 'ui.bootstrap'])
             when('/admin/index', {templateUrl: 'modules/admin/views/index.html'}).
             when('/admin/basic/category', {templateUrl: 'modules/admin/views/basic/category.html', controller: CategoryTableCtrl}).
             when('/admin/basic/subclass', {templateUrl: 'modules/admin/views/basic/subclass.html'}).
-            when('/admin/basic/subject', {templateUrl: 'modules/admin/views/basic/subject.html'}).
+            when('/admin/basic/subject', {templateUrl: 'modules/admin/views/basic/subject.html',controller:SubjectCtrl}).
             when('/admin/basic/system', {templateUrl: 'modules/admin/views/basic/system.html'}).
             when('/admin/basic/statement', {templateUrl: 'modules/admin/views/basic/statement.html', controller: AdminSystemConfigCtrl}).
 			when('/admin/registration/createReg', {templateUrl: 'modules/admin/views/registration/createReg.html'}).
@@ -38,9 +38,9 @@ angular.module('myApp', ['ngRoute', 'ui.bootstrap'])
 			when('/admin/registration/exportExcel', {templateUrl: 'modules/admin/views/registration/exportExcel.html'}).
 			when('/admin/examinee/operateExa', {templateUrl: 'modules/admin/views/examinee/operateExa.html'}).
 			when('/admin/examinee/queryExa', {templateUrl: 'modules/admin/views/examinee/queryExa.html'}).
-			when('/admin/site/siteSetting', {templateUrl: 'modules/admin/views/site/siteSetting.html'}).
-			when('/admin/site/roomSetting', {templateUrl: 'modules/admin/views/site/roomSetting.html'}).
-			when('/admin/site/assignSite', {templateUrl: 'modules/admin/views/site/assignSite.html'}).
+			when('/admin/site/siteSetting', {templateUrl: 'modules/admin/views/site/siteSetting.html',controller:SiteCtrl}).
+			when('/admin/site/roomSetting', {templateUrl: 'modules/admin/views/site/roomSetting.html',controller:RoomCtrl}).
+			when('/admin/site/assignSite', {templateUrl: 'modules/admin/views/site/assignSite.html',controller:AssignSiteCtrl}).
 			when('/admin/score/importScore', {templateUrl: 'modules/admin/views/score/importScore.html'}).
 			when('/admin/score/queryScore', {templateUrl: 'modules/admin/views/score/queryScore.html'}).
             otherwise({redirectTo: '/index'});
