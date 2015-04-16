@@ -7,7 +7,7 @@ angular.module('myApp', ['ngRoute', 'ui.bootstrap'])
         $routeProvider.
             when('/', {templateUrl: 'modules/client/login.html'}).
             when('/index', {templateUrl: 'modules/client/index.html'}).
-            when('/admin', {templateUrl: 'modules/admin/index.html'}).
+            when('/admin', {templateUrl: 'modules/admin/views/basic/category.html', controller: CategoryTableCtrl}).
             when('/admin/login', {templateUrl: 'modules/admin/login.html', controller:AdminLoginCtrl}).
             when('/login', {templateUrl: 'modules/client/login/login.html', controller:LoginCtrl}).
             when('/logout', {templateUrl: 'modules/client/logout.html', controller:LoginCtrl}).
