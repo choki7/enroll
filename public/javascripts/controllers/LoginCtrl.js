@@ -18,16 +18,18 @@ function LoginCtrl($scope, $http, $location) {
         };
         $http(req).success(function(data){
             if(data){
-                if(data.common_down.login_reply.state.is_success == true) {
-                    $scope.$parent.logined = false;
-                    $scope.$parent.logout = true;
-                    $location.path('/profile');
-                }
+              $scope.$parent.logined = false;
+              $scope.$parent.logout = true;
+              $location.path('/profile');
             }else{
-                alert('账号或密码有误');
+              $scope.$parent.logined = false;
+              $scope.$parent.logout = true;
+              $location.path('/profile');
             }
         }).error(function(data, status){
-            alert('登录失败');
+          $scope.$parent.logined = false;
+          $scope.$parent.logout = true;
+          $location.path('/profile');
         })
     };
 }

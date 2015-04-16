@@ -5,7 +5,7 @@
 angular.module('myApp', ['ngRoute', 'ui.bootstrap'])
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider.
-            when('/', {templateUrl: 'modules/client/index.html'}).
+            when('/', {templateUrl: 'modules/client/login.html'}).
             when('/index', {templateUrl: 'modules/client/index.html'}).
             when('/admin', {templateUrl: 'modules/admin/index.html'}).
             when('/admin/login', {templateUrl: 'modules/admin/login.html', controller:AdminLoginCtrl}).
@@ -43,5 +43,5 @@ angular.module('myApp', ['ngRoute', 'ui.bootstrap'])
             when('/admin/site/assignSite', {templateUrl: 'modules/admin/views/site/assignSite.html'}).
             when('/admin/score/importScore', {templateUrl: 'modules/admin/views/score/importScore.html'}).
             when('/admin/score/queryScore', {templateUrl: 'modules/admin/views/score/queryScore.html'}).
-            otherwise({redirectTo: '/index'});
+            otherwise({redirectTo: '/login'});
     }]);
