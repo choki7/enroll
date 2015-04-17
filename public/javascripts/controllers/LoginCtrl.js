@@ -30,6 +30,7 @@ function LoginCtrl($scope, $http, $location) {
           $scope.$parent.logined = false;
           $scope.$parent.logout = true;
           $location.path('/profile');
+
         })
     };
 }

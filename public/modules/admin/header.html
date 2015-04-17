@@ -1,11 +1,5 @@
 <link rel="stylesheet" href="../stylesheets/3rd/style.css">
 <!-- Header starts -->
-<style>
-  #nav{
-    display: none;
-  }
-</style>
-<!-- Header starts -->
 <header>
     <div class="container">
         <div class="row">
@@ -29,7 +23,7 @@
                     <!-- Comment button with number of latest comments count -->
                     <li class="dropdown dropdown-big">
                         <a class="dropdown-toggle" href="#" data-toggle="dropdown">
-                            <i class="icon-comments"></i> 聊天 <span class="label label-info">6</span>
+                            <i class="icon-comments"></i> 聊天 <span   class="label label-info">6</span>
                         </a>
 
                         <ul class="dropdown-menu">
@@ -37,23 +31,23 @@
                                 <!-- Heading - h5 -->
                                 <h5><i class="icon-comments"></i> 聊天</h5>
                                 <!-- Use hr tag to add border -->
-                                <hr>
+                                <hr />
                             </li>
                             <li>
                                 <!-- List item heading h6 -->
                                 <h6><a href="#">你好 :)</a> <span class="label label-warning pull-right">10:42</span></h6>
                                 <div class="clearfix"></div>
-                                <hr>
+                                <hr />
                             </li>
                             <li>
                                 <h6><a href="#">你怎么样?</a> <span class="label label-warning pull-right">20:42</span></h6>
                                 <div class="clearfix"></div>
-                                <hr>
+                                <hr />
                             </li>
                             <li>
                                 <h6><a href="#">你在干撒呢?</a> <span class="label label-warning pull-right">14:42</span></h6>
                                 <div class="clearfix"></div>
-                                <hr>
+                                <hr />
                             </li>
                             <li>
                                 <div class="drop-foot">
@@ -74,19 +68,19 @@
                                 <!-- Heading - h5 -->
                                 <h5><i class="icon-envelope-alt"></i> 消息</h5>
                                 <!-- Use hr tag to add border -->
-                                <hr>
+                                <hr />
                             </li>
                             <li>
                                 <!-- List item heading h6 -->
                                 <h6><a href="#">你好啊?</a></h6>
                                 <!-- List item para -->
                                 <p>最近咋样啊...</p>
-                                <hr>
+                                <hr />
                             </li>
                             <li>
                                 <h6><a href="#">今天很好啊?</a></h6>
                                 <p>相当好...</p>
-                                <hr>
+                                <hr />
                             </li>
                             <li>
                                 <div class="drop-foot">
@@ -99,7 +93,7 @@
                     <!-- Members button with number of latest members count -->
                     <li class="dropdown dropdown-big">
                         <a class="dropdown-toggle" href="#" data-toggle="dropdown">
-                            <i class="icon-user"></i> 用户 <span class="label label-success">6</span>
+                            <i class="icon-user"></i> 用户 <span   class="label label-success">6</span>
                         </a>
 
                         <ul class="dropdown-menu">
@@ -107,23 +101,23 @@
                                 <!-- Heading - h5 -->
                                 <h5><i class="icon-user"></i> 用户</h5>
                                 <!-- Use hr tag to add border -->
-                                <hr>
+                                <hr />
                             </li>
                             <li>
                                 <!-- List item heading h6-->
                                 <h6><a href="#">Ravi Kumar</a> <span class="label label-warning pull-right">免费</span></h6>
                                 <div class="clearfix"></div>
-                                <hr>
+                                <hr />
                             </li>
                             <li>
                                 <h6><a href="#">Balaji</a> <span class="label label-important pull-right">高级</span></h6>
                                 <div class="clearfix"></div>
-                                <hr>
+                                <hr />
                             </li>
                             <li>
                                 <h6><a href="#">Kumarasamy</a> <span class="label label-warning pull-right">免费</span></h6>
                                 <div class="clearfix"></div>
-                                <hr>
+                                <hr />
                             </li>
                             <li>
                                 <div class="drop-foot">
@@ -194,209 +188,61 @@
 
 <div class="content">
 
-  <!-- Sidebar -->
-  <div class="sidebar">
-    <div class="sidebar-dropdown"><a href="#">导航</a></div>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-dropdown"><a href="#">导航</a></div>
 
-    <!--- Sidebar navigation -->
-    <!-- If the main navigation has sub navigation, then add the class "has_sub" to "li" of main navigation. -->
-    <ul id="nav">
-      <li class="has_sub">
-        <a href="#/admin" class="open"><i class="icon-home"></i>基本设置</a>
-        <ul>
-          <li><a href="#/admin/basic/category">报考类型设置</a></li>
-          <li><a href="#/admin/basic/subclass">小类设置</a></li>
-          <li><a href="#/admin/basic/subject">科目设置</a></li>
-          <li><a href="#/admin/basic/system">系统设置</a></li>
+        <!--- Sidebar navigation -->
+        <!-- If the main navigation has sub navigation, then add the class "has_sub" to "li" of main navigation. -->
+        <ul id="nav">
+            <li class="has_sub">
+                <a href="#/admin" class="open"><i class="icon-home"></i>基本设置</a>
+                <ul>
+                    <li><a href="#/admin/basic/category">报考类型设置</a></li>
+                    <li><a href="#/admin/basic/subclass">小类设置</a></li>
+                    <li><a href="#/admin/basic/subject">科目设置</a></li>
+                    <li><a href="#/admin/basic/system">系统设置</a></li>
+                    <li><a href="#/admin/basic/statement">编辑高考说明</a></li>
+                </ul>
+            </li>
+            <li class="has_sub">
+                <a href="#/admin" class=""><i class="icon-home"></i>报名号管理</a>
+                <ul>
+                    <li><a href="#/admin/registration/createReg">生成报名号</a></li>
+                    <li><a href="#/admin/registration/assignReg">分配考点</a></li>
+                    <li><a href="#/admin/registration/queryReg">报名号查询</a></li>
+                    <li><a href="#/admin/registration/modifyReg">报名号批量修改</a></li>
+                    <li><a href="#/admin/registration/exportExcel">导出excel</a></li>
+                    <li><a href="#/admin/registration/importExcel">报名号录入</a></li>
+                </ul>
+            </li>
+            <li class="has_sub">
+                <a href="#/admin" class=""><i class="icon-home"></i>考生管理</a>
+                <ul>
+                    <li><a href="#/admin/examinee/operateExa">查看管理考生</a></li>
+                    <li><a href="#/admin/examinee/queryExa">考生兼报查询</a></li>
+                </ul>
+            </li>
+            <li class="has_sub">
+                <a href="#/admin" class=""><i class="icon-home"></i>考点设置和分配</a>
+                <ul>
+                    <li><a href="#/admin/site/siteSetting">考点设置</a></li>
+                    <li><a href="#/admin/site/roomSetting">教室设置</a></li>
+                    <li ><a href="#/admin/site/assignSite">考场分配</a></li>
+                </ul>
+            </li>
+            <li class="has_sub">
+                <a href="#/admin" class=""><i class="icon-home"></i>成绩导入与管理</a>
+                <ul>
+                    <li class="has_sub">
+                        <a href="#/admin/score/importScore">成绩导入</a>
+                    </li>
+                    <li class="">
+                        <a href="#/admin/score/queryScore">成绩查询</a>
+                    </li>
+                </ul>
+            </li>
         </ul>
-      </li>
-      <li class="has_sub">
-        <a href="#/admin" class=""><i class="icon-home"></i>报名号管理</a>
-        <ul>
-          <li><a href="#/admin/registration/createReg">生成报名号</a></li>
-          <li><a href="#/admin/registration/assignReg">分配考点</a></li>
-          <li><a href="#/admin/registration/queryReg">报名号查询</a></li>
-          <li><a href="#/admin/registration/modifyReg">报名号批量修改</a></li>
-
-          <li><a href="#/admin/registration/importExcel">报名号录入</a></li>
-        </ul>
-      </li>
-      <li class="has_sub">
-        <a href="#/admin" class=""><i class="icon-home"></i>考生管理</a>
-        <ul>
-          <li><a href="#/admin/examinee/operateExa">查看管理考生</a></li>
-          <li><a href="#/admin/examinee/queryExa">考生兼报查询</a></li>
-        </ul>
-      </li>
-      <li class="has_sub">
-        <a href="#/admin" class=""><i class="icon-home"></i>考点设置和分配</a>
-        <ul>
-          <li><a href="#/admin/site/siteSetting">考点设置</a></li>
-          <li><a href="#/admin/site/roomSetting">教室设置</a></li>
-          <li ><a href="#/admin/site/assignSite">考场分配</a></li>
-        </ul>
-      </li>
-      <li class="has_sub">
-        <a href="#/admin" class=""><i class="icon-home"></i>成绩导入与管理</a>
-        <ul>
-          <li class="has_sub">
-            <a href="#/admin/score/importScore">成绩导入</a>
-          </li>
-          <li class="">
-            <a href="#/admin/score/queryScore">成绩查询</a>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </div>
-
-  <!-- Sidebar ends -->
-
-  <!-- Main bar -->
-  <div class="mainbar">
-
-    <!-- Page heading -->
-    <div class="page-head">
-      <h2 class="pull-left"><i class="icon-home"></i>科目设置</h2>
-
-      <!-- Breadcrumb -->
-      <div class="bread-crumb pull-right">
-        <a href="index"><i class="icon-home"></i>科目设置</a>
-        <!-- Divider -->
-      </div>
-
-      <div class="clearfix"></div>
-
-    </div>
-    <!-- Page heading ends -->
-
-
-
-    <!-- Matter -->
-
-    <div class="matter">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-
-            <div class="widget">
-              <div class="widget-head">
-                <div class="widget-icons pull-right">
-                  <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#myModal">
-                    <i class="icon-plus"></i>
-                  </button>
-                </div>
-                <div class="clearfix"></div>
-              </div>
-              <div class="widget-content medias" style="display: block;">
-
-                <table class="table table-striped table-bordered table-hover">
-                  <thead>
-                  <tr>
-
-                    <th>类型名称</th>
-                    <th>考点</th>
-                    <th>操作</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr>
-                    <td rowspan="2">免费师范生</td>
-                    <td>考点1</td>
-                    <td>
-
-                      <button class="btn btn-xs btn-danger"><i class="icon-remove"></i> </button>
-                    </td>
-                  </tr>
-                  <tr>
-
-                    <td>考点2</td>
-                    <td>
-
-                      <button class="btn btn-xs btn-danger"><i class="icon-remove"></i> </button>
-                    </td>
-                  </tr>
-                  <tr>
-
-                    <td>外语类</td>
-                    <td>考点xx</td>
-                    <td>
-
-                      <button class="btn btn-xs btn-danger"><i class="icon-remove"></i> </button>
-                    </td>
-                  </tr>
-                  </tbody>
-                </table>
-
-                <div class="widget-foot">
-
-                  <div class="uni pull-left">
-
-                  </div>
-
-                  <ul class="pagination pull-right">
-                    <li><a href="#">Prev</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">Next</a></li>
-                  </ul>
-
-                  <div class="clearfix"></div>
-
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-      </div>
     </div>
 
-    <!-- Matter ends -->
-
-  </div>
-
-  <!-- Mainbar ends -->
-  <div class="clearfix"></div>
-
-</div>
-<!-- Content ends -->
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1"style="margin-top:200px" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h3 class="modal-title" id="myModalLabel"><p>新建考点</p></h3>
-      </div>
-      <div class="modal-body">
-        <select class="form-control" style="width: auto" data-ng-model="exam_id">
-          <option value="1">免费师范生</option>
-          <option>外语类</option>
-        </select> <input size="20" data-ng-model="place_name">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-ng-click="set_exam_place()">新建</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Footer starts -->
-<footer>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <!-- Copyright info -->
-        <p class="copy">Copyright &copy; 2012 | <a href="#">Your Site</a> </p>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<!-- Footer ends -->
-
-<!-- Scroll to top -->
-<span class="totop"><a href="#"><i class="icon-chevron-up"></i></a></span>
-
+    <!-- Sidebar ends -->

@@ -122,7 +122,7 @@ router.post('/admin/set_manager_exam_info', function(req, res) {
     var reqBody = req.body;
 
     var postData = {
-        "name": "test1111",
+        "name": reqBody.name,
         "start_register_time":"2015-01-01 00:00",
         "end_register_time":"2015-03-01 00:00",
         "can_register":false,
@@ -218,39 +218,7 @@ router.get('/admin/get_student_type', function(req, res) {
 
     request(options, callback);
 })
-/**
- * set_exam_category 考试科目设置
- * category
- * exam_id
- * */
-router.post('/admin/set_exam_category', function(req, res) {
-    var reqBody = req.body;
 
-    var postData = {
-        "category": reqBody.category
-    };
-    var options = {
-        url: 'http://enrollsystem.sinaapp.com/controller.php',
-        headers: {'content-type' : 'application/json'},
-        method: 'POST',
-        json: {
-            "manager_up": {
-                "set_exam_category": {
-                    "category":postData.category
-                }
-            }
-        }
-    };
-
-    function callback(error, response, data) {
-        if (!error && response.statusCode == 200) {
-            console.log('data from real backend :'+ data);
-            res.send(data);
-        }
-    }
-
-    request(options, callback);
-});
 /**
  * get_exam_category
  * examId
@@ -282,7 +250,7 @@ router.post('/admin/set_system_config', function(req, res) {
 
     var postData = {
         "can_register":"1",
-        "can_login":"English",
+        "can_login":"1",
         "content":reqBody.content
     };
 
@@ -335,13 +303,51 @@ router.post('/admin/get_system_config', function(req, res) {
 
     request(options, callback);
 })
-
-//set_student_exam_room_by_exam examId 分配考场
-router.post('/admin/set_system_config', function(req, res) {
+/**
+ * set_system_config 系统设置
+ * category，exam_id
+ *
+ * */
+router.post('/admin/set_exam_category', function(req, res) {
     var reqBody = req.body;
 
     var postData = {
-        "examId":"1"
+        "category":reqBody.category,
+        "exam_id":reqBody.exam_id
+
+    };
+    console.log( + reqBody.exam_id);
+
+    var options = {
+        url: 'http://enrollsystem.sinaapp.com/controller.php',
+        headers: {'content-type' : 'application/json'},
+        method: 'POST',
+        json: {
+            "manager_up": {
+                "set_exam_category": {
+                    "category":postData.category,
+                    "exam_id":postData.exam_id
+
+                }
+            }
+        }
+    };
+
+    function callback(error, response, data) {
+        if (!error && response.statusCode == 200) {
+            console.log('data from real backend :'+ data);
+            res.send(data);
+        }
+    }
+
+    request(options, callback);
+});
+//set_student_exam_room_by_exam examId 分配考场
+router.post('/admin/set_student_exam_room_by_exam', function(req, res) {
+    var reqBody = req.body;
+
+    var postData = {
+        "exam_id":reqBody.exam_id
     };
 
     var options = {
@@ -350,8 +356,8 @@ router.post('/admin/set_system_config', function(req, res) {
         method: 'POST',
         json: {
             "manager_up": {
-                "set_system_config": {
-                    "examId":postData.examId
+                "set_student_exam_room_by_exam": {
+                    "exam_id":postData.exam_id
                 }
             }
         }
@@ -408,6 +414,34 @@ router.get('/admin/get_student_register_code', function(req, res) {
 
     request(options, callback);
 });
+/**
+ * get_all_exam
+ * */
+router.post('/admin/get_all_exam', function(req, res) {
+
+    var options = {
+        url: 'http://enrollsystem.sinaapp.com/controller.php',
+        method: 'POST',
+        json: {
+            "common_up": {
+                "get_all_exam": {
+                }
+            }
+        }
+    };
+
+    function callback(error, response, data) {
+        if (!error && response.statusCode == 200) {
+            console.log('data from real backend :'+ data);
+            res.send(data);
+        }
+    };
+
+    request(options, callback);
+})
+
+
+
 /*
 * set_exam_exam_place
 * 给考试增加考点
@@ -416,8 +450,8 @@ router.post('/admin/set_exam_place', function(req, res) {
     var reqBody = req.body;
 
     var postData = {
-        "examId":"1",
-        "placeId":"123"
+        "exam_id":reqBody.exam_id,
+        "place_name":reqBody.place_name
     };
 
     var options = {
@@ -426,9 +460,9 @@ router.post('/admin/set_exam_place', function(req, res) {
         method: 'POST',
         json: {
             "manager_up": {
-                "set_system_config": {
-                    "exam_id":postData.examId,
-                    "place_id":postData.placeId
+                "set_exam_place": {
+                    "exam_id":postData.exam_id,
+                    "place_name":postData.place_name
                 }
             }
         }
@@ -472,9 +506,9 @@ router.post('/admin/set_exam_room', function(req, res) {
     var reqBody = req.body;
 
     var postData = {
-        "exam_category_id":"1",
-        "place_id":"123",
-        "name":"123"
+        "place_id":reqBody.place_id,
+        "name":reqBody.name,
+        "exam_category_id":reqBody.exam_category_id
     };
 
     var options = {
@@ -483,9 +517,10 @@ router.post('/admin/set_exam_room', function(req, res) {
         method: 'POST',
         json: {
             "manager_up": {
-                "set_system_config": {
-                    "exam_id":postData.examId,
-                    "place_id":postData.placeId
+                "set_exam_room": {
+                    "name":postData.name,
+                    "place_id":postData.place_id,
+                    "exam_category_id":postData.exam_category_id
                 }
             }
         }

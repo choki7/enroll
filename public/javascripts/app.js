@@ -41,4 +41,5 @@ angular.module('myApp', ['ngRoute', 'ui.bootstrap'])
             when('/admin/score/importScore', {templateUrl: 'modules/admin/views/score/importScore.html'}).
             when('/admin/score/queryScore', {templateUrl: 'modules/admin/views/score/queryScore.html'}).
             otherwise({redirectTo: '/login'});
+
     }]);

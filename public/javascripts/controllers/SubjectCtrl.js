@@ -1,61 +1,57 @@
 /**
- * Created by choki on 15/4/10.
+ * Created by GreyInk on 2015/4/11.
  */
-//Admin System Config
-'use strict'
-function AdminSystemConfigCtrl($scope, $http) {
+function SubjectCtrl($scope, $http) {
 
-    $scope.set_system_config = function() {
+    $scope.set_exam_category = function () {
+
         var postData = {
             //content : "哈哈哈"
-            content : $scope.content
+
+            exam_id: $scope.exam_id,
+            category:$scope.category
+
         };
         console.log(JSON.stringify(postData));
         var req = {
             method: 'POST',
-            url: '/admin/set_system_config',
+            url: '/admin/set_exam_category',
             headers: {
                 'content-type': 'application/json;charset=utf-8'
             },
             data: JSON.stringify(postData)
         };
-        $http(req).success(function(data){
-            if(data) {
-                if(data == 'true'){
+        $http(req).success(function (data) {
+            if (data) {
+                if (data == 'true') {
                     alert('保存成功')
                 }
-            }else{
+            } else {
                 alert('注册失败');
             }
-        }).error(function(data, status){
+        }).error(function (data, status) {
             //alert('注册成功');
         })
     }
     var req = {
         method: 'POST',
-        url: '/admin/get_system_config',
+        url: '/admin/get_all_exam',
         headers: {
             'content-type': 'application/json;charset=utf-8'
         }
-       // data: JSON.stringify(postData)
+        // data: JSON.stringify(postData)
     };
-    $http(req).success(function(data){
-        if(data) {
+    $http(req).success(function (data) {
+        if (data) {
+            console.log(123);
             $scope.content = data.content;
-        }else{
+        } else {
             alert('载入失败，请刷新');
         }
-    }).error(function(data, status){
+    }).error(function (data, status) {
         //alert('注册成功');
     })
 
 
-    $scope.set_can_login = function() {
 
-        console.log(123);
-
-    }
 }
-
-
-

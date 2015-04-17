@@ -30,7 +30,7 @@ function CategoryTableCtrl($scope, $http) {
             alert('获取考试类型失败');
         }
     }).error(function(data, status){
-        console.log('error info:' + status);
+        //console.log('error info:' + status);
     });
 
     $scope.submitCategory = function() {
