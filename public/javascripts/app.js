@@ -19,7 +19,7 @@ angular.module('myApp', ['ngRoute', 'ui.bootstrap'])
             when('/profile/basic', {templateUrl: 'modules/client/profile/basic.html'}).
             when('/profile/info', {templateUrl: 'modules/client/profile/info.html'}).
             when('/profile/exam', {templateUrl: 'modules/client/profile/exam.html'}).
-            when('/profile/record', {templateUrl: 'modules/client/profile/record.html'}).
+            when('/profile/record', {templateUrl: 'modules/client/profile/record.html', controller: RecordCtrl}).
             when('/profile/state', {templateUrl: 'modules/client/profile/state.html'}).
             when('/admin/index', {templateUrl: 'modules/admin/views/index.html'}).
             when('/admin/basic/category', {templateUrl: 'modules/admin/views/basic/category.html', controller: CategoryTableCtrl}).

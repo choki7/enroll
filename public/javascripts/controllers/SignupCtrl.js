@@ -13,7 +13,7 @@ function SignupCtrl ($scope, $http) {
           headers: {
               'content-type': 'application/json;charset=utf-8'
           },
-          data: JSON.stringify($scope.account)
+          data: JSON.stringify($scope.stu_account)
       };
       $http(req).success(function(data){
           if(data){
