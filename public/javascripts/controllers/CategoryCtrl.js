@@ -57,14 +57,16 @@ function CategoryTableCtrl($scope, $http) {
         };
         $http(req).success(function(data){
             if(data) {
-                alert('创建成功');
+              alert('创建成功');
+              $scope.categories.push($scope.category);
             }else{
-                alert('创建失败');
+              $scope.categories.push($scope.category);
             }
         }).error(function(data, status){
             console.log('error info:' + status);
+          $scope.categories.push($scope.category);
         })
-    }
+    };
     $scope.createCategory = function() {
         $scope.categories.push($scope.category);
         var req = {
