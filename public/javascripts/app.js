@@ -14,9 +14,6 @@ angular.module('myApp', ['ngRoute', 'ui.bootstrap'])
             when('/login-successful', {templateUrl: 'modules/client/login/login-successful.html'}).
             when('/register', {templateUrl: 'modules/client/register/register.html', controller: RegisterCtrl}).
             when('/register/confirm', {templateUrl: 'modules/client/register/confirm.html'}).
-            when('/signup', {templateUrl: 'modules/client/signup/signup.html'}).
-            when('/signup/edit', {templateUrl: 'modules/client/signup/edit.html', controller: EditSignupCtrl}).
-            when('/signup/signup-successful', {templateUrl: 'modules/client/signup/signup-successful.html'}).
             when('/profile', {templateUrl: 'modules/client/profile/index.html', controller: SignupCtrl}).
             when('/profile/signup', {templateUrl: 'modules/client/profile/signup.html', controller: SignupCtrl}).
             when('/profile/basic', {templateUrl: 'modules/client/profile/basic.html'}).
@@ -26,7 +23,7 @@ angular.module('myApp', ['ngRoute', 'ui.bootstrap'])
             when('/profile/state', {templateUrl: 'modules/client/profile/state.html'}).
             when('/admin/index', {templateUrl: 'modules/admin/views/index.html'}).
             when('/admin/basic/category', {templateUrl: 'modules/admin/views/basic/category.html', controller: CategoryTableCtrl}).
-            when('/admin/basic/subclass', {templateUrl: 'modules/admin/views/basic/subclass.html'}).
+            when('/admin/basic/subclass', {templateUrl: 'modules/admin/views/basic/subclass.html', controller: SubclassCtrl}).
             when('/admin/basic/subject', {templateUrl: 'modules/admin/views/basic/subject.html'}).
             when('/admin/basic/system', {templateUrl: 'modules/admin/views/basic/system.html'}).
             when('/admin/basic/statement', {templateUrl: 'modules/admin/views/basic/statement.html', controller: AdminSystemConfigCtrl}).
