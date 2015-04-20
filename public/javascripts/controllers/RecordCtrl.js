@@ -28,4 +28,21 @@ function RecordCtrl($scope, $http) {
       id: 107
     }
   ];
+    var req = {
+        method: 'GET',
+        url: '/get_student_exam',
+        headers: {
+            'content-type': 'application/json;charset=utf-8'
+        },
+        data: JSON.stringify("{my_id:1}")
+    };
+    $http(req).success(function(data){
+        if(data) {
+            $scope.content = data.content;
+        }else{
+            alert('载入失败，请刷新');
+        }
+    }).error(function(data, status){
+        //alert('注册成功');
+    })
 }
