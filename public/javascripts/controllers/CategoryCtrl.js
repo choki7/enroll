@@ -26,6 +26,17 @@ function CategoryTableCtrl($scope, $http) {
         if(data) {
             console.log(data);
             $scope.categories = data;
+            if(data.can_download_addmission == 1 )
+            {$scope.can_download = "checked";}
+            if(data.can_query_exam_room == 1 )
+            {$scope.can_query_exam_room = "checked";}
+            if(data.can_query_score == 1)
+            {$scope.can_query_score = "checked";}
+
+            if(data.can_login == 1 )
+            {$scope.can_login = "checked";}
+
+           // $scope.can_download_addmission.checked = data.can_download_addmission;
         }else{
             alert('获取考试类型失败');
         }

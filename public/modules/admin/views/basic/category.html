@@ -308,7 +308,7 @@
                                         <td>{{category.name}}</td>
                                         <td>
                                             <div class="make-switch switch-mini" data-on="primary" data-off="info">
-                                                <input type="checkbox" checked>
+                                                <input type="checkbox" ng-checked ="can_login" >
                                             </div>
                                         </td>
                                         <td style="width: 20%;">
@@ -325,17 +325,17 @@
                                         </td>
                                         <td>
                                             <div class="make-switch switch-mini" data-on="primary" data-off="info">
-                                                <input type="checkbox" checked>
+                                                <input type="checkbox" ng-checked ="can_download" >
                                             </div>
                                         </td>
                                         <td>
                                             <div class="make-switch switch-mini" data-on="primary" data-off="info">
-                                                <input type="checkbox" checked>
+                                                <input type="checkbox" ng-checked ="can_query_score">
                                             </div>
                                         </td>
                                         <td>
                                             <div class="make-switch switch-mini" data-on="primary" data-off="info">
-                                                <input type="checkbox" checked>
+                                                <input type="checkbox" ng-checked ="can_query_exam_room">
                                             </div>
                                         </td>
 
@@ -455,7 +455,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="col-lg-4 control-label">查看成绩</label>
-                                <div class="col-lg-8">
+                                 <div class="col-lg-8">
                                     <input type="checkbox"/>
                                 </div>
                             </div>
