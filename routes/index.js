@@ -587,4 +587,32 @@ router.post('/set_password_modify', function(req, res) {
     request(options, callback);
 });
 
+/**
+ * get_exam_room 获得某个考点的考场
+ * place_id
+ * */
+
+router.get('/get_student_exam', function(req, res) {
+
+    var options = {
+        url: 'http://enrollsystem.sinaapp.com/controller.php',
+        headers: {'content-type' : 'application/json'},
+        method: 'GET',
+        json: {
+            "student_up": {
+                "get_student_exam": {
+                }
+            },"my_id":req.body.my_id
+        }
+    };
+
+    function callback(error, response, data) {
+        if (!error && response.statusCode == 200) {
+            console.log('data from real backend :'+ data);
+            res.send(data);
+        }
+    };
+
+    request(options, callback);
+});
  module.exports = router;
