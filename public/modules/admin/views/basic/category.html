@@ -306,74 +306,33 @@
 
                                         <td>{{category.name}}</td>
                                         <td>
-                                            <div class="make-switch switch-mini" data-on="primary" data-off="info">
-                                                <input type="checkbox" ng-checked ="can_login" >
-                                            </div>
+                                            <h2 class="{{category.can_register}}"></h2>
                                         </td>
                                         <td style="width: 20%;">
-                                            <input style="width: 120px; float: left"  type="text" class="col-sm-8 form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
-                                            <span class="input-group-btn col-sm-4">
-                                                <button type="button" class="btn btn-primary btn-xs" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-                                            </span>
+                                            <span>{{category.start_register_time}}                                            </span>
                                         </td>
                                         <td style="width: 20%">
-                                            <input style="width: 120px; float: left"  type="text" class="col-sm-8 form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
-                                            <span class="input-group-btn col-sm-4">
-                                                <button type="button" class="btn btn-primary btn-xs" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                            <span>{{category.end_register_time}}
                                             </span>
                                         </td>
                                         <td>
-                                            <div class="make-switch switch-mini" data-on="primary" data-off="info">
-                                                <input type="checkbox" ng-checked ="can_download" >
-                                            </div>
+                                            <h2 class="{{category.can_download_addmission}}"></h2>
                                         </td>
                                         <td>
-                                            <div class="make-switch switch-mini" data-on="primary" data-off="info">
-                                                <input type="checkbox" ng-checked ="can_query_score">
-                                            </div>
+                                            <h2 class="{{category.can_query_score}}"></h2>
+
                                         </td>
                                         <td>
-                                            <div class="make-switch switch-mini" data-on="primary" data-off="info">
-                                                <input type="checkbox" ng-checked ="can_query_exam_room">
-                                            </div>
+                                            <h2 class="{{category.can_query_exam_room}}"></h2>
                                         </td>
 
                                         <td>
                                             <button class="btn btn-xs btn-info" data-ng-click="createCategory()"><i class="icon-ok"></i></button>
-                                            <button class="btn btn-xs btn-danger" data-ng-click="deleteCategory()"><i class="icon-remove"></i> </button>
+                                            <button class="btn btn-xs btn-danger"  data-ng-click='deleteCategory(  category.id )'><i class="icon-remove"></i> </button>
                                         </td>
                                     </tr>
 
-                                    <tr>
 
-                                        <td>免费师范生</td>
-                                        <td>
-                                            <div class="make-switch switch-mini" data-on="primary" data-off="info">
-                                                <input type="checkbox" checked>
-                                            </div>
-                                        </td>
-                                        <td ><input type="date" ></td>
-                                        <td ><input type="date" ></td>
-                                        <td>
-                                            <div class="make-switch switch-mini" data-on="primary" data-off="info">
-                                                <input type="checkbox" checked>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="make-switch switch-mini" data-on="primary" data-off="info">
-                                            <input type="checkbox" checked>
-                                        </div>
-                                        </td>
-                                        <td>
-                                            <div class="make-switch switch-mini" data-on="primary" data-off="info">
-                                                <input type="checkbox" checked>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-xs btn-info" data-ng-click="createCategory()"><i class="icon-ok"></i></button>
-                                            <button class="btn btn-xs btn-danger" data-ng-click="deleteCategory()"><i class="icon-remove"></i> </button>
-                                        </td>
-                                    </tr>
                                     </tbody>
                                 </table>
 
@@ -429,37 +388,37 @@
                             <div class="form-group">
                                 <label class="col-lg-4 control-label">允许注册</label>
                                 <div class="col-lg-8">
-                                    <input type="checkbox"/>
+                                    <input type="checkbox" data-ng-model="submit.register"/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-lg-4 control-label">开始时间</label>
                                 <div class="col-lg-8">
-                                    <input type="date"/>
+                                    <input type="date" data-ng-model="submit.startTime"/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-lg-4 control-label">截止时间</label>
                                 <div class="col-lg-8">
-                                    <input type="date"/>
+                                    <input type="date" data-ng-model="submit.endTime"/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-lg-4 control-label">下载准考证</label>
                                 <div class="col-lg-8">
-                                    <input type="checkbox"/>
+                                    <input type="checkbox" data-ng-model="submit.download"/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-lg-4 control-label">查看成绩</label>
-                                 <div class="col-lg-8">
-                                    <input type="checkbox"/>
+                                <div class="col-lg-8">
+                                    <input type="checkbox" data-ng-model="submit.queryScore"/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-lg-4 control-label">查看考场</label>
                                 <div class="col-lg-8">
-                                    <input type="checkbox"/>
+                                    <input type="checkbox" data-ng-model="submit.queryRoom"/>
                                 </div>
                             </div>
                         </form>
@@ -468,7 +427,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-ng-click="submitCategory()">保存</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" data-ng-click="createCategory()">保存</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
 
             </div>

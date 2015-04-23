@@ -100,7 +100,7 @@ router.get('/admin/get_all_exam', function(req, res) {
         header: {'content-type': 'application/json'},
         method: 'POST',
         json: {
-          student_up: {get_all_exam:{}}
+          common_up: {get_all_exam:{}}
         }
     };
     function callback(error, response, data) {
@@ -112,6 +112,39 @@ router.get('/admin/get_all_exam', function(req, res) {
 
     request(options, callback);
 })
+//Admin
+/**
+ * 获取所有考试类型
+ * */
+router.post('/admin/delete_category', function(req, res) {
+    var reqBody = req.body;
+    console.log("req body"+ reqBody);
+    var postData = {
+        id: reqBody.id
+    };
+    console.log("post data"+JSON.stringify(postData));
+    var options = {
+        url: 'http://enrollsystem.sinaapp.com/controller.php',
+        headers: {'content-type' : 'application/json'},
+        method: 'POST',
+        json: {
+            "manager_up": {
+                "delete_category": {
+                    "id":postData.id
+                }
+            }
+        }
+    };
+
+    function callback(error, response, data) {
+        if (!error && response.statusCode == 200) {
+            console.log('data from real backend :'+ data);
+            res.send(data);
+        }
+    }
+
+    request(options, callback);
+});
 /**
  * 考试类型设置
  * set_manager_exam_info
@@ -120,18 +153,17 @@ router.get('/admin/get_all_exam', function(req, res) {
  * */
 router.post('/admin/set_manager_exam_info', function(req, res) {
     var reqBody = req.body;
-
+    console.log("req body"+ reqBody);
     var postData = {
-        "name": reqBody.name,
-        "start_register_time":"2015-01-01 00:00",
-        "end_register_time":"2015-03-01 00:00",
-        "can_register":false,
-        "can_login":false,
-        "can_download_addmission":true,
-        "can_query_score":true,
-        "can_query_exam_room":true
+        name: encodeURI(reqBody.name),
+        start_register_time: reqBody.start_register_time,
+        end_register_time: reqBody.end_register_time,
+        can_register: reqBody.can_register,
+        can_download_addmissio: reqBody.can_download_addmissio,
+        can_query_score: reqBody.can_query_score,
+        can_query_exam_room: reqBody.can_query_exam_room
     };
-
+    console.log("post data"+JSON.stringify(postData));
     var options = {
         url: 'http://enrollsystem.sinaapp.com/controller.php',
         headers: {'content-type' : 'application/json'},
@@ -143,10 +175,9 @@ router.post('/admin/set_manager_exam_info', function(req, res) {
                     "start_register_time":postData.start_register_time,
                     "end_register_time":postData.end_register_time,
                     "can_register":postData.can_register,
-                    "can_login":postData.can_login,
                     "can_download_addmission":postData.can_download_addmission,
                     "can_query_score":postData.can_query_score,
-                    "can_query_exam_room":postData.can_query_exam_roomxx
+                    "can_query_exam_room":postData.can_query_exam_room
                 }
             }
         }
