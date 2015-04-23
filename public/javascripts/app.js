@@ -14,7 +14,7 @@ angular.module('myApp', ['ngRoute', 'ngCookies', 'ui.bootstrap'])
             when('/login-successful', {templateUrl: 'modules/client/login/login-successful.html'}).
             when('/register', {templateUrl: 'modules/client/register/register.html', controller: RegisterCtrl}).
             when('/register/confirm', {templateUrl: 'modules/client/register/confirm.html'}).
-            when('/profile', {templateUrl: 'modules/client/profile/index.html', controller: SignupCtrl}).
+            when('/profile', {templateUrl: 'modules/client/profile/signup.html', controller: SignupCtrl}).
             when('/profile/signup', {templateUrl: 'modules/client/profile/signup.html', controller: SignupCtrl}).
             when('/profile/basic', {templateUrl: 'modules/client/profile/basic.html',controller:ModifyPwdCtrl}).
             when('/profile/info', {templateUrl: 'modules/client/profile/info.html',controller :GetInfoCtrl}).

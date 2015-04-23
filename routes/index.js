@@ -646,4 +646,23 @@ router.get('/get_student_exam_info', function(req, res) {
 
     request(options, callback);
 });
+router.post('/verify_account', function(req, res) {
+  var options = {
+    url: 'http://enrollsystem.sinaapp.com/controller.php',
+    headers: {'content-type' : 'application/json'},
+    method: 'GET',
+    json: {
+      "student_up": {
+        "get_verify_register_code": req.body.stu_account
+      }
+    }
+  };
+  function callback(error, response, data) {
+    if (!error && response.statusCode == 200) {
+      console.log('data from real backend :'+ data);
+      res.send(data);
+    }
+  };
+  request(options, callback);
+})
  module.exports = router;
