@@ -2,7 +2,7 @@
  * Created by Cami on 15/3/21.
  */
 'use strict'
-angular.module('myApp', ['ngRoute', 'ui.bootstrap'])
+angular.module('myApp', ['ngRoute', 'ngCookies', 'ui.bootstrap'])
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider.
             when('/', {templateUrl: 'modules/client/login.html'}).
