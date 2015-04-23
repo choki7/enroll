@@ -60,6 +60,6 @@ function SignupCtrl ($scope, $http, $cookieStore) {
     $scope.generated = true;
     console.log("大类ID：" + $scope.type + "小类ID：" + $scope.small);
     $scope.registerCode = $scope.type.toString() + $scope.small.toString() + $cookieStore.get('stuId').toString();
-    $cookieStore('registerCode', $scope.registerCode);
+    $cookieStore.put('registerCode', $scope.registerCode);
   }
 }
