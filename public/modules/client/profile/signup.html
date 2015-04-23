@@ -56,18 +56,19 @@
                                 <div class="form-group ">
                                     <label class="col-lg-5 control-label">选择考试类型</label>
                                     <div class="col-lg-5">
-                                        <select class="form-control" ng-model="type" ng-options="name for category in categories">
-                                            <option></option>
+                                        <select class="form-control" ng-change="updateBig(type)" ng-model="type">
+                                            <option ng-repeat="item in categories" value="{{item.id}}">{{item.name}}</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group" data-ng-show="hasSmall">
                                     <label class="col-lg-5 control-label">选择专业</label>
                                     <div class="col-lg-5">
-                                        <select class="form-control">
-                                            <option value="0">语文</option>
-                                            <option value="1">数学</option>
-                                            <option value="2">英语</option>
+                                        <!--<select class="form-control" ng-options="item.name for item in smalls">
+                                            <option></option>
+                                        </select>-->
+                                        <select class="form-control" data-ng-model="small" ng-change="updateSmall(small)">
+                                            <option data-ng-repeat="item in smalls" value="{{item.id}}">{{item.name}}</option>
                                         </select>
                                     </div>
                                 </div>

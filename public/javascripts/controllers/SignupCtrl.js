@@ -3,14 +3,14 @@
  */
 'use strict'
 
-function SignupCtrl ($scope, $http) {
+function SignupCtrl ($scope, $http, $cookieStore) {
   $scope.verifyed = false;
   $scope.generated = false;
 
   // 验证已有报名号
   $scope.verifyAccount = function() {
       var data = {
-        stu_account: '1234567'
+        stu_account: $scope.student_account
       };
       var req = {
           method: 'POST',
@@ -38,18 +38,28 @@ function SignupCtrl ($scope, $http) {
   };
   $http(req).success(function(data){
     if(data){
-      console.log(data);
       $scope.categories = data;
     }else{
       alert('报名号有误');
     }
   }).error(function(data, status){
     console.log("error form node" + data);
-  })
+  });
+  $scope.updateBig = function(type) {
+    $scope.type = type
+    if(typeof $scope.categories[type].small) {
+      $scope.hasSmall = true;
+      $scope.smalls = $scope.categories[type].small;
+    }
+  };
+  $scope.updateSmall = function(small) {
+    $scope.small = small;
+  };
   // 生成报名号
   $scope.generateAccount = function() {
     $scope.generated = true;
-    console.log($scope.type);
-    $scope.registerCode = {};
+    console.log("大类ID：" + $scope.type + "小类ID：" + $scope.small);
+    $scope.registerCode = $scope.type.toString() + $scope.small.toString() + $cookieStore.get('stuId').toString();
+    $cookieStore('registerCode', $scope.registerCode);
   }
 }
