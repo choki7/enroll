@@ -39,8 +39,8 @@ angular.module('myApp', ['ngRoute', 'ngCookies', 'ui.bootstrap'])
             when('/admin/site/roomSetting', {templateUrl: 'modules/admin/views/site/roomSetting.html'}).
             when('/admin/site/assignSite', {templateUrl: 'modules/admin/views/site/assignSite.html'}).
             when('/admin/score/importScore', {templateUrl: 'modules/admin/views/score/importScore.html'}).
-            when('/admin/score/queryScore', {templateUrl: 'modules/admin/views/score/queryScore.html',controller: RegCtrl.js}).
-            when('/signup/edit', {templateUrl: 'modules/client/signup/edit.html'}).
+            when('/admin/score/queryScore', {templateUrl: 'modules/admin/views/score/queryScore.html',controller: RegCtrl}).
+            when('/signup/edit', {templateUrl: 'modules/client/signup/edit.html', controller: EditSignupCtrl}).
             otherwise({redirectTo: '/login'});
 
     }]);

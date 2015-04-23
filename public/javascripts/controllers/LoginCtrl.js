@@ -21,6 +21,7 @@ function LoginCtrl($scope, $http, $location, $cookieStore) {
             if(data){
               $cookieStore.put('stuId', data.common_down.login_reply.user_info.id);
               $cookieStore.put('my_id', data.common_down.login_reply.user_info.id);
+              $cookieStore.put('name', data.common_down.login_reply.user_info.name);
               $cookieStore.put('school', data.common_down.login_reply.user_info.school);
               $cookieStore.put('email', data.common_down.login_reply.user_info.email);
               $cookieStore.put('sex', data.common_down.login_reply.user_info.sex);
