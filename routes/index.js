@@ -481,7 +481,14 @@ router.get('/admin/get_exam_place', function(req, res) {
 
     var options = {
         url: 'http://enrollsystem.sinaapp.com/controller.php',
-        method: 'GET'
+        method: 'GET',
+        json:{
+            "manager_up": {
+                "get_exam_place": {
+                    "exam_id":123
+                }
+            }
+        }
     };
 
     function callback(error, response, data) {
@@ -618,6 +625,55 @@ router.get('/get_student_exam', function(req, res) {
  *  set_student_exam
  *
  * */
+router.get('/set_student_exam',function(req,res){
+    var options = {
+        url: 'http://enrollsystem.sinaapp.com/controller.php',
+        headers: {'content-type' : 'application/json'},
+        method: 'GET',
+        json: {
+            "student_up": {
+                "set_student_exam": {
+                    "exam_id":req.exam_id,
+                    "national_exam_id":req.national_exam_id,
+                    "other":req.other
+                }
+            },"my_id":req.my_id
+        }
+    };
+    function callback(error, response, data) {
+        if (!error && response.statusCode == 200) {
+            console.log('data from real backend :'+ data);
+            res.send(data);
+        }
+    };
+
+    request(options, callback);
+});
+/**
+ * set_student_place
+ **/
+router.get('/set_student_place',function(req,res){
+    var options = {
+        url: 'http://enrollsystem.sinaapp.com/controller.php',
+        headers: {'content-type' : 'application/json'},
+        method: 'GET',
+        json: {
+            "student_up": {
+                "set_student_place": {
+                    "exam_id":req.exam_id
+                }
+            },"my_id":req.my_id
+        }
+    };
+    function callback(error, response, data) {
+        if (!error && response.statusCode == 200) {
+            console.log('data from real backend :'+ data);
+            res.send(data);
+        }
+    };
+
+    request(options, callback);
+});
 /**
  *  get_student_exam_info
  *  //"{\"student_up\":{\"get_student_exam_info\":{\"exam_id\":\"1\"}},\"my_id\":1}"
@@ -646,4 +702,31 @@ router.get('/get_student_exam_info', function(req, res) {
 
     request(options, callback);
 });
+/**
+ * get_exam_score
+ **/
+router.post('/get_exam_score',function(req,res){
+    var options = {
+        url: 'http://enrollsystem.sinaapp.com/controller.php',
+        headers: {'content-type' : 'application/json'},
+        method: 'GET',
+        json: {
+            "student_up": {
+                "get_exam_score": {
+                    "exam_id":req.exam_id
+                }
+            },"my_id":req.my_id
+        }
+    };
+    console.log(options.json.my_id);
+    function callback(error, response, data) {
+        if (!error && response.statusCode == 200) {
+            console.log('data from real backend :'+ data);
+            res.send(data);
+        }
+    };
+
+    request(options, callback);
+});
+
  module.exports = router;
