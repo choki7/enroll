@@ -2,11 +2,11 @@
  * Created by Cami on 15/3/21.
  */
 'use strict'
-angular.module('myApp', ['ngRoute', 'ui.bootstrap'])
+angular.module('myApp', ['ngRoute', 'ngCookies', 'ui.bootstrap'])
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider.
             when('/', {templateUrl: 'modules/client/login.html'}).
-            when('/index', {templateUrl: 'modules/client/index.html'}).
+            when('/index', {templateUrl: 'modules/client/index.html',controller: IndexCtrl}).
             when('/admin', {templateUrl: 'modules/admin/views/basic/category.html', controller: CategoryTableCtrl}).
             when('/admin/login', {templateUrl: 'modules/admin/login.html', controller:AdminLoginCtrl}).
             when('/login', {templateUrl: 'modules/client/login/login.html', controller:LoginCtrl}).
@@ -14,7 +14,7 @@ angular.module('myApp', ['ngRoute', 'ui.bootstrap'])
             when('/login-successful', {templateUrl: 'modules/client/login/login-successful.html'}).
             when('/register', {templateUrl: 'modules/client/register/register.html', controller: RegisterCtrl}).
             when('/register/confirm', {templateUrl: 'modules/client/register/confirm.html'}).
-            when('/profile', {templateUrl: 'modules/client/profile/index.html', controller: SignupCtrl}).
+            when('/profile', {templateUrl: 'modules/client/profile/signup.html', controller: SignupCtrl}).
             when('/profile/signup', {templateUrl: 'modules/client/profile/signup.html', controller: SignupCtrl}).
             when('/profile/basic', {templateUrl: 'modules/client/profile/basic.html',controller:ModifyPwdCtrl}).
             when('/profile/info', {templateUrl: 'modules/client/profile/info.html',controller :GetInfoCtrl}).

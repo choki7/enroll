@@ -9,23 +9,23 @@ function SignupCtrl ($scope, $http) {
 
   // 验证已有报名号
   $scope.verifyAccount = function() {
-      alert($scope.oldPassword);
+      var data = {
+        stu_account: '1234567'
+      };
       var req = {
           method: 'POST',
-          url: '/login',
+          url: '/verify_account',
           headers: {
               'content-type': 'application/json;charset=utf-8'
           },
-          data: JSON.stringify($scope.stu_account)
+          data: JSON.stringify(data)
       };
       $http(req).success(function(data){
-          if(data){
-              // 报名号验证成功，可查看报名信息
-          }else{
-              alert('报名号有误');
-          }
-      }).error(function(data, status){
+        if(data) {
           $scope.verifyed = true;
+        }
+      }).error(function(data, status){
+
       })
   };
   //获取所有类别
@@ -49,6 +49,7 @@ function SignupCtrl ($scope, $http) {
   // 生成报名号
   $scope.generateAccount = function() {
     $scope.generated = true;
-
+    console.log($scope.type);
+    $scope.registerCode = {};
   }
 }

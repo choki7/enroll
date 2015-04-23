@@ -2,7 +2,7 @@
  * Created by Cami on 15/3/25.
  */
 'use strict'
-function LoginCtrl($scope, $http, $location) {
+function LoginCtrl($scope, $http, $location, $cookieStore) {
     $scope.signIn = function() {
         $scope.login = {
             account: $scope.account,
@@ -18,18 +18,14 @@ function LoginCtrl($scope, $http, $location) {
         };
         $http(req).success(function(data){
             if(data){
+              $cookieStore.put('stuId', data.common_down.login_reply.user_info.id);
               $scope.$parent.logined = false;
               $scope.$parent.logout = true;
               $location.path('/profile');
             }else{
-              $scope.$parent.logined = false;
-              $scope.$parent.logout = true;
-              $location.path('/profile');
+
             }
         }).error(function(data, status){
-          $scope.$parent.logined = false;
-          $scope.$parent.logout = true;
-          $location.path('/profile');
 
         })
     };

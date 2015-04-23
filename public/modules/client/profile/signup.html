@@ -36,7 +36,6 @@
                                         <label class="col-lg-5 control-label">输入报名号</label>
                                         <div class="col-lg-5">
                                             <input type="text" data-ng-model="student_account" class="form-control" placeholder="输入报名号" required>
-                                            <input type="password" class="form-control" placeholder="旧密码" data-ng-model="oldPassword"/>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -57,14 +56,8 @@
                                 <div class="form-group ">
                                     <label class="col-lg-5 control-label">选择考试类型</label>
                                     <div class="col-lg-5">
-                                        <select class="form-control" data-ng-model="type" >
-                                            <option value="'{{category.id}}' + '{{category.small.id}}'}" data-ng-repeat="category in categories">{{category.name}}</option>
-                                            <option value="">请选择</option>
-                                            <!--<option value="1">艺术特长生</option>
-                                            <option value="2">高水平运动员</option>
-                                            <option value="3">播音与主持艺术</option>
-                                            <option value="4">音乐学</option>
-                                            <option value="5">美术学</option>-->
+                                        <select class="form-control" ng-model="type" ng-options="name for category in categories">
+                                            <option></option>
                                         </select>
                                     </div>
                                 </div>
