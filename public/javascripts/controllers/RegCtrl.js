@@ -4,5 +4,6 @@
 function RegCtrl($scope) {
   $scope.createReg = function() {
     alert('');
+
   }
 }

@@ -602,10 +602,41 @@ router.get('/get_student_exam', function(req, res) {
             "student_up": {
                 "get_student_exam": {
                 }
-            },"my_id":req.body.my_id
+            },"my_id":1
+        }
+    };
+    function callback(error, response, data) {
+        if (!error && response.statusCode == 200) {
+            console.log('data from real backend :'+ data);
+            res.send(data);
         }
     };
 
+    request(options, callback);
+});
+/**
+ *  set_student_exam
+ *
+ * */
+/**
+ *  get_student_exam_info
+ *  //"{\"student_up\":{\"get_student_exam_info\":{\"exam_id\":\"1\"}},\"my_id\":1}"
+ * */
+router.get('/get_student_exam_info', function(req, res) {
+
+    var options = {
+        url: 'http://enrollsystem.sinaapp.com/controller.php',
+        headers: {'content-type' : 'application/json'},
+        method: 'GET',
+        json: {
+            "student_up": {
+                "get_student_exam_info": {
+                    "exam_id":1
+                        //req.body.exam_id
+                }
+            },"my_id":1
+        }
+    };
     function callback(error, response, data) {
         if (!error && response.statusCode == 200) {
             console.log('data from real backend :'+ data);
