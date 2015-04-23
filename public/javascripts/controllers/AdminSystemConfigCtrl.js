@@ -25,7 +25,7 @@ function AdminSystemConfigCtrl($scope, $http) {
                     alert('保存成功')
                 }
             }else{
-                alert('注册失败');
+                alert('设置失败，请稍后再试');
             }
         }).error(function(data, status){
             //alert('注册成功');

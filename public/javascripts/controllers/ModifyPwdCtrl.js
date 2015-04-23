@@ -2,10 +2,10 @@
  * Created by Cami on 15/3/25.
  */
 'use strict'
-function ModifyPwdCtrl($scope, $http, $location) {
+function ModifyPwdCtrl($scope, $http, $location,$cookieStore) {
     $scope.modifyPwd= function() {
         $scope.pwds = {
-            my_id:"1",
+            my_id:$cookieStore.get('my_id'),
             old_password: $scope.oldPassword,
             new_password: $scope.newPassword1
         };
@@ -20,20 +20,20 @@ function ModifyPwdCtrl($scope, $http, $location) {
         };
         $http(req).success(function(data){
             if(data){
-                console.log(data)
-                if(data.common_down.login_reply.state.is_success == true) {
-                    $scope.$parent.logined = false;
-                    $scope.$parent.logout = true;
-                    $location.path('/profile');
+                if(data == 'true'){
+                    alert('密码修改成功')
+                }
+                else{
+                    alert('旧密码输入有误');
                 }
             }else{
-                alert('旧密码输入有误');
+                alert('系统忙，请稍后再试。');
             }
         }).error(function(data, status){
             $scope.$parent.logined = false;
             $scope.$parent.logout = true;
             //$location.path('/profile');
-            alert('账号或密码有误');
+            alert('系统忙，请稍后再试。');
         })
     };
 }

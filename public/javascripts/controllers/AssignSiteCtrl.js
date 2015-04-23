@@ -5,8 +5,6 @@ function AssignSiteCtrl($scope, $http){
 $scope.set_student_exam_room = function (exam_id) {
 
     var postData = {
-        //content : "哈哈哈"
-
         exam_id: exam_id
 
     };
