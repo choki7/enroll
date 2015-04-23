@@ -10,16 +10,16 @@
                     <a href="#/profile/info" class="btn btn-material-blue-400">报名信息</a>
                 </li>
                 <li>
-                    <a href="#/profile/basic" class="btn btn-material-blue-500">修改密码</a>
+                    <a href="#/profile/exam" class="btn btn-material-blue-600">选择考点</a>
                 </li>
                 <li>
-                    <a href="#/profile/state" class="btn btn-material-blue-500">报名状态</a>
-                </li>
-                <li>
-                    <a href="#/profile/exam" class="btn btn-material-blue-600">考试信息</a>
+                    <a href="#/profile/state" class="btn btn-material-blue-500">考试信息</a>
                 </li>
                 <li>
                     <a href="#/profile/record" class="btn btn-material-blue-700">成绩查询</a>
+                </li>
+                <li>
+                    <a href="#/profile/basic" class="btn btn-material-blue-500">修改密码</a>
                 </li>
             </ul>
         </div>
@@ -29,20 +29,26 @@
                 <hr>
                 <form class="form-horizontal" role="form">
                     <div class="form-group">
+                        <label class="col-sm-4 control-label">旧密码</label>
+                        <div class="col-sm-6">
+                            <input type="password" class="form-control" placeholder="旧密码" data-ng-model="oldPassword"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label class="col-sm-4 control-label">新密码</label>
                         <div class="col-sm-6">
-                            <input type="password" class="form-control" placeholder="新密码"/>
+                            <input type="password" class="form-control" placeholder="新密码" data-ng-model="newPassword1"/>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-4 control-label">确认新密码</label>
                         <div class="col-sm-6">
-                            <input type="password" class="form-control" placeholder="确认新密码"/>
+                            <input type="password" class="form-control" placeholder="确认新密码" data-ng-model="newPassword2"/>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-6 col-sm-offset-4">
-                            <a class="btn btn-material-blue-700">保存</a>
+                            <a class="btn btn-material-blue-700" ng-click="modifyPwd()">保存</a>
                         </div>
                     </div>
                 </form>

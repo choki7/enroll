@@ -2,11 +2,14 @@
  * Created by Cami on 15/4/8.
  */
 'use strict'
+
 function SignupCtrl ($scope, $http) {
   $scope.verifyed = false;
   $scope.generated = false;
+
   // 验证已有报名号
   $scope.verifyAccount = function() {
+      alert($scope.oldPassword);
       var req = {
           method: 'POST',
           url: '/login',
