@@ -47,11 +47,16 @@ function SignupCtrl ($scope, $http, $cookieStore) {
     console.log("error form node" + data);
   });
   $scope.updateBig = function(type) {
-    $scope.type = type
-    if(typeof $scope.categories[type].small) {
-      $scope.hasSmall = true;
-      $scope.smalls = $scope.categories[type].small;
+    $scope.type = type;
+    for(var i in $scope.categories) {
+      if($scope.categories[i].id == type) {
+        if(typeof $scope.categories[i].small) {
+          $scope.hasSmall = true;
+          $scope.smalls = $scope.categories[i].small;
+        }
+      }
     }
+
   };
   $scope.updateSmall = function(small) {
     $scope.small = small;

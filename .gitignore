@@ -7,4 +7,5 @@ client/lib/
 logs/
 .sass-cache/
 client/modules/app/.tmp
-/.DS_Store
+public/.DS_Store
+.DS_Store
