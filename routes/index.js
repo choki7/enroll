@@ -130,6 +130,48 @@ router.get('/get_all_exam', function(req, res) {
 
   request(options, callback);
 })
+/**
+ * get_exam_small
+ */
+router.post('/admin/get_exam_small', function(req, res) {
+    var options = {
+        url: 'http://enrollsystem.sinaapp.com/controller.php',
+        header: {'content-type': 'application/json'},
+        method: 'POST',
+        json: {
+            student_up: {get_exam_small:{}}
+        }
+    };
+    function callback(error, response, data) {
+        if (!error && response.statusCode == 200) {
+            console.log('data from real backend :'+ data);
+            res.send(data);
+        }
+    }
+
+    request(options, callback);
+})
+/**
+ * get_all_catagory
+ */
+router.post('/admin/get_all_catagory', function(req, res) {
+    var options = {
+        url: 'http://enrollsystem.sinaapp.com/controller.php',
+        header: {'content-type': 'application/json'},
+        method: 'POST',
+        json: {
+            student_up: {get_all_catagory:{}}
+        }
+    };
+    function callback(error, response, data) {
+        if (!error && response.statusCode == 200) {
+            console.log('data from real backend :'+ data);
+            res.send(data);
+        }
+    }
+
+    request(options, callback);
+})
 //Admin
 /**
  * 获取所有考试类型
@@ -196,6 +238,45 @@ router.post('/admin/set_manager_exam_info', function(req, res) {
                     "can_download_addmission":postData.can_download_addmission,
                     "can_query_score":postData.can_query_score,
                     "can_query_exam_room":postData.can_query_exam_room
+                }
+            }
+        }
+    };
+
+    function callback(error, response, data) {
+        if (!error && response.statusCode == 200) {
+            console.log('data from real backend :'+ data);
+            res.send(data);
+        }
+    }
+
+    request(options, callback);
+});
+
+/**
+ * 小类设置
+ * set_exam_small
+ * name,start_register_time,end_register_time,can_register,can_login,can_download_addmission,can_query_score,can_query_exam_room
+ *
+ * */
+router.post('/admin/set_exam_small', function(req, res) {
+    var reqBody = req.body;
+    console.log("req body"+ reqBody);
+    var postData = {
+        name: encodeURI(reqBody.name),
+        big_id:reqBody.big_id
+    };
+    console.log("post data"+JSON.stringify(postData));
+    var options = {
+        url: 'http://enrollsystem.sinaapp.com/controller.php',
+        headers: {'content-type' : 'application/json'},
+        method: 'POST',
+        json: {
+            "manager_up": {
+                "set_exam_small": {
+                    "name":postData.name,
+                    "big_id":postData.big_id
+
                 }
             }
         }
