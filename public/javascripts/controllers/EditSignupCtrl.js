@@ -28,7 +28,7 @@ function EditSignupCtrl($scope, $http, $location, $cookieStore) {
     $http(req).success(function(data){
       console.log(data);
       if(data){
-        $location.href('profile/info');
+        $location.path('/profile/info');
       }else{
         alert('');
       }

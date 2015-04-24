@@ -28,7 +28,7 @@
                 <h2 class="text-center">考试信息</h2>
                 <hr>
                 <accordion>
-                    <accordion-group ng-repeat="item in exams" heading="考试">
+                    <accordion-group ng-repeat="item in exams" heading="{{item.big}}-{{item.small}}">
                         <form class="form-horizontal" role="form">
                             <div class="form-group">
                                 <label class="col-sm-5 control-label">考试类型</label>
