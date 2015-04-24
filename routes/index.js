@@ -111,6 +111,24 @@ router.get('/admin/get_all_exam', function(req, res) {
     }
 
     request(options, callback);
+});
+router.get('/get_all_exam', function(req, res) {
+  var options = {
+    url: 'http://enrollsystem.sinaapp.com/controller.php',
+    header: {'content-type': 'application/json'},
+    method: 'POST',
+    json: {
+      student_up: {get_all_exam:{}}
+    }
+  };
+  function callback(error, response, data) {
+    if (!error && response.statusCode == 200) {
+      console.log('data from real backend :'+ data);
+      res.send(data);
+    }
+  }
+
+  request(options, callback);
 })
 //Admin
 /**

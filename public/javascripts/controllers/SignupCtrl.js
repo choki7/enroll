@@ -31,12 +31,13 @@ function SignupCtrl ($scope, $http, $cookieStore) {
   //获取所有类别
   var req = {
     method: 'GET',
-    url: '/admin/get_all_exam',
+    url: '/get_all_exam',
     headers: {
       'content-type': 'application/json;charset=utf-8'
     }
   };
   $http(req).success(function(data){
+    console.log(data);
     if(data){
       $scope.categories = data;
     }else{
