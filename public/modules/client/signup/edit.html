@@ -46,13 +46,13 @@
             <div class="form-group">
                 <label class="col-sm-4 control-label">高考号／艺术号</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" data-ng-model="identifyId">
+                    <input type="text" class="form-control" data-ng-model="signUpEdit.national_exam_id">
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-4 control-label">其他：（体育项目，艺术作品名称）</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" data-ng-model="identifyId">
+                    <input type="text" class="form-control" data-ng-model="signUpEdit.other">
                 </div>
             </div>
 
@@ -61,7 +61,7 @@
             </div>
             <div class="form-group">
                 <div class="col-sm-6 col-sm-offset-4">
-                    <a class="btn btn-material-light-blue-800 btn-inverse" data-ng-click="createReg" href="#/profile/info">提交</a>
+                    <a class="btn btn-material-light-blue-800 btn-inverse" data-ng-click="createReg()" >提交</a>
                 </div>
             </div>
         </form>

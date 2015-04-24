@@ -20,7 +20,7 @@ angular.module('myApp', ['ngRoute', 'ngCookies', 'ui.bootstrap'])
             when('/profile/info', {templateUrl: 'modules/client/profile/info.html',controller :GetInfoCtrl}).
             when('/profile/exam', {templateUrl: 'modules/client/profile/exam.html',controller :ExamPlaceCtrl}).
             when('/profile/record', {templateUrl: 'modules/client/profile/record.html', controller: RecordCtrl}).
-            when('/profile/state', {templateUrl: 'modules/client/profile/state.html'}).
+            when('/profile/state', {templateUrl: 'modules/client/profile/state.html', controller: GetStateCtrl}).
             when('/admin/index', {templateUrl: 'modules/admin/views/index.html'}).
             when('/admin/basic/category', {templateUrl: 'modules/admin/views/basic/category.html', controller: CategoryTableCtrl}).
             when('/admin/basic/subclass', {templateUrl: 'modules/admin/views/basic/subclass.html', controller: SubclassCtrl}).

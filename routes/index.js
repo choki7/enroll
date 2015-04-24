@@ -674,7 +674,7 @@ router.get('/get_student_exam', function(req, res) {
  *  set_student_exam
  *
  * */
-router.get('/set_student_exam',function(req,res){
+router.post('/set_student_exam',function(req,res){
     var options = {
         url: 'http://enrollsystem.sinaapp.com/controller.php',
         headers: {'content-type' : 'application/json'},
@@ -682,11 +682,12 @@ router.get('/set_student_exam',function(req,res){
         json: {
             "student_up": {
                 "set_student_exam": {
+                    "student_small": req.student_small,
                     "exam_id":req.exam_id,
                     "national_exam_id":req.national_exam_id,
                     "other":req.other
                 }
-            },"my_id":req.my_id
+            }
         }
     };
     function callback(error, response, data) {

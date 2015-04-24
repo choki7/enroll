@@ -18,9 +18,8 @@ function RecordCtrl($scope, $http) {
         };
         $http(req).success(function(data){
             if(data){
-                if(data.common_down.login_reply.state.is_success == true) {
-                    $location.path('/admin');
-                }
+              console.log(data);
+
             }else{
                 alert('查询有误，请稍后再试');
             }
@@ -38,7 +37,6 @@ function RecordCtrl($scope, $http) {
     };
     $http(req).success(function(data){
         if(data) {
-            //$scope.content = data.content;
             console.log(data);
             $scope.examplaces = data;
         }else{

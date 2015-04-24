@@ -48,14 +48,18 @@ function SignupCtrl ($scope, $http, $cookieStore) {
   });
   $scope.updateBig = function(type) {
     $scope.type = type;
+    $cookieStore.put('examId', $scope.type);
     for(var i in $scope.categories) {
       if($scope.categories[i].id == type) {
-        if(typeof $scope.categories[i].small) {
+        if($scope.categories[i].small != null) {
           $scope.hasSmall = true;
           $scope.smalls = $scope.categories[i].small;
+        }else {
+          alert('该类别的尚未开放注册');
         }
       }
     }
+
 
   };
   $scope.updateSmall = function(small) {
@@ -66,6 +70,7 @@ function SignupCtrl ($scope, $http, $cookieStore) {
     $scope.generated = true;
     console.log("大类ID：" + $scope.type + "小类ID：" + $scope.small);
     $scope.registerCode = $scope.type.toString() + $scope.small.toString() + $cookieStore.get('stuId').toString();
+    $cookieStore.put('smallId', $scope.small);
     $cookieStore.put('registerCode', $scope.registerCode);
   }
 }

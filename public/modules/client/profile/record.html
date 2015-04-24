@@ -34,14 +34,7 @@
                         <div class="col-lg-8">
                             <select class="form-control" >
                                 <option>请选择考试</option>
-                                <option data-ng-repeat="item in examplaces" value="item.id">{{item.name}}</option>
-                                <!--<option value="1">上海中学</option>
-                                <option value="2">华师大二附中</option>
-                                <option value="3">复旦附中</option>
-                                <option value="4">交大附中</option>
-                                <option value="5">南洋模范中学</option>
-                                <option value="6">建平中学</option>
-                                <option value="7">延安中学</option>-->
+                                <option data-ng-repeat="item in examplaces" value="item.id">{{item.exam_name}}</option>
                             </select>
                         </div>
                     </div>
@@ -49,6 +42,9 @@
                         <div class="col-lg-8 col-lg-offset-4">
                             <a class="btn btn-material-blue-700" ng-click="get_exam_score()">查询</a>
                         </div>
+                    </div>
+                    <div class="form-group" data-ng-show="">
+                        <p>成绩为：{{score}}</p>
                     </div>
                 </form>
                 <hr>

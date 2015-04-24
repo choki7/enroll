@@ -25,73 +25,40 @@
         </div>
         <div class="col-lg-8">
             <div class="jumbotron">
-                <h2 class="text-center">报名状态</h2>
+                <h2 class="text-center">考试信息</h2>
                 <hr>
                 <accordion>
-                    <accordion-group heading="考试一">
+                    <accordion-group ng-repeat="item in exams" heading="考试">
                         <form class="form-horizontal" role="form">
                             <div class="form-group">
                                 <label class="col-sm-5 control-label">考试类型</label>
-                                <label class="col-sm-3 text-left control-label">免费师范生</label>
+                                <label class="col-sm-3 text-left control-label">{{item.big}}</label>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-5 control-label">报名号</label>
-                                <label class="col-sm-3 text-left control-label">01044527789</label>
+                                <label class="col-sm-3 text-left control-label">{{item.reg}}</label>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-5 control-label">考试科目</label>
                                 <label class="col-sm-3 text-left control-label">
-                                    <label class="label label-info">语文</label>
-                                    <label class="label label-info">数学</label>
+                                    <label class="label label-info" >{{item.small}}</label>
                                 </label>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-5 control-label">姓名</label>
-                                <label class="col-sm-3 text-left control-label">张三</label>
+                                <label class="col-sm-3 text-left control-label">{{item.name}}</label>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-5 control-label">手机号</label>
-                                <label class="col-sm-3 text-left control-label">13761575801</label>
+                                <label class="col-sm-3 text-left control-label">{{item.phone_number}}</label>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-5 control-label">证件号</label>
-                                <label class="col-sm-3 text-left control-label">321284199312243226</label>
-                            </div>
-                        </form>
-                    </accordion-group>
-                    <accordion-group heading="考试二">
-                        <form class="form-horizontal" role="form">
-                            <div class="form-group">
-                                <label class="col-sm-5 control-label">考试类型</label>
-                                <label class="col-sm-3 text-left control-label">免费师范生</label>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-5 control-label">报名号</label>
-                                <label class="col-sm-3 text-left control-label">01044527789</label>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-5 control-label">考试科目</label>
-                                <label class="col-sm-3 text-left control-label">
-                                    <label class="label label-info">语文</label>
-                                    <label class="label label-info">数学</label>
-                                </label>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-5 control-label">姓名</label>
-                                <label class="col-sm-3 text-left control-label">张三</label>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-5 control-label">手机号</label>
-                                <label class="col-sm-3 text-left control-label">13761575801</label>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-5 control-label">证件号</label>
-                                <label class="col-sm-3 text-left control-label">321284199312243226</label>
+                                <label class="col-sm-3 text-left control-label">{{item.national_identify_id}}</label>
                             </div>
                         </form>
                     </accordion-group>
                 </accordion>
-
             </div>
         </div>
     </div>
