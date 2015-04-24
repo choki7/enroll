@@ -24,7 +24,7 @@ angular.module('myApp', ['ngRoute', 'ngCookies', 'ui.bootstrap'])
             when('/admin/index', {templateUrl: 'modules/admin/views/index.html'}).
             when('/admin/basic/category', {templateUrl: 'modules/admin/views/basic/category.html', controller: CategoryTableCtrl}).
             when('/admin/basic/subclass', {templateUrl: 'modules/admin/views/basic/subclass.html', controller: SubclassCtrl}).
-            when('/admin/basic/subject', {templateUrl: 'modules/admin/views/basic/subject.html'}).
+            when('/admin/basic/subject', {templateUrl: 'modules/admin/views/basic/subject.html', controller: SubjectCtrl}).
             when('/admin/basic/system', {templateUrl: 'modules/admin/views/basic/system.html', controller: AdminSystemConfigCtrl}).
             when('/admin/basic/statement', {templateUrl: 'modules/admin/views/basic/statement.html', controller: AdminSystemConfigCtrl}).
             when('/admin/registration/createReg', {templateUrl: 'modules/admin/views/registration/createReg.html'}).

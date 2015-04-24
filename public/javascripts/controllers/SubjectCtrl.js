@@ -3,13 +3,31 @@
  */
 function SubjectCtrl($scope, $http) {
 
+    var req = {
+        method: 'POST',
+        url: '/admin/get_all_catagory',
+        headers: {
+            'content-type': 'application/json;charset=utf-8'
+        }
+        // data: JSON.stringify(postData)
+    };
+    $http(req).success(function (data) {
+        if (data) {
+            // console.log(123);
+            $scope.subjects = data;
+        } else {
+            alert('载入失败，请刷新');
+        }
+    }).error(function (data, status) {
+        //alert('注册成功');
+    });
     $scope.set_exam_category = function () {
 
         var postData = {
             //content : "哈哈哈"
 
             exam_id: $scope.exam_id,
-            category:$scope.category
+            category: $scope.category
 
         };
         console.log(JSON.stringify(postData));
@@ -31,27 +49,8 @@ function SubjectCtrl($scope, $http) {
             }
         }).error(function (data, status) {
             //alert('注册成功');
-        })
+        });
+
+
     }
-    var req = {
-        method: 'POST',
-        url: '/admin/get_all_exam',
-        headers: {
-            'content-type': 'application/json;charset=utf-8'
-        }
-        // data: JSON.stringify(postData)
-    };
-    $http(req).success(function (data) {
-        if (data) {
-            console.log(123);
-            $scope.content = data.content;
-        } else {
-            alert('载入失败，请刷新');
-        }
-    }).error(function (data, status) {
-        //alert('注册成功');
-    })
-
-
-
 }
