@@ -25,7 +25,8 @@ function GetStateCtrl($scope, $http, $cookieStore) {
         small: data.big_small.small_name,
         name: name,
         phone_number: phone_number,
-        national_identify_id: national_identify_id
+        national_identify_id: national_identify_id,
+        subject: data.category
       }
       $scope.exams.push(temp);
     }else{
