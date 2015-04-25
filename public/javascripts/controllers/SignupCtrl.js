@@ -4,6 +4,8 @@
 'use strict'
 
 function SignupCtrl ($scope, $http, $cookieStore) {
+  $scope.logined = true;
+  $scope.logout = false;
   $scope.verifyed = false;
   $scope.generated = false;
 

@@ -809,7 +809,7 @@ router.get('/set_student_place',function(req,res){
  *  get_student_exam_info
  *  //"{\"student_up\":{\"get_student_exam_info\":{\"exam_id\":\"1\"}},\"my_id\":1}"
  * */
-router.get('/get_student_exam_info', function(req, res) {
+router.post('/get_student_exam_info', function(req, res) {
 
     var options = {
         url: 'http://enrollsystem.sinaapp.com/controller.php',
@@ -818,7 +818,7 @@ router.get('/get_student_exam_info', function(req, res) {
         json: {
             "student_up": {
                 "get_student_exam_info": {
-                    "exam_id":1
+                    "exam_id": req.body.exam_id
                         //req.body.exam_id
                 }
             },"my_id":1

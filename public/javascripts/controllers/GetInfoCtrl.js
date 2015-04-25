@@ -3,6 +3,8 @@
  */
 'use strict'
 function GetInfoCtrl($scope, $cookieStore) {
+  $scope.logined = true;
+  $scope.logout = false;
   $scope.info = {
     name: $cookieStore.get('name'),
     phone_number: $cookieStore.get('phone_number'),
