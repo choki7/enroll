@@ -729,17 +729,18 @@ router.post('/set_password_modify', function(req, res) {
  * place_id
  * */
 
-router.get('/get_student_exam', function(req, res) {
+router.post('/get_student_exam', function(req, res) {
 
     var options = {
         url: 'http://enrollsystem.sinaapp.com/controller.php',
         headers: {'content-type' : 'application/json'},
-        method: 'GET',
+        method: 'POST',
         json: {
             "student_up": {
                 "get_student_exam": {
                 }
-            },"my_id":1
+            },
+            "my_id": req.body.my_id
         }
     };
     function callback(error, response, data) {
@@ -862,9 +863,10 @@ router.post('/get_exam_score',function(req,res){
         json: {
             "student_up": {
                 "get_exam_score": {
-                    "exam_id":req.exam_id
+                    "exam_id": req.body.exam_id
                 }
-            },"my_id":req.my_id
+            },
+            "my_id": req.body.my_id
         }
     };
     console.log(options.json.my_id);
