@@ -759,18 +759,17 @@ router.post('/set_student_exam',function(req,res){
     var options = {
         url: 'http://enrollsystem.sinaapp.com/controller.php',
         headers: {'content-type' : 'application/json'},
-        method: 'GET',
+        method: 'POST',
         json: {
             "student_up": {
                 "set_student_exam": {
-                    "student_small": req.student_small,
-                    "exam_id":req.exam_id,
-                    "national_exam_id":req.national_exam_id,
-                    "other":req.other
+                    "exam_id":req.body.exam_id
                 }
-            }
+            },
+            "my_id": req.body.my_id
         }
     };
+    console.log(options);
     function callback(error, response, data) {
         if (!error && response.statusCode == 200) {
             console.log('data from real backend :'+ data);
