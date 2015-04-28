@@ -14,10 +14,10 @@ function RecordCtrl($scope, $http, $cookieStore) {
         };
         $http(req).success(function(data){
             if(data){
-              console.log(data);
-
+              $scope.queried = true;
+              $scope.scores = data;
             }else{
-                alert('查询有误，请稍后再试');
+                alert('状态尚未审核');
             }
         }).error(function(data, status){
             $location.path('/admin/login');

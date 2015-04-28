@@ -9,7 +9,8 @@ function GetStateCtrl($scope, $http, $cookieStore) {
     phone_number = $cookieStore.get('phone_number'),
     national_identify_id = $cookieStore.get('national_identify_id');
   var data = {
-    exam_id: $cookieStore.get('examId')
+    exam_id: $cookieStore.get('examId'),
+    my_id: $cookieStore.get('my_id')
   };
   var req = {
     method: 'POST',
@@ -21,6 +22,12 @@ function GetStateCtrl($scope, $http, $cookieStore) {
   };
   $http(req).success(function(data){
     if(data){
+      var str = ""
+      if(data.verify == 1) {
+        str = "已审核";
+      }else{
+        str = "未审核";
+      }
       var temp = {
         big: data.big_small.big_name,
         reg: registerCode,
@@ -28,7 +35,8 @@ function GetStateCtrl($scope, $http, $cookieStore) {
         name: name,
         phone_number: phone_number,
         national_identify_id: national_identify_id,
-        subject: data.category
+        subject: data.category,
+        verify: str
       }
       $scope.exams.push(temp);
     }else{

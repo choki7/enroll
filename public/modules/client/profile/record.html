@@ -43,8 +43,11 @@
                             <a class="btn btn-material-blue-700" ng-click="get_exam_score()">查询</a>
                         </div>
                     </div>
-                    <div class="form-group" data-ng-show="">
-                        <p>成绩为：{{score}}</p>
+                    <div class="form-group" data-ng-show="queried">
+                        <div class="col-lg-8 col-lg-offset-4">
+                            <h4>各科目成绩为：</h4>
+                            <h5 data-ng-repeat="score in scores">{{score.name}}:{{score.scoreA}}</h5>
+                        </div>
                     </div>
                 </form>
                 <hr>

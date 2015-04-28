@@ -8,23 +8,26 @@ function ExamPlaceCtrl($scope, $http, $cookieStore){
   var data = {
     exam_id: $cookieStore.get('examId')
   };
-    var req = {
-        method: 'GET',
-        url: '/admin/get_exam_place',
-        headers: {
-            'content-type': 'application/json;charset=utf-8'
-        },
-        data: JSON.stringify(data)
-    };
-    $http(req).success(function(data){
-        if(data) {
-            //$scope.content = data.content;
-            console.log(data);
-            $scope.examplaces = data;
-        }else{
-            alert('载入失败，请刷新');
-        }
-    }).error(function(data, status){
-        //alert('注册成功');
-    })
+  var req = {
+      method: 'GET',
+      url: '/admin/get_exam_place',
+      headers: {
+          'content-type': 'application/json;charset=utf-8'
+      },
+      data: JSON.stringify(data)
+  };
+  $http(req).success(function(data){
+      if(data) {
+          //$scope.content = data.content;
+          console.log(data);
+          $scope.examplaces = data;
+      }else{
+          alert('载入失败，请刷新');
+      }
+  }).error(function(data, status){
+      //alert('注册成功');
+  });
+  $scope.submit = function() {
+    alert('考点选择成功');
+  }
 }

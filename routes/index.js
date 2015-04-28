@@ -821,7 +821,8 @@ router.post('/get_student_exam_info', function(req, res) {
                     "exam_id": req.body.exam_id
                         //req.body.exam_id
                 }
-            },"my_id":1
+            },
+            "my_id": req.body.my_id
         }
     };
     function callback(error, response, data) {
