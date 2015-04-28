@@ -172,6 +172,27 @@ router.post('/admin/get_all_catagory', function(req, res) {
 
     request(options, callback);
 })
+/**
+ * get_student_exam_for_verify
+ */
+router.post('/admin/get_student_exam_for_verify', function(req, res) {
+    var options = {
+        url: 'http://enrollsystem.sinaapp.com/controller.php',
+        header: {'content-type': 'application/json'},
+        method: 'POST',
+        json: {
+            manager_up: {get_student_exam_for_verify:{}}
+        }
+    };
+    function callback(error, response, data) {
+        if (!error && response.statusCode == 200) {
+            console.log('data from real backend :'+ data);
+            res.send(data);
+        }
+    }
+
+    request(options, callback);
+})
 //Admin
 /**
  * 获取所有考试类型

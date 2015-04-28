@@ -29,7 +29,7 @@ angular.module('myApp', ['ngRoute', 'ngCookies', 'ui.bootstrap'])
             when('/admin/basic/statement', {templateUrl: 'modules/admin/views/basic/statement.html', controller: AdminSystemConfigCtrl}).
             when('/admin/registration/createReg', {templateUrl: 'modules/admin/views/registration/createReg.html'}).
             when('/admin/registration/assignReg', {templateUrl: 'modules/admin/views/registration/assignReg.html'}).
-            when('/admin/registration/queryReg', {templateUrl: 'modules/admin/views/registration/queryReg.html'}).
+            when('/admin/registration/queryReg', {templateUrl: 'modules/admin/views/registration/queryReg.html',controller:QueryRegCtrl}).
             when('/admin/registration/modifyReg', {templateUrl: 'modules/admin/views/registration/modifyReg.html'}).
             when('/admin/registration/importExcel', {templateUrl: 'modules/admin/views/registration/importExcel.html'}).
             when('/admin/registration/exportExcel', {templateUrl: 'modules/admin/views/registration/exportExcel.html'}).
