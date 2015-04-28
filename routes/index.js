@@ -729,17 +729,18 @@ router.post('/set_password_modify', function(req, res) {
  * place_id
  * */
 
-router.get('/get_student_exam', function(req, res) {
+router.post('/get_student_exam', function(req, res) {
 
     var options = {
         url: 'http://enrollsystem.sinaapp.com/controller.php',
         headers: {'content-type' : 'application/json'},
-        method: 'GET',
+        method: 'POST',
         json: {
             "student_up": {
                 "get_student_exam": {
                 }
-            },"my_id":1
+            },
+            "my_id": req.body.my_id
         }
     };
     function callback(error, response, data) {
@@ -759,18 +760,17 @@ router.post('/set_student_exam',function(req,res){
     var options = {
         url: 'http://enrollsystem.sinaapp.com/controller.php',
         headers: {'content-type' : 'application/json'},
-        method: 'GET',
+        method: 'POST',
         json: {
             "student_up": {
                 "set_student_exam": {
-                    "student_small": req.student_small,
-                    "exam_id":req.exam_id,
-                    "national_exam_id":req.national_exam_id,
-                    "other":req.other
+                    "exam_id":req.body.exam_id
                 }
-            }
+            },
+            "my_id": req.body.my_id
         }
     };
+    console.log(options);
     function callback(error, response, data) {
         if (!error && response.statusCode == 200) {
             console.log('data from real backend :'+ data);
@@ -809,7 +809,7 @@ router.get('/set_student_place',function(req,res){
  *  get_student_exam_info
  *  //"{\"student_up\":{\"get_student_exam_info\":{\"exam_id\":\"1\"}},\"my_id\":1}"
  * */
-router.get('/get_student_exam_info', function(req, res) {
+router.post('/get_student_exam_info', function(req, res) {
 
     var options = {
         url: 'http://enrollsystem.sinaapp.com/controller.php',
@@ -818,7 +818,7 @@ router.get('/get_student_exam_info', function(req, res) {
         json: {
             "student_up": {
                 "get_student_exam_info": {
-                    "exam_id":1
+                    "exam_id": req.body.exam_id
                         //req.body.exam_id
                 }
             },"my_id":1
@@ -863,9 +863,10 @@ router.post('/get_exam_score',function(req,res){
         json: {
             "student_up": {
                 "get_exam_score": {
-                    "exam_id":req.exam_id
+                    "exam_id": req.body.exam_id
                 }
-            },"my_id":req.my_id
+            },
+            "my_id": req.body.my_id
         }
     };
     console.log(options.json.my_id);

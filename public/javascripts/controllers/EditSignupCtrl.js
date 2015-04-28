@@ -12,7 +12,8 @@ function EditSignupCtrl($scope, $http, $location, $cookieStore) {
   };
   $scope.createReg = function() {
     var postData = {
-      exam_id: $cookieStore.get('exam_id'),
+      my_id: $cookieStore.get('my_id'),
+      exam_id: $cookieStore.get('examId'),
       national_exam_id: $scope.national_exam_id,
       other: $scope.other,
       student_small: $cookieStore.get('smallId')
