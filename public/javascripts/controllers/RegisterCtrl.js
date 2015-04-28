@@ -2,7 +2,7 @@
  * Created by Cami on 15/3/25.
  */
 'use strict'
-function RegisterCtrl($scope, $modal, $http) {
+function RegisterCtrl($scope, $modal, $http, $location) {
   $scope.register_confirm = function() {
     var postData = {
       name: $scope.name,
@@ -28,6 +28,7 @@ function RegisterCtrl($scope, $modal, $http) {
       if(data) {
         if(data.student_down.set_student_register_reply.state.is_success == true){
           alert('注册成功');
+          $location.path('/login');
         }
       }else{
         alert('注册失败');
