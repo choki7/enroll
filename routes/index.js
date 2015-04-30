@@ -193,6 +193,28 @@ router.post('/admin/get_student_exam_for_verify', function(req, res) {
 
     request(options, callback);
 })
+
+/**
+ * QueryScoreCtrl
+ */
+router.post('/admin/get_exam_score', function(req, res) {
+    var options = {
+        url: 'http://enrollsystem.sinaapp.com/controller.php',
+        header: {'content-type': 'application/json'},
+        method: 'POST',
+        json: {
+            student_up: {get_exam_score_all:{}}
+        }
+    };
+    function callback(error, response, data) {
+        if (!error && response.statusCode == 200) {
+            console.log('data from real backend :'+ data);
+            res.send(data);
+        }
+    }
+
+    request(options, callback);
+})
 //Admin
 /**
  * 获取所有考试类型
@@ -388,6 +410,37 @@ router.post('/admin/set_exam_category', function(req, res) {
             "manager_up": {
                 "set_exam_category": {
                     "category":postData.category
+                }
+            }
+        }
+    };
+
+    function callback(error, response, data) {
+        if (!error && response.statusCode == 200) {
+            console.log('data from real backend :'+ data);
+            res.send(data);
+        }
+    }
+
+    request(options, callback);
+});
+/**
+ * 设置认证
+ * */
+router.post('/admin/set_student_verify', function(req, res) {
+    var reqBody = req.body;
+
+    var postData = {
+        "id": reqBody.id
+    };
+    var options = {
+        url: 'http://enrollsystem.sinaapp.com/controller.php',
+        headers: {'content-type' : 'application/json'},
+        method: 'POST',
+        json: {
+            "manager_up": {
+                "set_student_verify": {
+                    "id":postData.id
                 }
             }
         }

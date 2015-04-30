@@ -417,7 +417,7 @@
                     <th>姓名<button class="btn btn-xs btn-default"><i class="icon-arrow-up"></i> </button></th>
                     <th>性别<button class="btn btn-xs btn-default"><i class="icon-arrow-up"></i> </button></th>
                     <th>毕业学校<button class="btn btn-xs btn-default"><i class="icon-arrow-up"></i> </button></th>
-                    <th>省市<button class="btn btn-xs btn-default"><i class="icon-arrow-up"></i> </button></th>
+                    <th>科目<button class="btn btn-xs btn-default"><i class="icon-arrow-up"></i> </button></th>
                     <th>状态<button class="btn btn-xs btn-default"><i class="icon-arrow-up"></i> </button></th>
                     <th>高考报名号<button class="btn btn-xs btn-default"><i class="icon-arrow-down"></i> </button></th>
                     <th>考点<button class="btn btn-xs btn-default"><i class="icon-arrow-down"></i> </button></th>
@@ -427,16 +427,16 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <tr>
-                    <td>10000001</td>
-                    <td>张X</td>
-                    <td>女</td>
-                    <td>上海市杨浦高级中学</td>
-                    <td>上海</td>
-                    <td>已审核</td>
-                    <td>52525252525</td>
+                  <tr ng-repeat = "student in info">
+                    <td>{{student.sign_up_code}}</td>
+                    <td>{{student.name}}</td>
+                    <td>{{student.sex}}</td>
+                    <td>{{student.school}}</td>
+                    <td>{{student.student_small}}</td>
+                    <td>{{student.verify}}</td>
+                    <td>{{student.national_exam_id}}</td>
                     <td>未分配</td>
-                    <td><button class="btn btn-sm btn-info" data-ng-click="createCategory()">审核</button></td>
+                    <td><button class="btn btn-sm btn-info" ng-class="{{student}}" data-ng-click="setVerify(student.id)" >审核</button></td>
 
                    </tr>
                   </tbody>

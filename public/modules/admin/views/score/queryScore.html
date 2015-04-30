@@ -256,11 +256,11 @@
 
     <!-- Page heading -->
     <div class="page-head">
-      <h2 class="pull-left"><i class="icon-home"></i>报名号管理</h2>
+      <h2 class="pull-left"><i class="icon-home"></i>成绩管理</h2>
 
       <!-- Breadcrumb -->
       <div class="bread-crumb pull-right">
-        <a href="index"><i class="icon-home"></i>报名号查询</a>
+        <a href="index"><i class="icon-home"></i>成绩查询</a>
         <!-- Divider -->
         <span class="divider">/</span>
         <a href="#" class="bread-current">控制台</a>
@@ -290,80 +290,32 @@
               </div>
               <div class="widget-content medias" style="display: block;">
 
-                <table class="table table-striped table-bordered table-hover">
+                <table class="table table-striped table-bordered table-hover" id="ta" >
                   <thead>
                   <tr>
-                    <th>
-                      <select>
-                          <option value="">艺术特长生</option>
-                        <option value="">免费师范生</option>
-                        <option value="">体育特长生</option>
-                      </select>
-                    </th>
 
-                    <th>省市<input size="6"></th>
-                    <th>生源地<input size="6"></th>
-                    <th>报名号<input size="6"></th>
-                    <th>姓名<input size="6"></th>
+                    <th>姓名<button class="btn btn-xs btn-default"><i class="icon-arrow-up"></i> </button></th>
+                    <th>考试类型<button class="btn btn-xs btn-default"><i class="icon-arrow-up"></i> </button></th>
+                    <th>科目<button class="btn btn-xs btn-default"><i class="icon-arrow-up"></i> </button></th>
+                    <th>分数A<button class="btn btn-xs btn-default"><i class="icon-arrow-up"></i> </button></th>
+                    <th>分数B<button class="btn btn-xs btn-default"><i class="icon-arrow-up"></i> </button></th>
 
-                    <th>考点<input size="6"></th>
 
-                    <th><button class="btn btn-sm btn-info" data-ng-click="createCategory()">查询</button></th></tr>
-                  </tr>
-                  </thead>
-                  </table>
 
-                <table class="table table-striped table-bordered table-hover">
-                  <thead>
-                  <tr>
-                    <th>报名号</th>
-                    <th>姓名</th>
-                  </tr>
-                  <tr>
-                    <td>1012322221</td>
-                    <td>张x</td>
                   </tr>
                   </thead>
                   <tbody>
-                  </tbody>
-                </table>
-                  <table class="table table-striped table-bordered table-hover">
-                  <tr><th>文化测试成绩</th></tr>
-                    </table>
-                <table class="table table-striped table-bordered table-hover">
-                    <tr>
-                      <td>科目代码</td>
-                      <td>科目名称</td>
-                      <td>成绩</td>
-                      <td>是否缺考</td>
-                    </tr>
-                  <tr>
-                    <td>123123123</td>
-                    <td>数学</td>
-                    <td>20</td>
-                    <td>否</td>
-                  </tr>
-                  </table>
-                  <table class="table table-striped table-bordered table-hover">
-                  <tr><th>专项成绩</th></tr>
-                    </table>
-                <table class="table table-striped table-bordered table-hover">
-                    <tr>
-                      <td>科目代码</td>
-                      <td>科目名称</td>
-                      <td>成绩</td>
-                      <td>是否缺考</td>
-                    </tr>
+                  <tr ng-repeat = "student in score">
+                    <td>{{student.student_name}}</td>
+                    <td>{{student.exam_name}}</td>
+                    <td>{{student.category_name}}</td>
+                    <td>{{student.scoreA}}</td>
+                    <td>{{student.scoreB}}</td>
 
-                  <tr>
-                    <td>123123123</td>
-                    <td>数学</td>
-                    <td>20</td>
-                    <td>否</td>
+
+
                   </tr>
-                  </table>
-                  <table class="table table-striped table-bordered table-hover">
-                  <tr><th>考生最终测试成绩</th><td>您获得了20分的加分</td></tr>
+                  </tbody>
 
                 </table>
 

@@ -1,11 +1,11 @@
 /**
- * Created by GreyInk on 2015/4/28.
+ * Created by GreyInk on 2015/4/29.
  */
-function QueryRegCtrl($scope, $http) {
+function QueryScoreCtrl($scope, $http) {
 
     var req = {
         method: 'POST',
-        url: '/admin/get_student_exam_for_verify',
+        url: '/admin/get_exam_score',
         headers: {
             'content-type': 'application/json;charset=utf-8'
         }
@@ -14,15 +14,16 @@ function QueryRegCtrl($scope, $http) {
         if(data) {
 
             console.log(data);
+            /*
             for (var i  in data)
             {
                 if( data[i]["sex"] == 1  ){ data[i]["sex"] = "男";}else{ data[i]["sex"] = "女";}
                 if( data[i]["verify"] == 1  ){ data[i]["verify"] = "已审核";
-                data[i]["disabled"] = "'disabled': disabled"}else{ data[i]["verify"] = "未审核";}
+                    data[i]["disabled"] = "'disabled': disabled"}else{ data[i]["verify"] = "未审核";}
 
 
-            }
-            $scope.info = data;
+            }*/
+            $scope.score = data;
         }else{
             alert('获取考试类型失败');
         }
@@ -48,8 +49,8 @@ function QueryRegCtrl($scope, $http) {
             data: JSON.stringify(postData)
         };
         $http(req).success(function(data){
-                if(data) {
-                    console.log($scope.info)
+            if(data) {
+                console.log($scope.info)
                 for (var i  in $scope.info)
                 {
                     if( $scope.info[i]["id"] == id  ){ $scope.info[i]["verify"] = "已审核";
