@@ -16,6 +16,8 @@ function RecordCtrl($scope, $http, $cookieStore) {
             if(data){
               $scope.queried = true;
               $scope.scores = data;
+                console.log(data);
+                
             }else{
                 alert('状态尚未审核');
             }

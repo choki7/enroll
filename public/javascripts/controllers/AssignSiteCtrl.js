@@ -36,7 +36,7 @@ function AssignSiteCtrl($scope, $http){
 
             exam_id: exam_id
 
-        };
+        };$scope.scores
         //console.log(JSON.stringify(postData));
         var req = {
             method: 'POST',
