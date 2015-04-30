@@ -37,7 +37,7 @@ angular.module('myApp', ['ngRoute', 'ngCookies', 'ui.bootstrap'])
             when('/admin/examinee/queryExa', {templateUrl: 'modules/admin/views/examinee/queryExa.html'}).
             when('/admin/site/siteSetting', {templateUrl: 'modules/admin/views/site/siteSetting.html'}).
             when('/admin/site/roomSetting', {templateUrl: 'modules/admin/views/site/roomSetting.html'}).
-            when('/admin/site/assignSite', {templateUrl: 'modules/admin/views/site/assignSite.html'}).
+            when('/admin/site/assignSite', {templateUrl: 'modules/admin/views/site/assignSite.html',controller:AssignSiteCtrl}).
             when('/admin/score/importScore', {templateUrl: 'modules/admin/views/score/importScore.html'}).
             when('/admin/score/queryScore', {templateUrl: 'modules/admin/views/score/queryScore.html',controller: QueryScoreCtrl}).
             when('/signup/edit', {templateUrl: 'modules/client/signup/edit.html', controller: EditSignupCtrl}).

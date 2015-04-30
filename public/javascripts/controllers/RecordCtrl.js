@@ -24,8 +24,8 @@ function RecordCtrl($scope, $http, $cookieStore) {
         })
     };
     var data = {
-      my_id: $cookieStore.get('my_id'),
-      exam_id: $cookieStore.get('examId')
+      my_id: 1,
+      exam_id: 1
     };
     var req = {
         method: 'POST',
